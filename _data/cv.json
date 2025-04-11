@@ -1,63 +1,135 @@
 {
   "basics": {
-    "name": "Your Sidebar Name",
-    "email": "none@example.org",
-    "phone": "",
-    "website": "https://academicpages.github.io",
-    "summary": "Currently employed at Red Brick University. Short biography for the left-hand sidebar",
+    "name": "William Kirschenman",
+    "email": "wkkirsch@ncsu.edu",
+    "phone": "(910) 527-5377",
+    "website": "https://willk30.github.io",
+    "summary": "PhD student in Operations Research at NC State University. U.S. Army ORSA focused on 2-D bin packing and a multi-level prioritization framework for spatial optimization.",
     "location": {
-      "address": "",
-      "postalCode": "",
-      "city": "Earth",
+      "address": "115 Hilda Grace Lane",
+      "postalCode": "27519",
+      "city": "Cary",
       "countryCode": "US",
-      "region": ""
+      "region": "NC"
     },
     "profiles": [
       {
-        "network": "Google Scholar",
-        "username": "",
-        "url": "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
-      },
-      {
         "network": "ORCID",
         "username": "",
-        "url": "http://orcid.org/yourorcidurl"
+        "url": "https://orcid.org/0009-0000-5514-7737"
+      },
+      {
+        "network": "ResearchGate",
+        "username": "William-Kirschenman",
+        "url": "https://www.researchgate.net/profile/William-Kirschenman"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "william-kirschenman-11a78989",
+        "url": "https://www.linkedin.com/in/william-kirschenman-11a78989/"
       },
       {
         "network": "GitHub",
-        "username": "academicpages",
-        "url": "https://github.com/academicpages"
+        "username": "willk30",
+        "url": "https://github.com/willk30"
       }
     ]
   },
-  "work": [],
   "education": [
     {
-      "institution": "GitHub University",
-      "area": "Ph.D in Version Control Theory",
+      "institution": "North Carolina State University",
+      "area": "Ph.D. in Operations Research",
       "studyType": "",
-      "startDate": "",
-      "endDate": "2018",
+      "startDate": "2023",
+      "endDate": "2026",
       "gpa": null,
       "courses": []
     },
     {
-      "institution": "GitHub University",
-      "area": "M.S. in Jekyll",
+      "institution": "George Mason University",
+      "area": "M.S. in Operations Research",
       "studyType": "",
       "startDate": "",
-      "endDate": "2014",
+      "endDate": "2020",
       "gpa": null,
       "courses": []
     },
     {
-      "institution": "GitHub University",
-      "area": "B.S. in GitHub",
+      "institution": "Webster University",
+      "area": "MPA in Public Administration",
       "studyType": "",
       "startDate": "",
-      "endDate": "2012",
+      "endDate": "2015",
       "gpa": null,
       "courses": []
+    },
+    {
+      "institution": "United States Military Academy",
+      "area": "B.S. in Mechanical Engineering",
+      "studyType": "",
+      "startDate": "",
+      "endDate": "2010",
+      "gpa": null,
+      "courses": []
+    }
+  ],
+  "work": [
+    {
+      "company": "The Research and Analysis Center (TRAC), Army Futures Command",
+      "position": "Combat Operations Analyst",
+      "startDate": "2020-08",
+      "endDate": "2023-05",
+      "location": "White Sands Missile Range, NM",
+      "summary": "Led wargaming analysis and developed cloud-based tools for strategic planning.",
+      "highlights": [
+        "Lead developer of TRAC\u2019s VADR, a cloud-based tool for wargaming and data collection.",
+        "Led execution and analysis for AFC\u2019s 2020 Capstone Wargame.",
+        "Planned and executed touchpoints and assessments for Project Convergence 22."
+      ]
+    },
+    {
+      "company": "2nd Infantry Brigade Combat Team, 4th Infantry Division",
+      "position": "Company Commander, Brigade Engineer Plans Officer",
+      "startDate": "2015-08",
+      "endDate": "2018-12",
+      "location": "Fort Carson, CO",
+      "summary": "Commanded engineer companies and led brigade-level engineering plans.",
+      "highlights": [
+        "Commanded two companies with $35 million in equipment combined.",
+        "Primary engineer planner for a brigade with 3,500+ Soldiers.",
+        "Planned construction in Afghanistan for the Train, Advise, Assist Command \u2013 South."
+      ]
+    },
+    {
+      "company": "G-3 Engineer Section, 2nd Infantry Division",
+      "position": "Operations Officer",
+      "startDate": "2014-07",
+      "endDate": "2015-07",
+      "location": "Camp Red Cloud, Republic of Korea",
+      "summary": "Planned and synchronized engineer operations for the ROK\u2013U.S. Combined Division.",
+      "highlights": []
+    },
+    {
+      "company": "Security Force Assist/Advise Team #2",
+      "position": "Engineer Company Commander Advisor",
+      "startDate": "2012-12",
+      "endDate": "2013-09",
+      "location": "Logar Province, Afghanistan",
+      "summary": "Advised Afghan National Army engineers in combat and construction operations.",
+      "highlights": [
+        "Implemented training programs leading to top IED detection rates in the corps."
+      ]
+    },
+    {
+      "company": "11th Engineer Battalion, 20th Engineer Brigade",
+      "position": "Company Executive Officer, Platoon Leader",
+      "startDate": "2011-02",
+      "endDate": "2013-12",
+      "location": "Fort Benning, GA",
+      "summary": "Managed operations and personnel in fixed and floating bridge engineering units.",
+      "highlights": [
+        "Oversaw $20 million in equipment and led 64-Soldier platoon."
+      ]
     }
   ],
   "skills": [],
@@ -66,87 +138,46 @@
   "references": [],
   "publications": [
     {
-      "name": "Paper Title Number 1",
-      "publisher": "Journal 1",
-      "releaseDate": "2009-10-01",
-      "website": "http://academicpages.github.io/files/paper1.pdf",
-      "summary": "This paper is about the number 1. The number 2 is left for future work."
+      "name": "The 2-D Bin Packing Problem with Multiple Levels of Prioritization",
+      "publisher": "Graduate Student Research Symposium, NC State University",
+      "releaseDate": "2024-04-03",
+      "website": "https://github.com/willk30/documents/blob/main/Kirschenman_GSRS_Poster.pdf",
+      "summary": "Poster presentation on spatial optimization incorporating prioritization."
     },
     {
-      "name": "Paper Title Number 2",
-      "publisher": "Journal 1",
-      "releaseDate": "2010-10-01",
-      "website": "http://academicpages.github.io/files/paper2.pdf",
-      "summary": "This paper is about the number 2. The number 3 is left for future work."
+      "name": "Automated Vessel Selection and Combat Load Planning",
+      "publisher": "INFORMS Annual Meeting",
+      "releaseDate": "2024-10-01",
+      "website": "https://github.com/willk30/documents/blob/main/Kirschenman_INFORMS_Slides.pptx",
+      "summary": "Presentation on optimization for military logistics loading."
     },
     {
-      "name": "Paper Title Number 3",
-      "publisher": "Journal 1",
-      "releaseDate": "2015-10-01",
-      "website": "http://academicpages.github.io/files/paper3.pdf",
-      "summary": "This paper is about the number 3. The number 4 is left for future work."
+      "name": "Automated Vessel Selection and Combat Load Planning",
+      "publisher": "Army Sustainment Journal",
+      "releaseDate": "2024-11-01",
+      "website": "https://www.lib.ncsu.edu/resolver/1840.20/44301",
+      "summary": "Peer-reviewed article on vessel selection and loading frameworks."
     },
     {
-      "name": "Paper Title Number 4",
-      "publisher": "GitHub Journal of Bugs",
-      "releaseDate": "2024-02-17",
-      "website": "http://academicpages.github.io/files/paper3.pdf",
-      "summary": "This paper is about fixing template issue #693."
+      "name": "Distributed Wargaming Visualization and Data Collection",
+      "publisher": "MORS Symposium",
+      "releaseDate": "2022-06-01",
+      "website": "https://github.com/willk30/documents/blob/main/17295.1.pdf",
+      "summary": "Co-authored work on visualization and data capture tools for wargames."
     }
   ],
-  "presentations": [
-    {
-      "name": "Talk 1 on Relevant Topic in Your Field",
-      "event": "UC San Francisco, Department of Testing",
-      "date": "2012-03-01",
-      "location": "San Francisco, CA, USA",
-      "description": ""
-    },
-    {
-      "name": "Tutorial 1 on Relevant Topic in Your Field",
-      "event": "UC-Berkeley Institute for Testing Science",
-      "date": "2013-03-01",
-      "location": "Berkeley, CA, USA",
-      "description": ""
-    },
-    {
-      "name": "Talk 2 on Relevant Topic in Your Field",
-      "event": "London School of Testing",
-      "date": "2014-02-01",
-      "location": "London, UK",
-      "description": ""
-    },
-    {
-      "name": "Conference Proceeding talk 3 on Relevant Topic in Your Field",
-      "event": "Testing Institute of America 2014 Annual Conference",
-      "date": "2014-03-01",
-      "location": "Los Angeles, CA, USA",
-      "description": ""
-    }
-  ],
-  "teaching": [
-    {
-      "course": "Teaching experience 1",
-      "institution": "University 1, Department",
-      "date": "2014-01-01",
-      "role": "Undergraduate course",
-      "description": ""
-    },
-    {
-      "course": "Teaching experience 2",
-      "institution": "University 1, Department",
-      "date": "2015-01-01",
-      "role": "Workshop",
-      "description": ""
-    }
-  ],
-  "portfolio": [
-    {
-      "name": "Portfolio item number 1",
-      "category": "portfolio",
-      "date": "",
-      "url": "",
-      "description": "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
-    }
+  "presentations": [],
+  "teaching": [],
+  "portfolio": [],
+  "awards": [
+    "General Omar N. Bradley Research Fellowship in Mathematics (2024, 2025)",
+    "Army Operations Research Symposium Best Presentation, Wargaming Working Group (2021)",
+    "Outstanding Academic Achievement Award in Operations Research, GMU (2020)",
+    "Bronze Star Medal (2013, 2016)",
+    "Meritorious Service Medal (2018, 2023)",
+    "Army Commendation Medal (2014, 2015)",
+    "Army Achievement Medal (2016, 2018, 2020, 2021, 2022)",
+    "Military Outstanding Volunteer Service Medal (2012)",
+    "Steel de Fleury Medal, Army Engineer Association (2018)"
   ]
 }
