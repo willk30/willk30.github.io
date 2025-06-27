@@ -4,7 +4,7 @@
     "email": "wkkirsch@ncsu.edu",
     "phone": "(910) 527-5377",
     "website": "https://willk30.github.io",
-    "summary": "PhD student in Operations Research at NC State University. U.S. Army ORSA focused on 2-D bin packing and a multi-level prioritization framework for spatial optimization.",
+    "summary": "Ph.D. Candidate in Operations Research at NC State University. U.S. Army Operations Research Analyst focused on 2-D bin packing and spatial optimization with multi-level prioritization frameworks.",
     "location": {
       "address": "115 Hilda Grace Lane",
       "postalCode": "27519",
@@ -138,46 +138,33 @@
   "references": [],
   "publications": [
     {
-      "name": "The 2-D Bin Packing Problem with Multiple Levels of Prioritization",
-      "publisher": "Graduate Student Research Symposium, NC State University",
-      "releaseDate": "2024-04-03",
-      "website": "https://github.com/willk30/documents/blob/main/Kirschenman_GSRS_Poster.pdf",
-      "summary": "Poster presentation on spatial optimization incorporating prioritization."
+      "name": "The 2-D Bin Packing Problem with Multiple Levels of Prioritization: A Spatial Optimization Perspective",
+      "publisher": "European Journal of Operational Research",
+      "releaseDate": "2025",
+      "website": "https://doi.org/10.31224/4647",
+      "summary": "Submitted to European Journal of Operational Research (Under Review). Co-authored with Heese, H.S., Kay, M., King, R., McConnell, B."
     },
     {
       "name": "Automated Vessel Selection and Combat Load Planning",
-      "publisher": "INFORMS Annual Meeting",
-      "releaseDate": "2024-10-01",
-      "website": "https://github.com/willk30/documents/blob/main/Kirschenman_INFORMS_Slides.pptx",
-      "summary": "Presentation on optimization for military logistics loading."
-    },
-    {
-      "name": "Automated Vessel Selection and Combat Load Planning",
-      "publisher": "Army Sustainment Journal",
-      "releaseDate": "2024-11-01",
+      "publisher": "Army Sustainment",
+      "releaseDate": "2024",
       "website": "https://www.lib.ncsu.edu/resolver/1840.20/44301",
-      "summary": "Peer-reviewed article on vessel selection and loading frameworks."
-    },
-    {
-      "name": "Distributed Wargaming Visualization and Data Collection",
-      "publisher": "MORS Symposium",
-      "releaseDate": "2022-06-01",
-      "website": "https://github.com/willk30/documents/blob/main/17295.1.pdf",
-      "summary": "Co-authored work on visualization and data capture tools for wargames."
+      "summary": "Vol 56, No 4, 58-61. Co-authored with McConnell, B., King, R."
     }
   ],
   "presentations": [],
   "teaching": [],
   "portfolio": [],
   "awards": [
+    "Salah E. Elmaghraby Distinguished Student Award, Operations Research Program, NC State University (2025)",
     "General Omar N. Bradley Research Fellowship in Mathematics (2024, 2025)",
     "Army Operations Research Symposium Best Presentation, Wargaming Working Group (2021)",
-    "Outstanding Academic Achievement Award in Operations Research, GMU (2020)",
-    "Bronze Star Medal (2013, 2016)",
-    "Meritorious Service Medal (2018, 2023)",
-    "Army Commendation Medal (2014, 2015)",
-    "Army Achievement Medal (2016, 2018, 2020, 2021, 2022)",
-    "Military Outstanding Volunteer Service Medal (2012)",
-    "Steel de Fleury Medal, Army Engineer Association (2018)"
+    "Outstanding Academic Achievement Award in Operations Research, George Mason University (2020)",
+    "Bronze Star Medal (2)",
+    "Meritorious Service Medal (2)",
+    "Army Commendation Medal (2)",
+    "Army Achievement Medal (5)",
+    "Military Outstanding Volunteer Service Medal",
+    "Steel de Fleury Medal, Army Engineer Association"
   ]
 }

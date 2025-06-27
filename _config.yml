@@ -9,9 +9,9 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "Will Kirschenman | Operations Research PhD Student"
+title                    : "William Kirschenman | Operations Research PhD Student"
 title_separator          : "-"
-name                     : &name "Will Kirschenman"
+name                     : &name "William Kirschenman"
 description              : &description "PhD student in Operations Research at NC State University. U.S. Army Operations Research Analyst focused on 2-D bin packing and a multi-level prioritization framework for spatial optimization"
 url                      : "https://willk30.github.io" # personal GitHub Pages root
 baseurl                  : "" # no subpath since this is a user site
@@ -21,8 +21,8 @@ repository               : "willk30/willk30.github.io"
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
-  avatar           : "profile.png"  # replace if you use a different filename
-  name             : "Will Kirschenman"
+  avatar           : "profile.jpg"  # replace if you use a different filename
+  name             : "William Kirschenman"
   pronouns         : 
   bio              : "PhD student in Operations Research at NC State University. U.S. Army ORSA focused on spatial optimization"
   location         : "Cary, NC"
