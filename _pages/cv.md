@@ -6,8 +6,6 @@ nav: true
 nav_order: 4
 cv_pdf: Kirschenman_CV.pdf
 description: Curriculum vitae.
-toc:
-  sidebar: left
 ---
 
 ## Education
