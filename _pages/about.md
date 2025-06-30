@@ -1,10 +1,22 @@
 ---
+layout: about
+title: about
 permalink: /
-title: "William Kirschenman | Operations Research PhD Student"
-author_profile: true
-redirect_from: 
-  - /about/
-  - /about.html
+subtitle: PhD Student in Operations Research | U.S. Army Operations Research Analyst
+
+profile:
+  align: right
+  image: prof_pic.jpg
+  image_circular: false # crops the image to make it circular
+  more_info: >
+    <p>PhD Candidate</p>
+    <p>Operations Research</p>
+    <p>NC State University</p>
+    <p>Cary, NC</p>
+
+news: true # includes a list of news items
+selected_papers: true # includes a list of papers marked as "selected={true}"
+social: true # includes social icons at the bottom of the page
 ---
 
 Welcome to my academic website! I am William Kirschenman, a Ph.D. Candidate in Operations Research at North Carolina State University. My research focuses on spatial optimization, particularly the 2-D bin packing problem with multiple levels of prioritization, with applications to military logistics and strategic planning.
