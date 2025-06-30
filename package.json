@@ -1,4 +1,11 @@
 {
+  "name": "al-folio",
+  "version": "1.0.0",
+  "description": "A beautiful, simple, clean, and responsive Jekyll theme for academics",
+  "scripts": {
+    "build:js": "echo 'JavaScript build step'",
+    "watch:js": "echo 'JavaScript watch step'"
+  },
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "1.4.0",
     "prettier": "3.1.1"
