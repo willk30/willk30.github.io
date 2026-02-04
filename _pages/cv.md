@@ -1,12 +1,14 @@
 ---
-layout: cv
+layout: page
 permalink: /cv/
-title: cv
+title: CV
 nav: true
 nav_order: 4
-cv_pdf: Kirschenman_CV.pdf
-description: Curriculum vitae.
+description: Curriculum vitae
 ---
+
+<a href="{{ '/assets/pdf/Kirschenman_CV.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="float-right btn btn-sm z-depth-0" role="button" style="background-color: var(--global-theme-color); color: white; margin-bottom: 1rem;"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
+
 
 ## Education
 

@@ -1,0 +1,329 @@
+/*******************************************************************************
+ * Custom Styles for William Kirschenman's Academic Website
+ * Modern, professional styling with teal accent color
+ ******************************************************************************/
+
+// Define custom colors
+$teal-primary: #008080;
+$teal-dark: #006666;
+$teal-light: #20b2aa;
+$navy-accent: #1a365d;
+
+// Override theme colors for more vibrancy
+:root {
+  --global-theme-color: #{$teal-primary};
+  --global-hover-color: #{$teal-dark};
+}
+
+html[data-theme="dark"] {
+  --global-theme-color: #{$teal-light};
+  --global-hover-color: #{$teal-primary};
+}
+
+// Modern header with gradient
+.header-bar {
+  background: linear-gradient(135deg, #{$teal-dark} 0%, #{$teal-primary} 50%, #{$teal-light} 100%);
+}
+
+// Navbar styling
+nav.navbar {
+  background-color: rgba(0, 128, 128, 0.95) !important;
+  backdrop-filter: blur(10px);
+
+  .navbar-brand {
+    color: white !important;
+    font-weight: 600;
+  }
+
+  .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: white !important;
+      transform: translateY(-2px);
+    }
+  }
+
+  .nav-item.active .nav-link {
+    color: white !important;
+    border-bottom: 2px solid white;
+  }
+}
+
+// Profile section on about page
+.profile {
+  .address {
+    p {
+      color: var(--global-theme-color);
+      font-weight: 500;
+    }
+  }
+}
+
+// Modern card styling
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+  }
+}
+
+// News section styling - fix dark mode
+.news {
+  h2 {
+    color: var(--global-theme-color);
+    border-bottom: 3px solid var(--global-theme-color);
+    padding-bottom: 0.5rem;
+  }
+
+  .news-item {
+    border-left: 4px solid var(--global-theme-color);
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+
+    .date {
+      color: var(--global-theme-color);
+      font-weight: 600;
+    }
+  }
+
+  // Fix dark mode text
+  a {
+    color: var(--global-theme-color);
+  }
+}
+
+// Announcements fix for dark mode
+.announcements {
+  .announcement {
+    color: var(--global-text-color);
+
+    a {
+      color: var(--global-theme-color);
+    }
+  }
+}
+
+html[data-theme="dark"] {
+  .announcements {
+    .announcement {
+      color: var(--global-text-color);
+
+      p, span, div {
+        color: var(--global-text-color);
+      }
+    }
+  }
+
+  .news {
+    color: var(--global-text-color);
+
+    p, span, div {
+      color: var(--global-text-color);
+    }
+  }
+}
+
+// Publications styling
+.publications {
+  h2 {
+    color: var(--global-theme-color);
+  }
+
+  .bibliography {
+    li {
+      border-left: 4px solid var(--global-theme-color);
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+      background: var(--global-card-bg-color);
+      padding: 1rem;
+      border-radius: 0 8px 8px 0;
+    }
+  }
+
+  // Style the buttons
+  .btn {
+    border-radius: 20px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+    margin-right: 0.25rem;
+
+    &.btn-outline-primary {
+      border-color: var(--global-theme-color);
+      color: var(--global-theme-color);
+
+      &:hover {
+        background-color: var(--global-theme-color);
+        color: white;
+      }
+    }
+  }
+}
+
+// Section headings with accent
+h1, h2 {
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #{$teal-primary}, #{$teal-light});
+    margin-top: 0.5rem;
+  }
+}
+
+// Remove underline from specific elements
+.post-title::after,
+.card-title::after,
+nav h1::after,
+nav h2::after {
+  display: none;
+}
+
+// Links styling
+a {
+  color: var(--global-theme-color);
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--global-hover-color);
+    text-decoration: underline;
+  }
+}
+
+// Button styling
+.btn-primary,
+.btn {
+  background-color: var(--global-theme-color);
+  border-color: var(--global-theme-color);
+  border-radius: 25px;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--global-hover-color);
+    border-color: var(--global-hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 128, 128, 0.4);
+  }
+}
+
+// Footer styling
+footer {
+  background: linear-gradient(135deg, #{$navy-accent} 0%, #{$teal-dark} 100%);
+
+  a {
+    color: #{$teal-light} !important;
+
+    &:hover {
+      color: white !important;
+    }
+  }
+}
+
+// Social icons
+.social-icons {
+  a {
+    color: var(--global-theme-color);
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: var(--global-hover-color);
+      transform: scale(1.2);
+    }
+  }
+}
+
+// CV page styling
+.cv {
+  h2 {
+    color: var(--global-theme-color);
+    margin-top: 2rem;
+  }
+
+  h3 {
+    color: var(--global-text-color);
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--global-divider-color);
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+// Progress bar (scroll indicator)
+.progress-bar {
+  background: linear-gradient(90deg, #{$teal-primary}, #{$teal-light});
+}
+
+// Back to top button
+#back-to-top {
+  background: var(--global-theme-color) !important;
+  border-radius: 50%;
+
+  &:hover {
+    background: var(--global-hover-color) !important;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  nav.navbar {
+    .navbar-brand {
+      font-size: 1rem;
+    }
+  }
+
+  h1::after, h2::after {
+    width: 30px;
+  }
+}
+
+// Animation for page load
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.post, .page, article {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+// Selected papers section
+.selected-papers {
+  h2 {
+    color: var(--global-theme-color);
+  }
+}
+
+// Make the theme toggle more visible
+.theme-toggle {
+  color: white !important;
+}
