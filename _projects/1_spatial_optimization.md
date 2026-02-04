@@ -2,7 +2,7 @@
 layout: page
 title: Spatial Optimization Research
 description: Multi-level prioritization framework for 2-D bin packing problems
-img: assets/img/bin-packing-preview.jpg
+img: assets/img/publication_preview/bin-packing.png
 importance: 1
 category: research
 related_publications: true

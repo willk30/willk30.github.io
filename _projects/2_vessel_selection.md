@@ -2,7 +2,7 @@
 layout: page
 title: Automated Vessel Selection
 description: Computational framework for military logistics vessel selection and load planning
-img: assets/img/vessel-selection-preview.jpg
+img: assets/img/publication_preview/vessel-selection.png
 importance: 2
 category: research
 related_publications: true
