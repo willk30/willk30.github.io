@@ -8,7 +8,7 @@ middle_name:
 last_name: Kirschenman
 email: wkkirsch@ncsu.edu
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  PhD student in Operations Research at NC State University. U.S. Army Operations Research Analyst focused on 2-D bin packing and a multi-level prioritization framework for spatial optimization
+  PhD Candidate in Operations Research at NC State University. U.S. Army Operations Research Analyst specializing in 2-D packing optimization for military logistics.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -60,7 +60,7 @@ max_width: 930px
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
 # see https://schema.org/docs/faq.html for more information
-serve_og_meta: false # Include Open Graph meta tags in the HTML head
+serve_og_meta: true # Include Open Graph meta tags in the HTML head
 serve_schema_org: false # Include Schema.org in the HTML head
 og_image: # The site-wide (default for all links) Open Graph preview image
 
@@ -93,7 +93,7 @@ pinterest_id: # your pinterest id
 publons_id: # your ID on Publons
 quora_username: # your Quora username
 research_gate_profile: William-Kirschenman # your profile on ResearchGate
-scholar_userid: # your Google Scholar ID
+scholar_userid: UlYcxSsAAAAJ # your Google Scholar ID
 scopus_id: # your profile on Scopus
 semanticscholar_id: # your Semantic Scholar ID
 spotify_id: # your spotify id
@@ -198,7 +198,7 @@ announcements:
   limit: 5 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
-  enabled: true
+  enabled: false # disabled blog section
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 
@@ -391,3 +391,6 @@ enable_pirsch_analytics: false
 
 enable_katex: true # enables katex rendering in blog posts
 enable_chartjs: true # enables Chart.js for rendering charts in blog posts
+enable_darkmode: true # enables light/dark mode toggle
+enable_progressbar: true # enables scroll progress indicator
+lazy_loading_images: true # enables lazy loading for better performance
