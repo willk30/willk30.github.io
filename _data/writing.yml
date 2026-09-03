@@ -1,0 +1,35 @@
+essays:
+  - title: Your Agent Can't Read Your Mind
+    date: 2026-07-06
+    url: https://willk30.substack.com
+  - title: A Field Guide to Coding-Agent Harnesses
+    date: 2026-05-11
+    url: https://willk30.substack.com
+  - title: Bring AI Into Your Workspace
+    date: 2026-04-30
+    url: https://willk30.substack.com
+  - title: The Cheap AI Era Is Starting to Shift
+    date: 2026-04-28
+    url: https://willk30.substack.com
+  - title: "Don't Just Read the Takes. Test the Models."
+    date: 2026-04-27
+    url: https://willk30.substack.com
+
+media:
+  - title: "Understanding AI: From Chatbots to Agentic Intelligence"
+    date: 2026-04-29
+    description: >-
+      Invited guest interview on agentic AI for the Engineering Pack Pod, the graduate professional development podcast of the
+      NC State College of Engineering.
+    links:
+      - name: Listen on Spotify
+        url: https://open.spotify.com/show/3lTIn37UWFNgCzLOB68Wcn
+      - name: Show page
+        url: https://engr.ncsu.edu/academics/grad/professional-development/engineering-pack-pod
+  - title: "Cracking the Packing Code"
+    date: 2026-08-20
+    description: >-
+      NC State News feature on the Omega paper and the prioritized packing models behind it.
+    links:
+      - name: Read the story
+        url: https://news.ncsu.edu/2026/08/cracking-the-packing-code-new-models-incorporate-item-priority-location-and-weight-distribution/

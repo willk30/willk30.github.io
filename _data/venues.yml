@@ -1,0 +1,12 @@
+Omega:
+  url: https://www.sciencedirect.com/journal/omega
+  color: "#0076df"
+NRL:
+  url: https://onlinelibrary.wiley.com/journal/15206750
+  color: "#2b6cb0"
+Army Sust.:
+  url: https://www.army.mil/armysustainment
+  color: "#4a6741"
+Ph.D.:
+  url: https://www.ise.ncsu.edu/graduate/operations-research/
+  color: "#6c757d"

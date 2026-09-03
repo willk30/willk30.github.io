@@ -1,0 +1,125 @@
+- title: A Multi-Level Prioritized Packing Framework for Spatial Optimization
+  type: Award presentation
+  event: INFORMS Annual Meeting, Military and Security Society Awards Session
+  location: San Francisco, CA
+  when: October 2026
+  date: "2026-10-25"
+  year: 2026
+  upcoming: true
+
+- title: A Multi-Level Prioritized Packing Framework for Spatial Optimization
+  type: Invited seminar
+  event: Operations Research Program seminar, Department of Industrial and Systems Engineering, North Carolina State University
+  location: Raleigh, NC
+  when: February 23, 2026
+  date: "2026-02-23"
+  year: 2026
+  links:
+    - name: Seminar page
+      url: https://or.ncsu.edu/event/or-seminar-will-kirschenman-02-23-2026/
+
+- title: A Prioritized 2-D Packing Model for Military Combat Loading
+  type: Conference presentation
+  event: INFORMS Annual Meeting
+  location: Atlanta, GA
+  when: October 2025
+  date: "2025-10-27"
+  year: 2025
+  coauthors: H. S. Heese, M. G. Kay, R. E. King, and B. M. McConnell
+  links:
+    - name: Slides
+      url: /files/Kirschenman_INFORMS_2025.pdf
+
+- title: Automating Combat Load Planning using a Prioritized 2-D Packing Approach
+  type: Conference presentation
+  event: 63rd Army Operations Research Symposium (AORS)
+  location: Aberdeen Proving Ground, MD
+  when: 2025
+  date: "2025-05-01"
+  year: 2025
+  coauthors: H. S. Heese, M. G. Kay, R. E. King, and B. M. McConnell
+  links:
+    - name: Slides
+      url: /files/Kirschenman_AORS_WG4_Slides_v2.pdf
+
+- title: "The 2-D Bin Packing Problem with Multiple Levels of Prioritization: A Spatial Optimization Perspective"
+  type: Conference presentation
+  event: 93rd Military Operations Research Society (MORS) Symposium, Working Group 29
+  location: Leesburg, VA
+  when: June 2025
+  date: "2025-06-02"
+  year: 2025
+  coauthors: H. S. Heese, M. G. Kay, R. E. King, and B. M. McConnell
+  links:
+    - name: Slides
+      url: /files/WG29_MORSS_Kirschenman_Slides.pdf
+
+- title: "Automating Military Load Planning: A Prioritized 2-D Bin Packing Approach"
+  type: Conference presentation
+  event: 93rd Military Operations Research Society (MORS) Symposium, Working Group 16
+  location: Leesburg, VA
+  when: June 2025
+  date: "2025-06-01"
+  year: 2025
+  coauthors: H. S. Heese, M. G. Kay, R. E. King, and B. M. McConnell
+  links:
+    - name: Slides
+      url: /files/WG16_MORSS_Kirschenman_Slides.pdf
+
+- title: "The 2-D Bin Packing Problem with Multiple Levels of Prioritization: A Spatial Optimization Perspective"
+  type: Poster
+  event: Graduate Student Research Symposium, North Carolina State University
+  location: Raleigh, NC
+  when: Spring 2025
+  date: "2025-03-01"
+  year: 2025
+  coauthors: H. S. Heese, R. E. King, and B. M. McConnell
+  links:
+    - name: Poster
+      url: /documents/Kirschenman_GSRS_Poster.pdf
+
+- title: Automated Vessel Selection and Combat Load Planning
+  type: Conference presentation
+  event: INFORMS Annual Meeting
+  location: Seattle, WA
+  when: October 2024
+  date: "2024-10-20"
+  year: 2024
+  coauthors: H. S. Heese, R. E. King, and B. M. McConnell
+  links:
+    - name: Slides
+      url: /documents/Kirschenman_INFORMS_Slides.pptx
+
+- title: Automated Vessel Selection and Combat Load Planning
+  type: Conference presentation
+  event: 62nd Army Operations Research Symposium (AORS)
+  location: Aberdeen Proving Ground, MD
+  when: 2024
+  date: "2024-06-01"
+  year: 2024
+  coauthors: H. S. Heese, R. E. King, and B. M. McConnell
+  links:
+    - name: Slides
+      url: /documents/Kirschenman_AORS_Slides_Submission.pptx
+
+- title: Distributed Wargaming Visualization and Data Collection
+  type: Conference presentation
+  event: 90th Military Operations Research Society (MORS) Symposium
+  location: Marine Corps Base Quantico, VA
+  when: June 2022
+  date: "2022-06-01"
+  year: 2022
+  coauthors: K. Brown
+  links:
+    - name: Slides
+      url: /documents/17295.1.pdf
+
+- title: Distributed Wargaming Visualization and Data Collection
+  type: Conference presentation
+  event: Army Operations Research Symposium (AORS), Wargaming Working Group
+  location: Virtual
+  when: 2021
+  date: "2021-10-01"
+  year: 2021
+  coauthors: K. Brown
+  award: Best Presentation

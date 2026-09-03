@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Presented a poster on prioritized 2-D packing at the **Graduate Student Research Symposium** at NC State University. [View poster](/files/Kirschenman_GSRS_Poster.pdf)
+Presented a poster on prioritized 2-D packing at the NC State Graduate Student Research Symposium. <a href="/documents/Kirschenman_GSRS_Poster.pdf">Poster</a>.

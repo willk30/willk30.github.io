@@ -6,19 +6,19 @@ title: blank # the website title (if blank, full name will be used instead)
 first_name: William
 middle_name: 
 last_name: Kirschenman
-email: wkkirsch@ncsu.edu
+email: william.kirschenman@nps.edu
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  PhD Candidate in Operations Research at NC State University. U.S. Army Operations Research Analyst specializing in 2-D packing optimization for military logistics.
+  Assistant Professor of Operations Research at the Naval Postgraduate School. Combinatorial and spatial optimization, packing and loading problems, matheuristics and metaheuristics, and computational methods for data analytics.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-keywords: operations-research, spatial-optimization, bin-packing, military-logistics, phd-student # add your own keywords or leave empty
+keywords: operations research, spatial optimization, bin packing, load planning, matheuristics, naval postgraduate school
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: 🎯 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 url: https://willk30.github.io # the base hostname & protocol for your site
 baseurl: "" # the subpath of your site, e.g. /blog/. Leave blank for root
-last_updated: false # set to true if you want to display last updated in the footer
+last_updated: true # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button
 
@@ -53,7 +53,7 @@ socials_in_search: true
 bib_search: true
 
 # Dimensions
-max_width: 800px
+max_width: 860px
 
 # -----------------------------------------------------------------------------
 # Open Graph & Schema.org
@@ -110,7 +110,7 @@ youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 zotero_username: # your zotero username
 
 contact_note: >
-  Feel free to reach out via email for research collaborations or questions about operations research and spatial optimization.
+  The best way to reach me is by email. I welcome questions about my research, potential collaborations, and conversations with students interested in optimization and computational methods.
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
@@ -188,14 +188,11 @@ collections:
       layout: post
     output: true
     permalink: /:collection/:title/
-  projects:
-    output: true
-    permalink: /:collection/:title/
 
 announcements:
   enabled: true
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  limit: 6 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
   enabled: false # disabled blog section
@@ -222,13 +219,13 @@ kramdown:
 # Includes & excludes
 include: ["_pages"]
 exclude:
-  - backup_original/
-  - backup_academic_pages/
   - bin/
+  - CLAUDE.md
   - CONTRIBUTING.md
   - CUSTOMIZE.md
   - Dockerfile
   - docker-compose.yml
+  - docker-compose.yaml
   - docker-compose-slim.yml
   - FAQ.md
   - Gemfile
@@ -238,7 +235,6 @@ exclude:
   - lighthouse_results/
   - package.json
   - package-lock.json
-  - _pages/about_einstein.md
   - purgecss.config.js
   - README.md
   - readme_preview/
@@ -332,10 +328,10 @@ enable_publication_badges:
   inspirehep: false # Inspire HEP badge (https://help.inspirehep.net/knowledge-base/citation-metrics/)
 
 # Filter out certain bibtex entry keywords used internally from the bib output
-filtered_bibtex_keywords: [abbr, abstract, arxiv, bibtex_show, blog, code, html, pdf, poster, preview, selected, slides, supp, video, website]
+filtered_bibtex_keywords: [abbr, abstract, arxiv, bibtex_show, blog, code, data, html, keywords, pdf, poster, preprint, preview, selected, slides, supp, video, website]
 
 # Maximum number of authors to be shown for each publication (more authors are visible on click)
-max_author_limit: 3  # leave blank to always show all authors
+max_author_limit: 6  # leave blank to always show all authors
 more_authors_animation_delay: 10  # more authors are revealed on click using animation; smaller delay means faster animation
 
 # Enables publication thumbnails. If disabled, none of the publications will display thumbnails, even if specified in the bib entry.
@@ -358,7 +354,7 @@ external_links:
 # -----------------------------------------------------------------------------
 
 imagemagick:
-  enabled: true # enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
+  enabled: false # plugin not installed; enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
   widths:
     - 480
     - 800

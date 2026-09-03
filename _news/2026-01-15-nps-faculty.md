@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Excited to announce I have accepted a **faculty position** in the Operations Research Department at the **Naval Postgraduate School** following my dissertation defense.
+Accepted a faculty position in the <a href="https://nps.edu/web/or">Operations Research Department</a> at the Naval Postgraduate School, starting summer 2026.

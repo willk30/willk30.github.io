@@ -1,60 +1,37 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
-subtitle: PhD Candidate in Operations Research | Incoming Faculty, Naval Postgraduate School
+subtitle: Assistant Professor of Operations Research, Naval Postgraduate School
 
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
+  image_circular: false
   more_info: >
-    <p>PhD Candidate</p>
-    <p>Operations Research</p>
-    <p>NC State University</p>
-    <p>Cary, NC</p>
+    <p>Operations Research Department</p>
+    <p>Naval Postgraduate School</p>
+    <p>Monterey, California</p>
+    <p><a href="mailto:william.kirschenman@nps.edu">william.kirschenman@nps.edu</a></p>
 
-news: true # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+news: true
+selected_papers: true
+social: true
 ---
 
-Welcome to my academic website! I am William Kirschenman, a Ph.D. Candidate in Operations Research at North Carolina State University. My research focuses on spatial optimization, particularly prioritized 2-D packing problems with applications to military logistics and strategic planning. I anticipate defending my dissertation in May 2026.
+I am an Assistant Professor in the [Operations Research Department](https://nps.edu/web/or) at the Naval Postgraduate School. I received my Ph.D. in Operations Research from North Carolina State University in 2026. My dissertation, *A Multi-Level Prioritized Packing Framework for Spatial Optimization*, received the Outstanding Dissertation Award from NC State's Department of Industrial and Systems Engineering.
 
-## About Me
+My research is in combinatorial and spatial optimization. I study layout and loading problems in which a good solution depends not only on whether items fit, but on where they sit relative to one another and to the points where they will be needed first. The motivating application is combat load planning, where the same structure appears in warehouse wave planning, humanitarian logistics, and container operations. To solve these problems at realistic scale I develop mixed-integer formulations, sliding-window matheuristics, and metaheuristics guided by fast proxy objectives, with implementations built on Julia, JuMP, Gurobi, and high-performance and GPU computing. You can read more on the [research](/research/) page.
 
-I am a U.S. Army Operations Research Analyst with extensive experience in combat operations analysis, wargaming, and strategic planning. My military background spans over a decade, including deployments to Afghanistan and leadership roles across multiple engineering and operations research positions. Following my dissertation defense, I will be joining the Operations Research Department at the Naval Postgraduate School as a faculty member before returning to the regular Army.
+At NPS I teach in the department's computational methods sequence for the Operations Analysis curriculum: acquiring, preparing, and analyzing data; automating and scaling analyses; and using remote and high-performance computing resources. I am the 2026 recipient of the INFORMS Military and Security Society's [Seth Bonder Scholarship](https://www.informs.org/Recognizing-Excellence/Community-Prizes/Military-and-Security-Society/Seth-Bonder-Scholarship-for-Applied-Operations-Research-in-Military-and-Security-Applications) for Applied Operations Research in Military and Security Applications.
 
-## Research Interests
-
-My primary research interests include:
-- **Spatial Optimization**: Novel approaches to prioritized 2-D orthogonal packing problems
-- **Military Logistics**: Automated vessel selection and combat load planning optimization
-- **Wargaming and Simulation**: Distributed visualization and data collection systems for strategic planning
-- **Applied Operations Research**: Translating theoretical OR methods to solve real-world military challenges
-
-## Current Work
-
-My dissertation research extends traditional packing algorithms to handle complex priority hierarchies in spatial allocation problems. This work has direct applications to military cargo loading, strategic deployment planning, and resource allocation in constrained environments.
-
-## Academic Background
-
-- **Ph.D.** (In Progress) Operations Research, North Carolina State University (Anticipated May 2026)
-- **M.S.** Operations Research, George Mason University (2020)
-- **MPA** Public Administration, Webster University (2015)
-- **B.S.** Mechanical Engineering, United States Military Academy (2010)
-
-## Recognition
-
-I am honored to be a recipient of the Salah E. Elmaghraby Distinguished Student Award (2025) and the General Omar N. Bradley Research Fellowship in Mathematics (2024, 2025). My research has been recognized at several prestigious conferences, including winning the Best Presentation award at the Army Operations Research Symposium (2021).
-
-## Teaching & Service
-
-In 2025, I was selected to design and teach the "Introduction to Python" module for incoming Ph.D. students in the ISE Department at NC State. I also serve on university-wide panels advising new engineering Ph.D. students as part of the College of Engineering's Smooth Sailing Series.
-
-## Contact
-
-Feel free to reach out if you're interested in collaboration, have questions about my research, or would like to discuss opportunities in operations research and military analytics.
-
-**Email**: wkkirsch@ncsu.edu
-**Location**: Cary, NC
+<div class="interest-tags" aria-label="Research interests">
+  <span class="tag">Spatial optimization</span>
+  <span class="tag">2-D packing and loading</span>
+  <span class="tag">Mixed-integer programming</span>
+  <span class="tag">Matheuristics</span>
+  <span class="tag">Metaheuristics</span>
+  <span class="tag">Bilevel optimization</span>
+  <span class="tag">Military logistics</span>
+  <span class="tag">HPC and GPU computing</span>
+</div>

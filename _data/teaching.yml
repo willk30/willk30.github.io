@@ -1,0 +1,52 @@
+nps:
+  - code: OA3802
+    title: Computational Methods for Data Analytics
+    role: Instructor
+    terms: Fall 2026 (two resident sections); Winter, Summer 2027
+    description: >-
+      Third course in the computational methods sequence. Acquiring, storing, cleaning, and merging data at scales beyond a laptop:
+      the shell and regular expressions, cloud and high-performance computing, parallel and GPU computing, web, geospatial, and
+      unstructured text data, SQL and modern storage engines, reproducible workflows with Git and containers, and large language
+      model APIs and agentic tools used with appropriate verification. A project replaces the final exam.
+  - code: OA4910
+    title: Python Boot Camp
+    role: Lab lead
+    terms: Summer 2026
+    description: >-
+      Fast-paced applied Python for incoming master's students with no programming background. A data-wrangling spine in pandas,
+      AI-assisted workflows, light prediction, and report automation, ending in a data-to-brief capstone.
+  - code: OA3801
+    title: Computational Methods for Operations Research II
+    role: Guest lecturer
+    terms: Summer 2026
+    description: >-
+      Object-oriented Python, NumPy and pandas, scripting and data acquisition, and exploratory analysis with interactive
+      dashboards. Guest sessions on agentic AI for analysts and on cloud and high-performance computing.
+    links:
+      - name: Agentic AI primer
+        url: https://oa3801-agentic-ai-primer.willk30.chatgpt.site
+  - code: OA4802
+    title: Case Studies in Operations Research
+    role: Co-instructor
+    terms: Spring 2027
+    description: >-
+      Capstone case studies course in which students apply operations research methods to realistic defense problems.
+
+ncsu:
+  - code: ISE/OR Ph.D. Bootcamp
+    title: Introduction to Python
+    role: Invited instructor
+    terms: August 2025
+    description: >-
+      Designed and taught a one-day Introduction to Python module for all incoming Ph.D. students in the Department of
+      Industrial and Systems Engineering.
+    links:
+      - name: Course materials
+        url: https://github.com/willk30/python-bootcamp-student
+  - code: College of Engineering
+    title: Navigating a Ph.D. (Smooth Sailing Series)
+    role: Panelist
+    terms: 2025
+    description: >-
+      Nominated by the department to serve on a university-wide panel advising new engineering Ph.D. students; participated in
+      every iteration of the series.

@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Honored to receive the **Salah E. Elmaghraby Distinguished Student Award** from the Operations Research Program at NC State University.
+Honored to receive the <strong>Salah E. Elmaghraby Distinguished Student Award</strong> from the Operations Research Program at NC State.

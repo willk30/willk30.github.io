@@ -1,0 +1,173 @@
+- title: General Information
+  type: map
+  contents:
+    - name: Name
+      value: William (Will) Kirschenman
+    - name: Position
+      value: Assistant Professor, Operations Research Department, Naval Postgraduate School
+    - name: Email
+      value: william.kirschenman@nps.edu
+    - name: Profiles
+      links:
+        - name: Google Scholar
+          link: https://scholar.google.com/citations?user=UlYcxSsAAAAJ
+        - name: ORCID
+          link: https://orcid.org/0009-0000-5514-7737
+        - name: GitHub
+          link: https://github.com/willk30
+        - name: LinkedIn
+          link: https://www.linkedin.com/in/william-kirschenman-11a78989/
+
+- title: Education
+  type: time_table
+  contents:
+    - title: Ph.D., Operations Research
+      institution: North Carolina State University, Raleigh, NC
+      year: 2026
+      description:
+        - "Dissertation: <em>A Multi-Level Prioritized Packing Framework for Spatial Optimization</em>"
+        - Outstanding Dissertation Award, Department of Industrial and Systems Engineering
+    - title: M.S., Operations Research
+      institution: George Mason University, Fairfax, VA
+      year: 2020
+    - title: M.P.A., Public Administration
+      institution: Webster University
+      year: 2015
+    - title: B.S., Mechanical Engineering
+      institution: United States Military Academy, West Point, NY
+      year: 2010
+
+- title: Fellowships and Awards
+  type: time_table
+  contents:
+    - title: Seth Bonder Scholarship for Applied Operations Research in Military and Security Applications
+      institution: INFORMS Military and Security Society
+      year: 2026
+    - title: Outstanding Dissertation Award
+      institution: Department of Industrial and Systems Engineering, NC State University
+      year: 2026
+    - title: Shook Mentor Award
+      institution: Department of Industrial and Systems Engineering, NC State University
+      year: 2026
+    - title: Phi Kappa Phi Honor Society
+      institution: North Carolina State University Chapter
+      year: 2026
+    - title: Salah E. Elmaghraby Distinguished Student Award
+      institution: Operations Research Program, NC State University
+      year: 2025
+    - title: General Omar N. Bradley Research Fellowship in Mathematics
+      institution: Awarded twice
+      year: 2024, 2025
+    - title: Best Presentation, Wargaming Working Group
+      institution: Army Operations Research Symposium (AORS)
+      year: 2021
+    - title: Outstanding Academic Achievement Award in Operations Research
+      institution: George Mason University
+      year: 2020
+
+- title: Publications
+  type: list
+  contents:
+    - 'Kirschenman, W., Heese, H.S., Kay, M., King, R., McConnell, B. (2026). Enhancing Military Load Planning: A Prioritized 2-D Orthogonal Packing Approach. <em>Omega</em>, 145, 103638. <a href="https://doi.org/10.1016/j.omega.2026.103638">doi:10.1016/j.omega.2026.103638</a>'
+    - 'Kirschenman, W., Heese, H.S., Kay, M., King, R., McConnell, B. (2026). The 2-D Orthogonal Packing Problem with Multiple Levels of Prioritization: A Spatial Optimization Perspective. <em>Naval Research Logistics</em>, 1–22. <a href="https://doi.org/10.1002/nav.70087">doi:10.1002/nav.70087</a>'
+    - 'Kirschenman, W., Constantino, J., Heese, H.S., King, R., McConnell, B. (2026). Automating Combat Loading to Strengthen LSCO Readiness. <em>Army Sustainment</em>, 58(3). <a href="https://www.army.mil/article/293624/automating_combat_loading_to_strengthen_lsco_readiness">Link</a>'
+    - 'Kirschenman, W., McConnell, B., King, R. (2024). Automated Vessel Selection and Combat Load Planning. <em>Army Sustainment</em>, 56(4), 58–61. <a href="https://www.army.mil/article/280367/automated_vessel_selection_and_combat_load_planning">Link</a>'
+    - 'Full list with links on the <a href="/publications/">publications page</a>; presentations on the <a href="/talks/">talks page</a>.'
+
+- title: Academic Appointments
+  type: time_table
+  contents:
+    - title: Assistant Professor
+      institution: Operations Research Department, Naval Postgraduate School, Monterey, CA
+      year: 2026 –
+      description:
+        - Teaching in the computational methods sequence for the Operations Analysis curriculum (OA3802 Computational Methods for Data Analytics; OA4910 Python Boot Camp; OA3801 guest lectures).
+        - Research in combinatorial and spatial optimization, packing and loading problems, and matheuristic and metaheuristic solution methods.
+
+- title: Teaching and Academic Service
+  type: time_table
+  contents:
+    - title: Working Group Co-Chair, Advances in OR Data Science and Technology
+      institution: 64th Army Operations Research Symposium, Aberdeen Proving Ground, MD
+      year: 2026
+    - title: Invited Instructor, Introduction to Python
+      institution: Incoming ISE/OR Ph.D. Student Bootcamp, North Carolina State University
+      year: 2025
+      description:
+        - Selected to design and teach a one-day Introduction to Python module for all incoming Ph.D. students in the Department of Industrial and Systems Engineering.
+    - title: Panelist, Navigating a Ph.D.
+      institution: College of Engineering Smooth Sailing Series, North Carolina State University
+      year: 2025
+      description:
+        - Nominated by the department to serve on a university-wide panel advising new engineering Ph.D. students; participated in all iterations.
+
+- title: Professional Experience
+  type: time_table
+  contents:
+    - title: Combat Operations Analyst
+      institution: The Research and Analysis Center (TRAC), Army Futures Command, White Sands Missile Range, NM
+      year: 2020 – 2023
+      description:
+        - Led development of a cloud-based visualization and data collection application for wargaming and other data collection events.
+        - Led planning, execution, and analysis for the 2020 Army Futures Command Capstone Wargame.
+        - Planned and executed warfighter touchpoints, unit focus groups, and a strategic commanders assessment for Project Convergence 22, a Combined Joint Force experiment.
+    - title: Company Commander; Brigade Engineer Plans Officer
+      institution: 2nd Infantry Brigade Combat Team, 4th Infantry Division, Fort Carson, CO
+      year: 2015 – 2018
+      description:
+        - Commanded two engineer companies of over 100 Soldiers each, responsible for all training, morale, and equipment valued in excess of $35 million.
+        - Primary engineer planner for a 3,500-Soldier brigade combat team and plans officer for combined joint engineer operations in southern Afghanistan.
+    - title: Operations Officer, G-3 Engineer Section
+      institution: 2nd Infantry Division, Camp Red Cloud, Republic of Korea
+      year: 2014 – 2015
+      description:
+        - Planned, synchronized, and assessed engineer operations for the ROK–U.S. Combined 2nd Infantry Division.
+    - title: Engineer Company Commander Advisor
+      institution: Security Force Advise and Assist Team 2, Logar Province, Afghanistan
+      year: 2012 – 2013
+      description:
+        - Advised an Afghan National Army engineer company commander over nine months in all areas of command.
+    - title: Company Executive Officer; Platoon Leader
+      institution: 11th Engineer Battalion, 20th Engineer Brigade, Fort Benning, GA
+      year: 2011 – 2013
+      description:
+        - Managed operations, training, and maintenance for a 198-Soldier engineer company.
+        - Led a 64-Soldier engineer platoon responsible for equipment valued in excess of $20 million.
+
+- title: Technical Skills
+  type: nested_list
+  contents:
+    - title: Programming languages
+      items:
+        - Julia, Python, R, SQL
+    - title: Scientific computing and optimization
+      items:
+        - Mathematical programming (exact methods, matheuristics, solver callbacks, warm-starting, parameter tuning)
+        - High-performance computing; distributed and parallel computing on CPU and GPU; Bayesian inference
+        - Gurobi, CPLEX, JuMP, R Shiny
+    - title: AI development
+      items:
+        - Agentic AI and AI-assisted coding (Claude Code, Codex, Cursor)
+        - Deep learning (computer vision) and machine learning with PyTorch, CUDA, and ROCm
+    - title: Developer tools
+      items:
+        - Git, Subversion, collaborative software development, object-oriented programming
+
+- title: Professional Memberships
+  type: list
+  contents:
+    - Military Operations Research Society (MORS), 2021 – present
+    - Institute for Operations Research and the Management Sciences (INFORMS), 2023 – present
+    - Engineer Intern, State of New York, 2010
+
+- title: Selected Military Awards
+  type: list
+  contents:
+    - Bronze Star Medal (2), Meritorious Service Medal (2), Army Commendation Medal (2), Army Achievement Medal (5)
+    - Military Outstanding Volunteer Service Medal; Steel de Fleury Medal (Army Engineer Association)
+
+- title: Community Service
+  type: list
+  contents:
+    - Cub Scout leader, White Sands Missile Range, NM, 2021 – 2022
+    - Pianist, Cascade Hills Church (GA) and Joyful Baptist Church (CO), 2011 – 2018
