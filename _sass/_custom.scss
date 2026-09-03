@@ -1,0 +1,555 @@
+/*******************************************************************************
+ * Site-specific overrides. Imported last from assets/css/main.scss.
+ * Uses the theme's CSS variables so everything works in light and dark mode.
+ ******************************************************************************/
+
+// ---------------------------------------------------------------------------
+// Palette: keep the classic blue accent, but make it consistent across themes.
+// ---------------------------------------------------------------------------
+:root {
+  --global-theme-color: #0076df;
+  --global-hover-color: #0076df;
+  --global-accent-soft: rgba(0, 118, 223, 0.1);
+  --global-card-border: rgba(0, 0, 0, 0.08);
+  --global-text-muted: #6b7280;
+  --global-award-color: #b7791f;
+  --global-award-bg: rgba(183, 121, 31, 0.12);
+}
+
+html[data-theme="dark"] {
+  --global-bg-color: #16181c;
+  --global-card-bg-color: #1e2126;
+  --global-text-color: #e6e8eb;
+  --global-text-color-light: #a3a8b0;
+  --global-theme-color: #5aa9ff;
+  --global-hover-color: #5aa9ff;
+  --global-accent-soft: rgba(90, 169, 255, 0.14);
+  --global-card-border: rgba(255, 255, 255, 0.09);
+  --global-text-muted: #9aa1ab;
+  --global-divider-color: rgba(255, 255, 255, 0.12);
+  --global-footer-bg-color: #101215;
+  --global-footer-text-color: #9aa1ab;
+  --global-award-color: #e2b25c;
+  --global-award-bg: rgba(226, 178, 92, 0.14);
+}
+
+// ---------------------------------------------------------------------------
+// Typography and layout rhythm
+// ---------------------------------------------------------------------------
+body {
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.65;
+}
+
+.post-title {
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+.post .desc,
+.post-description {
+  color: var(--global-text-color-light);
+  font-size: 1.05rem;
+  font-weight: 300;
+  max-width: 40rem;
+  margin-bottom: 1.5rem;
+}
+
+article h2,
+.post h2 {
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--global-divider-color);
+  letter-spacing: 0.01em;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+article h3,
+.post h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 1.6rem;
+}
+
+// ---------------------------------------------------------------------------
+// Home page: profile image and info block
+// ---------------------------------------------------------------------------
+.profile {
+  img {
+    border-radius: 0.6rem !important;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.18) !important;
+  }
+
+  .more-info {
+    margin-top: 0.9rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--global-text-color-light);
+
+    p {
+      display: block;
+      margin: 0;
+    }
+
+    a {
+      color: var(--global-theme-color);
+      word-break: break-all;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Tag pills (research interests, talk status)
+// ---------------------------------------------------------------------------
+.interest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 0.22rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid var(--global-card-border);
+  background: var(--global-accent-soft);
+  color: var(--global-text-color);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.tag-accent {
+  background: var(--global-theme-color);
+  border-color: var(--global-theme-color);
+  color: #fff;
+}
+
+.tag-award {
+  background: var(--global-award-bg);
+  border-color: transparent;
+  color: var(--global-award-color);
+}
+
+// ---------------------------------------------------------------------------
+// News table
+// ---------------------------------------------------------------------------
+.news {
+  .table {
+    margin-bottom: 0;
+  }
+
+  th {
+    color: var(--global-text-color-light);
+    font-weight: 500;
+    font-size: 0.82rem;
+    white-space: nowrap;
+    padding-top: 0.6rem;
+    padding-left: 0;
+  }
+
+  td {
+    padding: 0.55rem 0.5rem 0.55rem 0.75rem;
+    border-bottom: 1px solid var(--global-divider-color) !important;
+    line-height: 1.55;
+  }
+
+  tr:last-child td {
+    border-bottom: none !important;
+  }
+
+  .table-responsive {
+    max-height: none !important;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Publications
+// ---------------------------------------------------------------------------
+.publications {
+  margin-top: 0.5rem;
+
+  h2.pub-section {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 2.25rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+
+  h2.bibliography {
+    display: none; // year headers are redundant inside the per-section lists
+  }
+
+  ol.bibliography li {
+    margin-bottom: 1.4rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px dashed var(--global-divider-color);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .title {
+      font-weight: 500;
+      font-size: 1.02rem;
+      line-height: 1.4;
+    }
+
+    .author {
+      color: var(--global-text-color-light);
+    }
+
+    .periodical {
+      color: var(--global-text-color-light);
+      font-size: 0.9rem;
+    }
+
+    .links a.btn,
+    .links .btn {
+      font-size: 0.72rem;
+      padding: 0.15rem 0.6rem;
+      margin: 0.35rem 0.25rem 0 0;
+      border: 1px solid var(--global-theme-color);
+      color: var(--global-theme-color);
+      border-radius: 4px;
+
+      &:hover {
+        background: var(--global-theme-color);
+        color: #fff;
+      }
+    }
+
+    .abbr .badge {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+  }
+}
+
+.selected-papers-note {
+  color: var(--global-text-color-light);
+  font-size: 0.85rem;
+}
+
+// ---------------------------------------------------------------------------
+// Research page: numbered thrust cards
+// ---------------------------------------------------------------------------
+.thrust {
+  display: grid;
+  grid-template-columns: 3.25rem 1fr;
+  gap: 0 1rem;
+  margin: 1.5rem 0;
+  padding: 1.25rem 1.25rem 1rem 1rem;
+  border: 1px solid var(--global-card-border);
+  border-left: 3px solid var(--global-theme-color);
+  border-radius: 0.5rem;
+  background: var(--global-card-bg-color);
+
+  .thrust-num {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--global-theme-color);
+    line-height: 1;
+    padding-top: 0.15rem;
+  }
+
+  .thrust-body h3 {
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+    font-size: 1.12rem;
+  }
+
+  .thrust-body p {
+    margin-bottom: 0.6rem;
+  }
+
+  .thrust-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.1rem;
+    font-size: 0.85rem;
+    margin-top: 0.4rem;
+
+    a {
+      font-weight: 500;
+      color: var(--global-theme-color);
+      border-bottom: 1px solid transparent;
+
+      &:hover {
+        text-decoration: none;
+        border-bottom-color: var(--global-theme-color);
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .thrust {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Talks
+// ---------------------------------------------------------------------------
+.talks {
+  .year-heading {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--global-text-color-light);
+    letter-spacing: 0.06em;
+    margin-top: 2.25rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+
+  .talk-item {
+    padding: 0.9rem 0 0.9rem 1rem;
+    border-left: 2px solid var(--global-divider-color);
+    margin-left: 0.25rem;
+
+    &.upcoming {
+      border-left-color: var(--global-theme-color);
+    }
+  }
+
+  .talk-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--global-text-color-light);
+    margin-bottom: 0.25rem;
+
+    .tag {
+      text-transform: none;
+      letter-spacing: 0.02em;
+    }
+  }
+
+  .talk-title {
+    font-size: 1.02rem;
+    font-weight: 500;
+    margin: 0 0 0.25rem;
+  }
+
+  .talk-venue {
+    margin: 0;
+    color: var(--global-text-color);
+    font-size: 0.92rem;
+  }
+
+  .talk-coauthors {
+    margin: 0.1rem 0 0;
+    font-size: 0.85rem;
+    color: var(--global-text-color-light);
+  }
+
+  .talk-links {
+    margin: 0.5rem 0 0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Teaching: course cards
+// ---------------------------------------------------------------------------
+.course-card {
+  margin: 1rem 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--global-card-border);
+  border-radius: 0.5rem;
+  background: var(--global-card-bg-color);
+
+  .course-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .course-code {
+    color: var(--global-theme-color);
+    font-weight: 600;
+  }
+
+  .course-role {
+    color: var(--global-text-color-light);
+  }
+
+  .course-title {
+    margin: 0.25rem 0 0.1rem;
+    font-size: 1.08rem;
+  }
+
+  .course-terms {
+    margin: 0 0 0.5rem;
+    font-size: 0.85rem;
+    color: var(--global-text-color-light);
+  }
+
+  .course-desc {
+    margin-bottom: 0.4rem;
+    font-size: 0.93rem;
+  }
+
+  .course-links {
+    margin: 0.3rem 0 0;
+  }
+}
+
+// Shared small link buttons used on talks, teaching, and writing pages
+.talk-links a.btn,
+.course-links a.btn,
+.media-links a.btn,
+.post a.btn.z-depth-0 {
+  font-size: 0.74rem;
+  padding: 0.18rem 0.65rem;
+  margin: 0 0.35rem 0.25rem 0;
+  border: 1px solid var(--global-theme-color);
+  color: var(--global-theme-color);
+  border-radius: 4px;
+  background: transparent;
+
+  &:hover {
+    background: var(--global-theme-color);
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Writing
+// ---------------------------------------------------------------------------
+.essay-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0.75rem 0 1rem;
+  border-top: 1px solid var(--global-divider-color);
+
+  .essay-item {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: 1rem;
+    padding: 0.6rem 0.25rem;
+    border-bottom: 1px solid var(--global-divider-color);
+    color: var(--global-text-color);
+    text-decoration: none;
+
+    &:hover {
+      background: var(--global-accent-soft);
+      text-decoration: none;
+
+      .essay-title {
+        color: var(--global-theme-color);
+      }
+    }
+  }
+}
+
+.essay-date {
+  font-size: 0.8rem;
+  color: var(--global-text-color-light);
+  white-space: nowrap;
+  padding-top: 0.15rem;
+}
+
+.essay-title {
+  font-weight: 500;
+}
+
+.media-item {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1rem;
+  padding: 0.75rem 0.25rem;
+  border-bottom: 1px solid var(--global-divider-color);
+
+  .media-links {
+    margin: 0.4rem 0 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .essay-list .essay-item,
+  .media-item {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// CV cards
+// ---------------------------------------------------------------------------
+.cv {
+  .card {
+    border: 1px solid var(--global-card-border);
+    border-radius: 0.5rem;
+    background: var(--global-card-bg-color);
+  }
+
+  .card-title {
+    font-size: 1.15rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+
+  .list-group-item {
+    background: transparent;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Navbar and footer polish
+// ---------------------------------------------------------------------------
+.navbar.navbar-light {
+  .navbar-nav .nav-item .nav-link {
+    font-size: 0.92rem;
+    letter-spacing: 0.01em;
+  }
+
+  .navbar-nav .nav-item.active > .nav-link {
+    color: var(--global-theme-color);
+    font-weight: 500;
+  }
+}
+
+footer.sticky-bottom {
+  font-size: 0.78rem;
+}
+
+.social .contact-icons a {
+  transition: color 0.15s ease;
+}
+
+.social .contact-note {
+  font-size: 0.85rem;
+  max-width: 34rem;
+  margin: 0.5rem auto 0;
+  color: var(--global-text-color-light);
+}
+
+.pub-intro {
+  font-size: 0.9rem;
+  color: var(--global-text-color-light);
+  margin-top: -0.75rem;
+}

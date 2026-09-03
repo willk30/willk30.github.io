@@ -1,148 +1,34 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for Claude Code when working in this repository.
 
-## Project Overview
+## What this is
 
-This is an al-folio Jekyll site - a modern academic website template built with Jekyll and deployed on GitHub Pages. The site is for Will Kirschenman, a PhD student in Operations Research at NC State University. **The site has been migrated from Academic Pages to al-folio template for enhanced academic features.**
+Will Kirschenman's personal academic site: Jekyll + a vendored copy of the al-folio theme (no `remote_theme`; layouts, includes, and SCSS live in the repo). Deployed to GitHub Pages by `.github/workflows/deploy.yml` on pushes to `master`.
 
-## Development Commands
+Will is an Assistant Professor of Operations Research at the Naval Postgraduate School (Ph.D., NC State, 2026). The site is framed academically; contact info is the NPS email only. Do not add phone numbers, office locations, or home addresses.
 
-### Local Development
-```bash
-# Install Ruby dependencies
-bundle install
+## Where content lives
 
-# Install Node.js dependencies
-npm install
+- `_pages/about.md` home page (layout `about`; news + selected papers + social icons)
+- `_pages/research.md` research overview (three dissertation thrusts, methods, current directions)
+- `_pages/publications.html` sections driven by `keywords={refereed|trade|thesis}` in `_bibliography/papers.bib`
+- `_pages/talks.md` renders `_data/talks.yml`
+- `_pages/teaching.md` renders `_data/teaching.yml`
+- `_pages/writing.md` renders `_data/writing.yml`
+- `_pages/cv.md` uses layout `cv` and `_data/cv.yml` (al-folio list format: `title`, `type`, `contents`); PDF in `assets/pdf/`
+- `_pages/news.md` full news list; `_news/` items are inline announcements
+- `_sass/_custom.scss` all styling overrides (imported last from `assets/css/main.scss`)
+- `files/`, `documents/` slide decks and posters; the CV PDF links to these exact paths, so do not rename them
 
-# Build JavaScript assets
-npm run build:js
+## Conventions
 
-# Serve the site locally (recommended)
-bundle exec jekyll serve -l -H localhost
+- Keep `_bibliography/papers.bib` as the single source for publications; `_data/cv.yml` carries a short human-readable list that should be kept in sync.
+- Custom bib fields supported by `_layouts/bib.liquid`: `preprint`, `data` (in addition to upstream `html`, `pdf`, `code`, `slides`, `poster`, `supp`, `video`).
+- News items: `inline: true`, filename `YYYY-MM-DD-slug.md`, date in front matter with timezone.
+- Dark mode is the default for first-time visitors (`assets/js/theme.js`); light and system remain available via the toggle.
+- Build locally with `bundle exec jekyll build` before pushing; Sass deprecation warnings from upstream al-folio are expected.
 
-# Watch for JavaScript changes (in separate terminal)
-npm run watch:js
-```
+## Plugins
 
-### Docker Development
-```bash
-# Build and run with Docker
-docker compose up
-```
-
-## Architecture
-
-### Jekyll Collections
-The site uses Jekyll collections to organize different types of content:
-- `_bibliography/` - BibTeX files for publications (NEW - replaces individual markdown files)
-- `_news/` - News and announcements (NEW)
-- `_projects/` - Research projects (replaces `_portfolio/`)
-- `_talks/` - Conference presentations and talks
-- `_teaching/` - Teaching experience
-- `_posts/` - Blog posts
-
-### Key Configuration Files
-- `_config.yml` - Main Jekyll configuration with al-folio specific settings
-- `_bibliography/papers.bib` - BibTeX bibliography file for publications
-- `package.json` - Node.js dependencies for JavaScript assets
-
-### Publications Management
-**Key Change**: Publications are now managed via BibTeX files instead of individual markdown files:
-- Add publications to `_bibliography/papers.bib`
-- Uses jekyll-scholar plugin for automatic rendering
-- Supports badges, abstracts, PDFs, and author highlighting
-- Set `selected={true}` in BibTeX for featured publications
-
-### Styling and Theme
-- `_sass/` - SCSS source files (al-folio theme)
-- `assets/` - Images, CSS, JS assets (moved from separate directories)
-- Dark/light mode support built-in
-- Responsive design optimized for academic content
-
-### Special al-folio Features
-- Dynamic bibliography generation from BibTeX
-- Publication badges (Altmetric, Dimensions, Google Scholar)
-- Advanced search functionality
-- Responsive image optimization
-- Social media integration
-- CV generation from structured data
-
-## Content Management
-
-### Publications
-Add to `_bibliography/papers.bib`:
-```bibtex
-@article{key2024,
-  title={Paper Title},
-  author={Author, Name and Coauthor, Name},
-  journal={Journal Name},
-  year={2024},
-  pdf={url-to-pdf},
-  abstract={Abstract text},
-  selected={true}
-}
-```
-
-### Projects
-Create in `_projects/` with frontmatter:
-```yaml
----
-layout: page
-title: Project Title
-description: Brief description
-img: assets/img/project-image.jpg
-importance: 1
-category: research
----
-```
-
-### News Items
-Add to `_news/`:
-```yaml
----
-layout: post
-date: 2024-01-01 12:00:00-0400
-inline: true
----
-News content here.
-```
-
-## Migration Notes
-
-**This site was migrated from Academic Pages to al-folio on 2024-12-01:**
-
-### Major Changes:
-1. **Publications**: Converted from individual markdown files to BibTeX format
-2. **Projects**: Moved from `_portfolio/` to `_projects/` with new schema
-3. **Theme**: Complete overhaul to al-folio with dark mode support
-4. **Dependencies**: Added jekyll-scholar and other al-folio specific plugins
-5. **Images**: Moved to `assets/img/` directory structure
-
-### Content Preservation:
-- All original publications migrated to BibTeX format
-- CV content updated with al-folio layout
-- About page redesigned for al-folio theme
-- News items created for recent updates
-
-### Backup:
-- Original Academic Pages files backed up in `backup_original/`
-
-## File Structure
-```
-├── _bibliography/         # BibTeX files for publications
-├── _includes/             # Jekyll includes (al-folio theme)
-├── _layouts/              # Jekyll layouts (al-folio theme)
-├── _news/                 # News and announcements
-├── _pages/                # Main site pages
-├── _projects/             # Research projects (was _portfolio/)
-├── _sass/                 # SCSS styling (al-folio theme)
-├── _talks/                # Conference talks
-├── _teaching/             # Teaching experience
-├── assets/                # Images, CSS, JS assets
-├── backup_original/       # Backup of original Academic Pages files
-├── _config.yml            # Main Jekyll configuration (al-folio)
-├── Gemfile                # Ruby dependencies (al-folio)
-└── package.json           # Node.js dependencies (NEW)
-```
+Only the gems in `Gemfile` are available (jekyll-scholar, jekyll-feed, jekyll-sitemap, jekyll-archives, jekyll-paginate-v2, jekyll-email-protect, jemoji). `jekyll-imagemagick` is not installed, so `imagemagick.enabled` stays `false`.
