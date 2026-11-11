@@ -173,13 +173,14 @@ body.home-waves {
 }
 
 // ---------------------------------------------------------------------------
-// Home hero — one composition
-// brand · one sentence · CTA · photo · waves
+// Home intro — Anthony-style profile + story, Landing Waves chrome
+// left: photo / name / role / links · right: tagline + journey
 // ---------------------------------------------------------------------------
-.waves-hero {
+.waves-shell {
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  min-height: calc(100vh - 3.25rem);
 }
 
 .waves-sky {
@@ -187,15 +188,15 @@ body.home-waves {
   inset: 0;
   z-index: 0;
   background:
-    linear-gradient(180deg, var(--wave-sky-top) 0%, var(--wave-sky-mid) 42%, var(--wave-night) 100%),
-    radial-gradient(ellipse 80% 50% at 70% 15%, rgba(196, 138, 74, 0.16), transparent 60%);
+    linear-gradient(180deg, var(--wave-sky-top) 0%, var(--wave-sky-mid) 38%, var(--wave-night) 100%),
+    radial-gradient(ellipse 80% 50% at 18% 12%, rgba(196, 138, 74, 0.14), transparent 58%);
   pointer-events: none;
 
   &::after {
     content: "";
     position: absolute;
     inset: 0;
-    opacity: 0.55;
+    opacity: 0.5;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
     background-size: 180px 180px;
     mix-blend-mode: soft-light;
@@ -209,80 +210,134 @@ body.home-waves {
   right: 0;
   bottom: 0;
   width: 100%;
-  height: 55%;
+  height: 42%;
   z-index: 1;
   pointer-events: none;
+  opacity: 0.85;
 }
 
-.waves-hero-inner {
+.waves-intro {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  gap: 2.5rem;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 2.75rem;
   align-items: start;
-  max-width: 1120px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 0.85rem 2rem 2.25rem;
+  padding: 1.5rem 2rem 3.5rem;
+  animation: waves-rise 0.75s ease both;
 }
 
 @media (max-width: 860px) {
-  .waves-hero-inner {
+  .waves-intro {
     grid-template-columns: 1fr;
-    align-items: start;
-    padding: 1.35rem 1.35rem 2.25rem;
-    gap: 1.5rem;
+    gap: 1.75rem;
+    padding: 1.25rem 1.35rem 2.75rem;
   }
 
-  .waves-photo {
-    order: -1;
-    justify-self: start;
-    max-width: 240px;
+  .waves-sidebar {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    column-gap: 1rem;
+    row-gap: 0.35rem;
+    align-items: center;
+  }
+
+  .waves-avatar,
+  .waves-avatar img {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .waves-sidebar-name,
+  .waves-sidebar-role,
+  .waves-sidebar-meta,
+  .waves-sidebar-links {
+    grid-column: 2;
+  }
+
+  .waves-sidebar .waves-avatar,
+  .waves-sidebar figure {
+    grid-column: 1;
+    grid-row: 1 / span 4;
   }
 }
 
-.waves-copy {
-  padding-bottom: 0.35rem;
+.waves-sidebar {
+  position: sticky;
+  top: 4.5rem;
 }
 
-.waves-name {
-  font-size: clamp(4.4rem, 13vw, 8rem);
-  line-height: 0.86;
-  margin: 0 0 1.35rem;
+.waves-sidebar figure {
+  margin: 0 0 1rem;
+  width: 180px;
+}
+
+.waves-avatar,
+.waves-avatar img,
+.waves-sidebar figure img {
+  display: block;
+  width: 180px !important;
+  height: 180px !important;
+  object-fit: cover;
+  border-radius: 50% !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  margin: 0;
+  filter: contrast(1.02) saturate(0.94);
+}
+
+.waves-sidebar-name {
+  font-family: "Bebas Neue", sans-serif !important;
+  font-size: 1.85rem;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  margin: 0 0 0.4rem;
   color: var(--wave-foam);
-  animation: waves-rise 0.9s ease both;
-
-  em {
-    font-style: normal;
-    color: var(--wave-copper);
-  }
 }
 
-.waves-lede {
+.waves-sidebar-role {
   font-family: "Literata", Georgia, serif !important;
-  font-size: clamp(1.15rem, 2.2vw, 1.35rem);
-  line-height: 1.45;
-  max-width: 32ch;
-  margin: 0 0 1.85rem;
-  color: color-mix(in srgb, var(--wave-foam) 88%, var(--wave-mute));
-  animation: waves-rise 0.9s ease 0.12s both;
+  font-size: 0.98rem;
+  line-height: 1.35;
+  margin: 0 0 1rem;
+  color: var(--wave-mute);
 }
 
-.waves-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem 1.5rem;
-  animation: waves-rise 0.9s ease 0.22s both;
+.waves-sidebar-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.15rem;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--wave-mute);
 
   a {
-    font-size: 0.78rem;
-    letter-spacing: 0.14em;
+    color: var(--wave-copper);
+    text-decoration: none;
+    word-break: break-all;
+
+    &:hover {
+      color: var(--wave-foam);
+    }
+  }
+}
+
+.waves-sidebar-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+
+  a {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--wave-copper);
     text-decoration: none;
-    border-bottom: 1px solid color-mix(in srgb, var(--wave-copper) 45%, transparent);
-    padding-bottom: 0.15rem;
-    transition: color 0.2s ease, border-color 0.2s ease;
+    border-bottom: 1px solid color-mix(in srgb, var(--wave-copper) 40%, transparent);
+    padding-bottom: 0.05rem;
 
     &:hover {
       color: var(--wave-foam);
@@ -291,34 +346,26 @@ body.home-waves {
   }
 }
 
-.waves-photo {
-  justify-self: end;
-  align-self: start;
-  animation: waves-rise 1s ease 0.18s both;
-}
-
-.waves-portrait {
-  display: block;
-  width: min(360px, 100%);
-  height: auto;
-  border: 0 !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  filter: contrast(1.02) saturate(0.92);
-}
-
-.waves-body {
-  position: relative;
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 3.5rem 1.5rem 4.5rem;
+.waves-main {
+  max-width: 42rem;
+  padding-top: 0.15rem;
 }
 
 .waves-about {
-  font-size: 1.12rem;
+  font-size: 1.05rem;
   line-height: 1.7;
-  color: color-mix(in srgb, var(--wave-foam) 90%, var(--wave-mute));
-  margin-bottom: 3rem;
+  color: color-mix(in srgb, var(--wave-foam) 92%, var(--wave-mute));
+  margin-bottom: 2.75rem;
+
+  > h1:first-child {
+    font-size: clamp(2.2rem, 4.5vw, 3.1rem);
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    margin: 0 0 1.1rem;
+    color: var(--wave-foam);
+    border: 0;
+    padding: 0;
+  }
 
   a {
     color: var(--wave-copper);
@@ -327,13 +374,32 @@ body.home-waves {
   }
 
   p {
-    margin-bottom: 1.15rem;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-family: "Bebas Neue", sans-serif !important;
+    font-size: 1.4rem !important;
+    letter-spacing: 0.04em;
+    color: var(--wave-copper) !important;
+    border: 0 !important;
+    padding: 0 !important;
+    margin: 1.7rem 0 0.55rem !important;
+  }
+
+  ol {
+    margin: 0 0 0.85rem;
+    padding-left: 1.2rem;
+
+    li {
+      margin-bottom: 0.45rem;
+    }
   }
 }
 
 .waves-news {
   h2 {
-    font-size: 1.7rem;
+    font-size: 1.55rem;
     letter-spacing: 0.04em;
     border-bottom: 1px solid var(--wave-line);
     padding-bottom: 0.4rem;
@@ -347,15 +413,15 @@ body.home-waves {
 }
 
 .waves-social {
-  margin-top: 2.75rem;
-  padding-top: 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 1.35rem;
   border-top: 1px solid var(--wave-line);
 }
 
 @keyframes waves-rise {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
@@ -574,10 +640,7 @@ footer.fixed-bottom {
     scroll-behavior: auto;
   }
 
-  .waves-name,
-  .waves-lede,
-  .waves-links,
-  .waves-photo {
+  .waves-intro {
     animation: none !important;
   }
 }

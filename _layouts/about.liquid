@@ -2,51 +2,54 @@
 layout: default
 ---
 <div class="post waves-home">
-  <header class="waves-hero" aria-label="Introduction">
+  <div class="waves-shell">
     <div class="waves-sky" aria-hidden="true"></div>
     <canvas class="waves-canvas" id="waves-bg" aria-hidden="true"></canvas>
-    <div class="waves-hero-inner">
-      <div class="waves-copy">
-        <h1 class="waves-name">Will<br /><em>Kirschenman</em></h1>
-        <p class="waves-lede">
-          I teach operations research at the Naval Postgraduate School in Monterey —
-          after fifteen years as an Army engineer and analyst.
-        </p>
-        <nav class="waves-links" aria-label="Site sections">
+
+    <div class="waves-intro">
+      <aside class="waves-sidebar" aria-label="Profile">
+        {% if page.profile.image %}
+          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+          {%
+            include figure.liquid loading="eager" path=profile_image_path class="waves-avatar" sizes="220px" alt="Will Kirschenman" cache_bust=true
+          %}
+        {% endif %}
+        <h1 class="waves-sidebar-name">Will Kirschenman</h1>
+        <p class="waves-sidebar-role">Assistant Professor, Naval Postgraduate School</p>
+        <ul class="waves-sidebar-meta">
+          <li>Monterey, CA</li>
+          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+          {% if site.github_username %}
+            <li><a href="https://github.com/{{ site.github_username }}">GitHub</a></li>
+          {% endif %}
+        </ul>
+        <nav class="waves-sidebar-links" aria-label="Site sections">
           <a href="{{ '/teaching/' | relative_url }}">Teaching</a>
           <a href="{{ '/writing/' | relative_url }}">Writing</a>
           <a href="{{ '/research/' | relative_url }}">Research</a>
-          <a href="mailto:{{ site.email }}">Email</a>
+          <a href="{{ '/cv/' | relative_url }}">CV</a>
         </nav>
+      </aside>
+
+      <div class="waves-main">
+        <article class="waves-about">
+          {{ content }}
+        </article>
+
+        {% if page.news and site.announcements.enabled %}
+          <section class="waves-news" aria-labelledby="news-heading">
+            <h2 id="news-heading"><a href="{{ '/news/' | relative_url }}">Recent news</a></h2>
+            {% include news.liquid limit=true %}
+          </section>
+        {% endif %}
+
+        {% if page.social %}
+          <div class="social waves-social">
+            <div class="contact-icons">{% include social.liquid %}</div>
+            <div class="contact-note">{{ site.contact_note }}</div>
+          </div>
+        {% endif %}
       </div>
-      {% if page.profile.image %}
-        <div class="waves-photo">
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class="waves-portrait" sizes="(min-width: 900px) 360px, 78vw" alt="Will Kirschenman" cache_bust=true
-          %}
-        </div>
-      {% endif %}
     </div>
-  </header>
-
-  <div class="waves-body">
-    <article class="waves-about">
-      {{ content }}
-    </article>
-
-    {% if page.news and site.announcements.enabled %}
-      <section class="waves-news" aria-labelledby="news-heading">
-        <h2 id="news-heading"><a href="{{ '/news/' | relative_url }}">Recent news</a></h2>
-        {% include news.liquid limit=true %}
-      </section>
-    {% endif %}
-
-    {% if page.social %}
-      <div class="social waves-social">
-        <div class="contact-icons">{% include social.liquid %}</div>
-        <div class="contact-note">{{ site.contact_note }}</div>
-      </div>
-    {% endif %}
   </div>
 </div>

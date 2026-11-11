@@ -5,17 +5,32 @@ permalink: /
 subtitle: Assistant Professor of Operations Research, Naval Postgraduate School
 
 profile:
-  align: right
+  align: left
   image: prof_pic.jpg
-  image_circular: false
+  image_circular: true
 
 news: true
 selected_papers: false
 social: true
 ---
 
-I'm Will. I live in Monterey and teach in the [Operations Research Department](https://nps.edu/web/or) at the Naval Postgraduate School. I finished my Ph.D. at NC State in 2026, after about fifteen years as an Army engineer and operations research analyst.
+# From the Army to NPS
 
-Most days I'm with students — computational methods, data work, getting analyses to run at scale — or working on packing and load-planning models. That research is part of what I do here, not a separate brand. On the side I keep [field notes on AI tools](https://willk30.substack.com).
+I am an Assistant Professor in the [Operations Research Department](https://nps.edu/web/or) at the Naval Postgraduate School. I teach computational methods, work on packing and load-planning problems, and write [field notes on AI tools](https://willk30.substack.com).
 
-Papers, talks, and the longer research write-up are on their own pages. Email is best: [william.kirschenman@nps.edu](mailto:william.kirschenman@nps.edu).
+## My journey
+
+1. Assistant Professor, Operations Research Department, Naval Postgraduate School (2026–)
+2. Ph.D. in Operations Research, North Carolina State University (2026)
+3. U.S. Army engineer and operations research analyst (~15 years)
+4. Earlier OR and engineering work in defense analysis and large-scale wargaming support
+
+## My research
+
+I work on packing and load-planning models where priority, cohesion, and balance matter — not just whether everything fits. That work started from combat loading and shows up in related logistics settings. Details, papers, and code are on the [research](/research/) and [publications](/publications/) pages.
+
+## Teaching and writing
+
+Most days I'm with students: data work, automation, remote/HPC resources, and using AI coding tools without letting them invent things. Longer notes live on [Will's AI Field Notes](https://willk30.substack.com).
+
+Email is the best way to reach me: [william.kirschenman@nps.edu](mailto:william.kirschenman@nps.edu).
