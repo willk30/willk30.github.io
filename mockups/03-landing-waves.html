@@ -326,21 +326,45 @@
       });
 
       const vp = document.getElementById("viewport");
+      let pointerId = null;
+      let dragArmed = false;
+      const DRAG_THRESHOLD = 8;
+
+      function isInteractiveTarget(el) {
+        return !!(el && el.closest && el.closest("a, button, input, textarea, select, label"));
+      }
+
       vp.addEventListener("pointerdown", (e) => {
-        dragging = true; lastX = e.clientX; vp.setPointerCapture(e.pointerId);
+        if (isInteractiveTarget(e.target)) return;
+        dragArmed = true;
+        dragging = false;
+        pointerId = e.pointerId;
+        lastX = e.clientX;
       });
       vp.addEventListener("pointermove", (e) => {
-        if (!dragging) return;
+        if (!dragArmed || e.pointerId !== pointerId) return;
         const dx = e.clientX - lastX;
+        if (!dragging) {
+          if (Math.abs(dx) < DRAG_THRESHOLD) return;
+          dragging = true;
+          vp.setPointerCapture(e.pointerId);
+          hint.style.display = "none";
+        }
         lastX = e.clientX;
         target = Math.min(maxX(), Math.max(0, target - dx));
       });
-      vp.addEventListener("pointerup", () => {
+      function endDrag(e) {
+        if (pointerId != null && e && e.pointerId !== pointerId) return;
+        if (dragging) {
+          const i = Math.round(target / window.innerWidth);
+          target = i * window.innerWidth;
+        }
+        dragArmed = false;
         dragging = false;
-        // snap
-        const i = Math.round(target / window.innerWidth);
-        target = i * window.innerWidth;
-      });
+        pointerId = null;
+      }
+      vp.addEventListener("pointerup", endDrag);
+      vp.addEventListener("pointercancel", endDrag);
 
       document.getElementById("begin").addEventListener("click", (e) => {
         e.preventDefault();

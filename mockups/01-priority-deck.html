@@ -412,8 +412,11 @@
         // Simple shelf pack biased by mode
         let x = rampX, y = pad, rowH = 0, gap = 10;
         const placed = [];
-        sorted.forEach((it) => {
-          if (x + it.w > rampX + W) {
+        // Balance mode: two shelves flanking the CG axis
+        let leftX = rampX, rightX = rampX + W / 2 + gap;
+        let leftY = pad, rightY = pad, leftH = 0, rightH = 0;
+        sorted.forEach((it, idx) => {
+          if (mode !== "balance" && mode !== "fleet" && x + it.w > rampX + W) {
             x = rampX; y += rowH + gap; rowH = 0;
           }
           let tx = x, ty = y;
@@ -423,9 +426,25 @@
             tx = Math.max(rampX, tx - pull);
           }
           if (mode === "balance") {
-            // alternate heavy items around vertical center
-            const mid = canvas.height / 2;
-            ty = mid + (placed.length % 2 === 0 ? -it.h - 8 : 8) + (it.mass * 2);
+            // Alternate port/starboard of the CG axis with independent shelf packs
+            const toLeft = idx % 2 === 0;
+            if (toLeft) {
+              if (leftX + it.w > rampX + W / 2 - gap) {
+                leftX = rampX; leftY += leftH + gap; leftH = 0;
+              }
+              tx = leftX;
+              ty = leftY;
+              leftX += it.w + gap;
+              leftH = Math.max(leftH, it.h);
+            } else {
+              if (rightX + it.w > rampX + W) {
+                rightX = rampX + W / 2 + gap; rightY += rightH + gap; rightH = 0;
+              }
+              tx = rightX;
+              ty = rightY;
+              rightX += it.w + gap;
+              rightH = Math.max(rightH, it.h);
+            }
             ty = Math.min(Math.max(pad, ty), canvas.height - pad - it.h);
           }
           if (mode === "fleet") {
