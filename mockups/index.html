@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Will Kirschenman — Site Redesign Mockups</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0c1016;
+      --paper: #f3efe6;
+      --muted: #6b7280;
+      --line: rgba(12, 16, 22, 0.12);
+      --a: #0e7c7b;
+      --b: #c45c26;
+      --c: #1d4e89;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      background: var(--paper);
+      color: var(--ink);
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 5rem;
+    }
+    .kicker {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-family: "Syne", sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin: 0 0 1rem;
+      max-width: 14ch;
+    }
+    .lede {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 1.35rem;
+      line-height: 1.45;
+      max-width: 38rem;
+      margin: 0 0 2.5rem;
+      color: #2a2f38;
+    }
+    .note {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 1rem 0;
+      font-size: 0.8rem;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      max-width: 42rem;
+    }
+    .grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+    @media (min-width: 860px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    a.card {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid var(--line);
+      background: #fffdf8;
+      min-height: 420px;
+      padding: 1.25rem;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+    a.card:hover { transform: translateY(-4px); }
+    a.card.a:hover { border-color: var(--a); }
+    a.card.b:hover { border-color: var(--b); }
+    a.card.c:hover { border-color: var(--c); }
+    .swatch {
+      height: 140px;
+      margin: -1.25rem -1.25rem 1.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .swatch.a { background: #071a1f; }
+    .swatch.b { background: #141210; }
+    .swatch.c { background: #08131f; }
+    .swatch canvas { width: 100%; height: 100%; display: block; }
+    .tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.55rem;
+    }
+    .a .tag { color: var(--a); }
+    .b .tag { color: var(--b); }
+    .c .tag { color: var(--c); }
+    .card h2 {
+      font-family: "Syne", sans-serif;
+      font-size: 1.45rem;
+      line-height: 1.1;
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .card p {
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 1.4;
+      margin: 0 0 1.25rem;
+      color: #333;
+      flex: 1;
+    }
+    .meta {
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .open {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .a .open { color: var(--a); }
+    .b .open { color: var(--b); }
+    .c .open { color: var(--c); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="kicker">Design review · three directions</div>
+    <h1>Pick the hook. Then we build it.</h1>
+    <p class="lede">
+      Three full-home mockups for willk30.github.io — each still static-hostable on GitHub Pages,
+      each using your research itself as the UI metaphor instead of another blue academic template.
+    </p>
+    <div class="note">
+      Open each mockup full-screen. Hover, click, scroll. CV LaTeX can land later — these mockups
+      use your current pubs, thrusts, and NPS framing. Nothing here is wired into the live site yet.
+    </div>
+    <div class="grid">
+      <a class="card a" href="./01-priority-deck.html">
+        <div class="swatch a"><canvas id="mini-a" width="400" height="160"></canvas></div>
+        <div class="tag">Direction 01 · Priority Deck</div>
+        <h2>Your research, as a living packing diagram</h2>
+        <p>Hero is an interactive vessel deck. High-priority cargo drifts toward the ramp; papers and thrusts are cargo you can select.</p>
+        <div class="meta">Palette: ink teal · arctic cyan · bone<br/>Motion: auto-pack + cursor nudge</div>
+        <div class="open">Open mockup →</div>
+      </a>
+      <a class="card b" href="./02-fog-lab.html">
+        <div class="swatch b"><canvas id="mini-b" width="400" height="160"></canvas></div>
+        <div class="tag">Direction 02 · Fog Lab</div>
+        <h2>Monterey atmosphere meets a solver that never sleeps</h2>
+        <p>Editorial serif + industrial mono. A fitness landscape and objective ticker run beside the bio — science as presence, not decoration.</p>
+        <div class="meta">Palette: charcoal · safety amber · fog<br/>Motion: GA fitness pulse + objective swap</div>
+        <div class="open">Open mockup →</div>
+      </a>
+      <a class="card c" href="./03-landing-waves.html">
+        <div class="swatch c"><canvas id="mini-c" width="400" height="160"></canvas></div>
+        <div class="tag">Direction 03 · Landing Waves</div>
+        <h2>Horizontal expedition through three dissertation waves</h2>
+        <p>One continuous scroll-story: packing → balance → fleet scheduling. Big typography, sparse chrome, cinematic pacing.</p>
+        <div class="meta">Palette: midnight · signal white · copper wire<br/>Motion: horizontal scroll + wave parallax</div>
+        <div class="open">Open mockup →</div>
+      </a>
+    </div>
+  </div>
+  <script>
+    function packMini(id, colors) {
+      const c = document.getElementById(id);
+      const ctx = c.getContext("2d");
+      const rects = [];
+      let x = 18, y = 24, rowH = 0;
+      const specs = [
+        [70, 42], [48, 28], [36, 36], [58, 22], [40, 40],
+        [52, 30], [28, 28], [64, 24], [34, 44], [46, 26]
+      ];
+      specs.forEach(([w, h], i) => {
+        if (x + w > c.width - 18) { x = 18; y += rowH + 8; rowH = 0; }
+        rects.push({ x, y, w, h, color: colors[i % colors.length] });
+        x += w + 8; rowH = Math.max(rowH, h);
+      });
+      let t = 0;
+      function draw() {
+        t += 0.016;
+        ctx.clearRect(0, 0, c.width, c.height);
+        rects.forEach((r, i) => {
+          const bob = Math.sin(t * 1.4 + i) * 2;
+          ctx.fillStyle = r.color;
+          ctx.globalAlpha = 0.85;
+          ctx.fillRect(r.x, r.y + bob, r.w, r.h);
+        });
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(draw);
+      }
+      draw();
+    }
+    function landscapeMini(id) {
+      const c = document.getElementById(id);
+      const ctx = c.getContext("2d");
+      let t = 0;
+      function draw() {
+        t += 0.02;
+        ctx.fillStyle = "#141210";
+        ctx.fillRect(0, 0, c.width, c.height);
+        ctx.strokeStyle = "rgba(232, 168, 56, 0.55)";
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        for (let x = 0; x < c.width; x++) {
+          const y = 80 + Math.sin(x * 0.03 + t) * 28 + Math.sin(x * 0.09 - t * 1.3) * 14;
+          if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+        ctx.fillStyle = "rgba(232, 168, 56, 0.9)";
+        const px = ((t * 40) % (c.width + 20)) - 10;
+        const py = 80 + Math.sin(px * 0.03 + t) * 28 + Math.sin(px * 0.09 - t * 1.3) * 14;
+        ctx.beginPath(); ctx.arc(px, py, 3.5, 0, Math.PI * 2); ctx.fill();
+        requestAnimationFrame(draw);
+      }
+      draw();
+    }
+    function wavesMini(id) {
+      const c = document.getElementById(id);
+      const ctx = c.getContext("2d");
+      let t = 0;
+      function draw() {
+        t += 0.018;
+        ctx.fillStyle = "#08131f";
+        ctx.fillRect(0, 0, c.width, c.height);
+        for (let i = 0; i < 3; i++) {
+          ctx.beginPath();
+          const base = 50 + i * 28;
+          ctx.moveTo(0, c.height);
+          for (let x = 0; x <= c.width; x += 4) {
+            const y = base + Math.sin(x * 0.02 + t + i) * (10 + i * 4);
+            ctx.lineTo(x, y);
+          }
+          ctx.lineTo(c.width, c.height);
+          ctx.closePath();
+          ctx.fillStyle = `rgba(200, 140, 80, ${0.12 + i * 0.1})`;
+          ctx.fill();
+          ctx.strokeStyle = `rgba(232, 214, 190, ${0.25 + i * 0.15})`;
+          ctx.stroke();
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    }
+    packMini("mini-a", ["#1ec8c3", "#0e7c7b", "#7fd9d4", "#f0ebe3", "#0891b2"]);
+    landscapeMini("mini-b");
+    wavesMini("mini-c");
+  </script>
+</body>
+</html>
