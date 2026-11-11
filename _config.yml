@@ -8,10 +8,9 @@ middle_name:
 last_name: Kirschenman
 email: william.kirschenman@nps.edu
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Assistant Professor of Operations Research at the Naval Postgraduate School. Combinatorial and spatial optimization, packing and loading problems, matheuristics and metaheuristics, and computational methods for data analytics.
+  Will Kirschenman — Assistant Professor of Operations Research at the Naval Postgraduate School in Monterey.
 footer_text: >
-  Priority Deck design · hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
-  · built with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>.
+  Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 keywords: operations research, spatial optimization, bin packing, load planning, matheuristics, naval postgraduate school
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⬛ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
@@ -110,7 +109,7 @@ youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
 zotero_username: # your zotero username
 
 contact_note: >
-  The best way to reach me is by email. I welcome questions about my research, potential collaborations, and conversations with students interested in optimization and computational methods.
+  Email is best. Happy to talk with students, collaborators, and anyone working on similar problems.
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
@@ -411,7 +410,7 @@ third_party_libraries:
       js: "https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"
   google_fonts:
     url:
-      fonts: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@500;700;800&family=Material+Icons&display=swap"
+      fonts: "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=Material+Icons&display=swap"
   mathjax:
     url:
       js: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"

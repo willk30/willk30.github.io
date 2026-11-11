@@ -2,9 +2,9 @@
 layout: page
 title: Talks
 permalink: /talks/
-description: Invited seminars, conference presentations, and posters.
+description: Seminars, conference talks, and posters.
 nav: true
-nav_order: 3
+nav_order: 5
 ---
 
 {% assign talks = site.data.talks | sort: "date" | reverse %}

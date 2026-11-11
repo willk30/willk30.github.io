@@ -16,7 +16,7 @@
   </head>
 
   <!-- Body -->
-  <body class="site-deck {% if page.permalink == '/' %}home-deck{% endif %} {% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+  <body class="site-waves {% if page.permalink == '/' %}home-waves{% endif %} {% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
     <!-- Header -->
     {% include header.liquid %}
 
@@ -74,7 +74,7 @@
     {% include scripts/back_to_top.liquid %}
     {% include scripts/search.liquid %}
     {% if page.permalink == '/' %}
-      <script src="{{ '/assets/js/priority-deck.js' | relative_url | bust_file_cache }}"></script>
+      <script src="{{ '/assets/js/waves-bg.js' | relative_url | bust_file_cache }}"></script>
     {% endif %}
   </body>
 </html>

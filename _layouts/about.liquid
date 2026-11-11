@@ -1,126 +1,57 @@
 ---
 layout: default
 ---
-<div class="post deck-home">
-  <header class="deck-hero" aria-label="Introduction">
-    <div class="deck-copy">
-      <div class="deck-eyebrow">Operations Research · Naval Postgraduate School</div>
-      <h1 class="deck-brand">
-        Will<br /><span>Kirschenman</span>
-      </h1>
-      <p class="deck-headline">Priority isn’t just order. It’s geometry.</p>
-      <p class="deck-sub">
-        Assistant Professor studying spatial optimization for layouts where fit is not enough —
-        what must come off first, what stays together, and how the load balances.
-        Combat load planning is the motivating case; the math travels.
-        <a href="{{ '/research/' | relative_url }}">Research overview</a>
-        ·
-        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
-      </p>
-      <div class="deck-cta">
-        <a class="deck-btn" href="#framework">Explore the framework</a>
-        <a class="deck-btn ghost" href="{{ '/publications/' | relative_url }}">Selected papers</a>
-        <a class="deck-btn ghost" href="{{ '/writing/#press-and-coverage' | relative_url }}">Press</a>
+<div class="post waves-home">
+  <header class="waves-hero" aria-label="Introduction">
+    <canvas class="waves-canvas" id="waves-bg" aria-hidden="true"></canvas>
+    <div class="waves-hero-inner">
+      <div class="waves-copy">
+        <p class="waves-eyebrow">Monterey · Naval Postgraduate School</p>
+        <h1 class="waves-name">Will<br /><em>Kirschenman</em></h1>
+        <p class="waves-role">Assistant Professor of Operations Research</p>
+        <p class="waves-lede">
+          I teach OR at NPS, write about AI tools on the side,
+          and used to be an Army engineer and analyst.
+        </p>
+        <nav class="waves-links" aria-label="Site sections">
+          <a href="{{ '/research/' | relative_url }}">Research</a>
+          <a href="{{ '/teaching/' | relative_url }}">Teaching</a>
+          <a href="{{ '/writing/' | relative_url }}">Writing</a>
+          <a href="{{ '/cv/' | relative_url }}">CV</a>
+          <a href="mailto:{{ site.email }}">Email</a>
+        </nav>
       </div>
-      {% if page.profile and page.profile.more_info %}
-        <div class="more-info" style="font-size:0.75rem;color:var(--deck-mute);line-height:1.5;">
-          {{ page.profile.more_info }}
+      {% if page.profile.image %}
+        <div class="waves-photo">
+          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+          {%
+            include figure.liquid loading="eager" path=profile_image_path class="waves-portrait" sizes="(min-width: 900px) 280px, 70vw" alt="Will Kirschenman" cache_bust=true
+          %}
+          {% if page.profile.more_info %}
+            <div class="waves-photo-meta">{{ page.profile.more_info }}</div>
+          {% endif %}
         </div>
       {% endif %}
-    </div>
-
-    <div class="deck-stage">
-      <div class="deck-chrome">
-        <span>Interactive deck · priority packing</span>
-        <span><strong id="deck-fill">0%</strong> packed · click a crate</span>
-      </div>
-      <div class="deck-frame">
-        <div class="deck-hint">Move mouse · click cargo</div>
-        <canvas id="priority-deck" width="720" height="520" role="img" aria-label="Interactive priority packing diagram"></canvas>
-        <div class="deck-ramp">← Access / ramp</div>
-      </div>
-      <div class="deck-legend">
-        <span><i style="background:#1ec8c3"></i>Priority 1</span>
-        <span><i style="background:#0891b2"></i>Priority 2</span>
-        <span><i style="background:#5b8a9a"></i>Priority 3</span>
-        <span><i style="background:#efe8dc"></i>Selected paper</span>
-      </div>
     </div>
   </header>
 
-  <div class="deck-strip" aria-label="Highlights">
-    <div class="deck-stat"><b>Omega · NRL</b><span>2026 refereed articles on prioritized packing</span></div>
-    <div class="deck-stat"><b>Bonder</b><span>INFORMS Military &amp; Security Society scholarship</span></div>
-    <div class="deck-stat"><b>3 thrusts</b><span>Bin → vessel → multi-vessel waves</span></div>
-    <div class="deck-stat"><b>Julia · JuMP</b><span>Matheuristics, GA, GPU proxies</span></div>
-  </div>
-
-  <section class="deck-section" id="framework">
-    <div class="deck-sec-label">Dissertation framework</div>
-    <h2>Three problems. One spatial idea.</h2>
-    <p class="deck-prose">
-      Classical packing asks whether everything fits. Useful plans also ask what has to come off first,
-      what needs to stay together, and whether the center of gravity stays feasible.
-      Click a thrust — the deck restacks around that objective.
-    </p>
-    <div class="deck-thrusts" id="deck-thrusts">
-      <button type="button" class="deck-thrust active" data-mode="priority">
-        <div class="num">01</div>
-        <div>
-          <h3>Prioritized 2-D orthogonal packing</h3>
-          <p>A prioritization matrix pulls high-priority items toward the access point while related items cluster. Sliding-window matheuristic for scale.</p>
-          <div class="links">
-            <a href="https://doi.org/10.1002/nav.70087">Naval Research Logistics</a>
-            <a href="https://doi.org/10.31224/4647">Preprint</a>
-            <a href="https://doi.org/10.5061/dryad.8pk0p2p1z">Data &amp; code</a>
-          </div>
-        </div>
-      </button>
-      <button type="button" class="deck-thrust" data-mode="balance">
-        <div class="num">02</div>
-        <div>
-          <h3>Combat loading with load balancing</h3>
-          <p>Hard center-of-gravity feasibility on a fixed deck with obstacles and separation rules. Matheuristic pipelines finish in minutes.</p>
-          <div class="links">
-            <a href="https://doi.org/10.1016/j.omega.2026.103638">Omega</a>
-            <a href="https://doi.org/10.31224/6041">Preprint</a>
-            <a href="https://news.ncsu.edu/2026/08/cracking-the-packing-code-new-models-incorporate-item-priority-location-and-weight-distribution/">NC State News</a>
-          </div>
-        </div>
-      </button>
-      <button type="button" class="deck-thrust" data-mode="fleet">
-        <div class="num">03</div>
-        <div>
-          <h3>Multi-vessel selection &amp; wave scheduling</h3>
-          <p>Bilevel assignment of groups to a heterogeneous fleet and landing waves. Genetic algorithm guided by a fast packing proxy.</p>
-          <div class="links">
-            <a href="{{ '/publications/' | relative_url }}">Dissertation, 2026</a>
-          </div>
-        </div>
-      </button>
-    </div>
-  </section>
-
-  <div class="deck-home-body">
-    <article>
-      <div class="clearfix deck-about-prose">{{ content }}</div>
-
-      {% if page.news and site.announcements.enabled %}
-        <h2><a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a></h2>
-        {% include news.liquid limit=true %}
-      {% endif %}
-
-      {% if page.selected_papers %}
-        <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit">Selected publications</a></h2>
-        {% include selected_papers.liquid %}
-      {% endif %}
-
-      {% if page.social %}
-        <div class="social">
-          <div class="contact-icons">{% include social.liquid %}</div>
-          <div class="contact-note">{{ site.contact_note }}</div>
-        </div>
-      {% endif %}
+  <div class="waves-body">
+    <article class="waves-about">
+      {{ content }}
     </article>
+
+    {% if page.news and site.announcements.enabled %}
+      <section class="waves-news" aria-labelledby="news-heading">
+        <h2 id="news-heading"><a href="{{ '/news/' | relative_url }}">Recent news</a></h2>
+        {% include news.liquid limit=true %}
+      </section>
+    {% endif %}
+
+    {% if page.social %}
+      <div class="social waves-social">
+        <div class="contact-icons">{% include social.liquid %}</div>
+        <div class="contact-note">{{ site.contact_note }}</div>
+      </div>
+    {% endif %}
   </div>
 </div>

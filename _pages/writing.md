@@ -2,14 +2,14 @@
 layout: page
 title: Writing
 permalink: /writing/
-description: Essays, interviews, and articles for practitioners.
+description: Notes on AI tools, plus press and interviews.
 nav: true
-nav_order: 5
+nav_order: 2
 ---
 
 ## Field Essays
 
-Longer pieces on AI agents, models, and workflows at [Will's AI Field Notes](https://willk30.substack.com) — written for analysts and researchers who want to get real work done with these tools.
+I write at [Will's AI Field Notes](https://willk30.substack.com) about using AI tools for actual work — mostly coding agents, models, and workflows.
 
 <div class="essay-list">
 {% for e in site.data.writing.essays %}
@@ -27,7 +27,7 @@ Longer pieces on AI agents, models, and workflows at [Will's AI Field Notes](htt
 
 ## Recent field dispatches
 
-Weekly-ish notes on models, agents, and tooling. Full archive on Substack.
+Shorter notes from the same Substack. Full archive [here](https://willk30.substack.com/s/field-dispatches).
 
 <div class="essay-list">
 {% for e in site.data.writing.dispatches %}
