@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Landing Waves — Will Kirschenman mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --night: #07111c;
+      --deep: #0c1c2e;
+      --foam: #e8dfd0;
+      --mute: #8b97a8;
+      --copper: #c48a4a;
+      --copper-soft: rgba(196, 138, 74, 0.15);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      background: var(--night);
+      color: var(--foam);
+      font-family: "DM Mono", monospace;
+      overflow: hidden;
+    }
+    .back {
+      position: fixed; top: 1rem; left: 1rem; z-index: 50;
+      font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--mute); text-decoration: none; border: 1px solid rgba(232,223,208,0.18);
+      padding: 0.45rem 0.7rem; background: rgba(7,17,28,0.75); backdrop-filter: blur(8px);
+    }
+    .back:hover { color: var(--copper); border-color: var(--copper); }
+    .mock-badge {
+      position: fixed; top: 1rem; right: 1rem; z-index: 50;
+      font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--copper); background: var(--copper-soft); padding: 0.4rem 0.65rem;
+    }
+    .progress {
+      position: fixed; left: 0; right: 0; top: 0; height: 2px; z-index: 60;
+      background: rgba(232,223,208,0.08);
+    }
+    .progress > i {
+      display: block; height: 100%; width: 0%; background: var(--copper);
+      transition: width 80ms linear;
+    }
+    .hint-scroll {
+      position: fixed; bottom: 1.25rem; right: 1.25rem; z-index: 50;
+      font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--mute); animation: blink 2s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 0.4; } 50% { opacity: 1; }
+    }
+
+    .viewport {
+      height: 100vh; width: 100vw; overflow: hidden; position: relative;
+    }
+    .track {
+      display: flex; height: 100%; width: max-content;
+      will-change: transform;
+    }
+    .panel {
+      width: 100vw; height: 100vh; flex-shrink: 0;
+      position: relative; padding: 5.5rem 4rem 3rem;
+      display: flex; flex-direction: column; justify-content: center;
+      overflow: hidden;
+    }
+    .panel::before {
+      content: ""; position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 80% 20%, rgba(196,138,74,0.1), transparent 55%),
+        linear-gradient(180deg, var(--deep), var(--night));
+    }
+    .panel > * { position: relative; z-index: 1; }
+
+    .wave-canvas {
+      position: absolute; left: 0; right: 0; bottom: 0; height: 38%;
+      z-index: 0; opacity: 0.9; pointer-events: none;
+    }
+
+    .eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--copper); margin-bottom: 1.25rem;
+    }
+    .mega {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(4.5rem, 14vw, 9.5rem);
+      line-height: 0.85; letter-spacing: 0.02em;
+      margin: 0 0 1.25rem; max-width: 12ch;
+    }
+    .mega em {
+      font-style: normal; color: var(--copper);
+    }
+    .statement {
+      font-family: "Literata", Georgia, serif;
+      font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+      line-height: 1.4; max-width: 28ch; margin: 0 0 1.75rem;
+      font-weight: 400;
+    }
+    .fine {
+      font-size: 0.8rem; line-height: 1.65; color: var(--mute); max-width: 36rem;
+      margin: 0 0 2rem;
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .btn {
+      font: inherit; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; padding: 0.85rem 1.15rem; border: 1px solid var(--copper);
+      color: var(--night); background: var(--copper);
+    }
+    .btn.ghost { background: transparent; color: var(--foam); border-color: rgba(232,223,208,0.28); }
+    .btn.ghost:hover { border-color: var(--copper); color: var(--copper); }
+
+    .wave-num {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(8rem, 22vw, 16rem);
+      line-height: 0.8; color: rgba(196,138,74,0.12);
+      position: absolute; right: 4vw; top: 18vh; z-index: 0;
+      pointer-events: none;
+    }
+    .panel-inner { max-width: 720px; }
+    h2 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      letter-spacing: 0.02em; line-height: 0.95;
+      margin: 0 0 1rem;
+    }
+    .panel h2 em { font-style: normal; color: var(--copper); }
+    .body {
+      font-family: "Literata", Georgia, serif;
+      font-size: 1.15rem; line-height: 1.55; color: #d9d1c3;
+      max-width: 38rem; margin: 0 0 1.5rem;
+    }
+    .links { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .links a {
+      color: var(--copper); font-size: 0.75rem; letter-spacing: 0.06em;
+      text-transform: uppercase; text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+    .links a:hover { border-bottom-color: var(--copper); }
+
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 640px;
+    }
+    @media (max-width: 700px) {
+      .panel { padding: 5rem 1.5rem 2.5rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    .chip {
+      border: 1px solid rgba(232,223,208,0.14); padding: 1.25rem;
+      background: rgba(12,28,46,0.55);
+    }
+    .chip .l { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--copper); margin-bottom: 0.4rem; }
+    .chip a, .chip p {
+      font-family: "Literata", Georgia, serif; font-size: 1.05rem;
+      color: var(--foam); text-decoration: none; margin: 0; line-height: 1.35;
+    }
+    .chip a:hover { color: var(--copper); }
+
+    .dots {
+      position: fixed; left: 50%; bottom: 1.25rem; transform: translateX(-50%);
+      z-index: 50; display: flex; gap: 0.5rem;
+    }
+    .dots button {
+      width: 8px; height: 8px; border-radius: 50%; border: 0; padding: 0;
+      background: rgba(232,223,208,0.25); cursor: pointer;
+    }
+    .dots button.on { background: var(--copper); }
+  </style>
+</head>
+<body>
+  <a class="back" href="./index.html">← All directions</a>
+  <div class="mock-badge">Mockup 03 · Landing Waves</div>
+  <div class="progress"><i id="bar"></i></div>
+  <div class="hint-scroll" id="hint">Scroll or drag →</div>
+  <div class="dots" id="dots"></div>
+
+  <div class="viewport" id="viewport">
+    <div class="track" id="track">
+      <!-- 0 intro -->
+      <section class="panel" data-i="0">
+        <canvas class="wave-canvas" data-wave="0"></canvas>
+        <div class="eyebrow">Will Kirschenman · Operations Research · NPS</div>
+        <h1 class="mega">LANDING<br /><em>WAVES</em></h1>
+        <p class="statement">A site that moves the way the research moves — one deck, then balance, then the fleet.</p>
+        <p class="fine">
+          Assistant Professor at the Naval Postgraduate School. Priority-aware spatial optimization
+          for combat load planning, with methods that scale when exact evaluation will not.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="#" id="begin">Begin the expedition</a>
+          <a class="btn ghost" href="mailto:william.kirschenman@nps.edu">Email</a>
+        </div>
+      </section>
+
+      <!-- 1 -->
+      <section class="panel" data-i="1">
+        <div class="wave-num">01</div>
+        <canvas class="wave-canvas" data-wave="1"></canvas>
+        <div class="panel-inner">
+          <div class="eyebrow">Wave one · single bin</div>
+          <h2>PRIORITIZED<br /><em>PACKING</em></h2>
+          <p class="body">
+            Embed a prioritization matrix into 2-D orthogonal packing. High-priority items draw toward
+            the access point; related items stay clustered. When the MIP will not scale, a sliding-window
+            matheuristic solves overlapping priority-ordered subproblems.
+          </p>
+          <div class="links">
+            <a href="https://doi.org/10.1002/nav.70087">Naval Research Logistics</a>
+            <a href="https://doi.org/10.31224/4647">Preprint</a>
+            <a href="https://doi.org/10.5061/dryad.8pk0p2p1z">Data &amp; code</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 -->
+      <section class="panel" data-i="2">
+        <div class="wave-num">02</div>
+        <canvas class="wave-canvas" data-wave="2"></canvas>
+        <div class="panel-inner">
+          <div class="eyebrow">Wave two · one vessel</div>
+          <h2>LOAD<br /><em>BALANCE</em></h2>
+          <p class="body">
+            The deck is fixed; the decision is internal arrangement under hard center-of-gravity
+            feasibility, obstacles, and separation. Matheuristic pipelines with in-stride balancing
+            and selective repair finish in minutes — fast enough for time-critical planning.
+          </p>
+          <div class="links">
+            <a href="https://doi.org/10.1016/j.omega.2026.103638">Omega</a>
+            <a href="https://doi.org/10.31224/6041">Preprint</a>
+            <a href="https://news.ncsu.edu/2026/08/cracking-the-packing-code-new-models-incorporate-item-priority-location-and-weight-distribution/">NC State News</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 -->
+      <section class="panel" data-i="3">
+        <div class="wave-num">03</div>
+        <canvas class="wave-canvas" data-wave="3"></canvas>
+        <div class="panel-inner">
+          <div class="eyebrow">Wave three · the force</div>
+          <h2>FLEET &amp;<br /><em>SCHEDULE</em></h2>
+          <p class="body">
+            Which groups ride which vessels, and which vessels land in which wave. A bilevel MIP in spirit;
+            a genetic algorithm with a rectangular-liquid packing proxy in practice. Congestion dominates —
+            no vessel type wins everywhere.
+          </p>
+          <div class="links">
+            <a href="#">Dissertation, 2026</a>
+            <a href="mailto:william.kirschenman@nps.edu">Talk about student research</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 contact -->
+      <section class="panel" data-i="4">
+        <canvas class="wave-canvas" data-wave="4"></canvas>
+        <div class="eyebrow">End of run · still early tide</div>
+        <h2 class="mega" style="font-size: clamp(3.5rem, 10vw, 7rem);">STAY IN<br /><em>RANGE</em></h2>
+        <p class="statement" style="max-width: 34ch;">Questions, collaborations, and students interested in optimization and computational methods.</p>
+        <div class="contact-grid">
+          <div class="chip">
+            <div class="l">Email</div>
+            <a href="mailto:william.kirschenman@nps.edu">william.kirschenman@nps.edu</a>
+          </div>
+          <div class="chip">
+            <div class="l">Profiles</div>
+            <p>
+              <a href="https://scholar.google.com/citations?user=UlYcxSsAAAAJ">Scholar</a> ·
+              <a href="https://orcid.org/0009-0000-5514-7737">ORCID</a> ·
+              <a href="https://github.com/willk30">GitHub</a>
+            </p>
+          </div>
+          <div class="chip">
+            <div class="l">CV</div>
+            <p>PDF + LaTeX update landing next — send when ready.</p>
+          </div>
+          <div class="chip">
+            <div class="l">Mockups</div>
+            <p><a href="./index.html">Compare all three directions →</a></p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const track = document.getElementById("track");
+      const bar = document.getElementById("bar");
+      const dots = document.getElementById("dots");
+      const hint = document.getElementById("hint");
+      const panels = [...document.querySelectorAll(".panel")];
+      const n = panels.length;
+      let x = 0;
+      let target = 0;
+      let dragging = false;
+      let lastX = 0;
+
+      panels.forEach((_, i) => {
+        const b = document.createElement("button");
+        b.setAttribute("aria-label", "Go to panel " + (i + 1));
+        if (i === 0) b.classList.add("on");
+        b.addEventListener("click", () => { target = i * window.innerWidth; hint.style.display = "none"; });
+        dots.appendChild(b);
+      });
+
+      function maxX() { return (n - 1) * window.innerWidth; }
+
+      function onWheel(e) {
+        e.preventDefault();
+        target = Math.min(maxX(), Math.max(0, target + e.deltaY + e.deltaX));
+        hint.style.display = "none";
+      }
+      window.addEventListener("wheel", onWheel, { passive: false });
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" || e.key === " ") {
+          e.preventDefault();
+          target = Math.min(maxX(), target + window.innerWidth);
+        }
+        if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          target = Math.max(0, target - window.innerWidth);
+        }
+      });
+
+      const vp = document.getElementById("viewport");
+      vp.addEventListener("pointerdown", (e) => {
+        dragging = true; lastX = e.clientX; vp.setPointerCapture(e.pointerId);
+      });
+      vp.addEventListener("pointermove", (e) => {
+        if (!dragging) return;
+        const dx = e.clientX - lastX;
+        lastX = e.clientX;
+        target = Math.min(maxX(), Math.max(0, target - dx));
+      });
+      vp.addEventListener("pointerup", () => {
+        dragging = false;
+        // snap
+        const i = Math.round(target / window.innerWidth);
+        target = i * window.innerWidth;
+      });
+
+      document.getElementById("begin").addEventListener("click", (e) => {
+        e.preventDefault();
+        target = window.innerWidth;
+        hint.style.display = "none";
+      });
+
+      function frame() {
+        x += (target - x) * 0.08;
+        track.style.transform = `translate3d(${-x}px,0,0)`;
+        const p = maxX() ? x / maxX() : 0;
+        bar.style.width = (p * 100) + "%";
+        const idx = Math.round(x / window.innerWidth);
+        [...dots.children].forEach((d, i) => d.classList.toggle("on", i === idx));
+        requestAnimationFrame(frame);
+      }
+      frame();
+
+      // wave canvases
+      document.querySelectorAll(".wave-canvas").forEach((c) => {
+        const ctx = c.getContext("2d");
+        let t = 0;
+        const amp = 10 + Number(c.dataset.wave) * 3;
+        function resize() {
+          c.width = c.parentElement.clientWidth;
+          c.height = c.parentElement.clientHeight * 0.38;
+        }
+        function draw() {
+          t += 0.016;
+          ctx.clearRect(0, 0, c.width, c.height);
+          for (let layer = 0; layer < 3; layer++) {
+            ctx.beginPath();
+            const base = c.height * (0.35 + layer * 0.18);
+            ctx.moveTo(0, c.height);
+            for (let i = 0; i <= c.width; i += 6) {
+              const y = base + Math.sin(i * 0.012 + t * (1 + layer * 0.2) + Number(c.dataset.wave)) * (amp + layer * 4);
+              ctx.lineTo(i, y);
+            }
+            ctx.lineTo(c.width, c.height);
+            ctx.closePath();
+            ctx.fillStyle = `rgba(196,138,74,${0.05 + layer * 0.04})`;
+            ctx.fill();
+            ctx.strokeStyle = `rgba(232,223,208,${0.12 + layer * 0.08})`;
+            ctx.stroke();
+          }
+          requestAnimationFrame(draw);
+        }
+        resize();
+        window.addEventListener("resize", () => {
+          resize();
+          target = Math.round(target / window.innerWidth) * window.innerWidth;
+        });
+        draw();
+      });
+    })();
+  </script>
+</body>
+</html>

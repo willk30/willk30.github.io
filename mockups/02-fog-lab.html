@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fog Lab — Will Kirschenman mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #12100e;
+      --panel: #1a1714;
+      --fog: #cfc6b8;
+      --fog-dim: #8a8276;
+      --amber: #e8a838;
+      --amber-soft: rgba(232, 168, 56, 0.12);
+      --line: rgba(207, 198, 184, 0.14);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fog);
+      font-family: "JetBrains Mono", monospace;
+    }
+    .back {
+      position: fixed; top: 1rem; left: 1rem; z-index: 40;
+      font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--fog-dim); text-decoration: none; border: 1px solid var(--line);
+      padding: 0.45rem 0.7rem; background: rgba(18,16,14,0.75); backdrop-filter: blur(8px);
+    }
+    .back:hover { color: var(--amber); border-color: var(--amber); }
+    .mock-badge {
+      position: fixed; top: 1rem; right: 1rem; z-index: 40;
+      font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--amber); background: var(--amber-soft); padding: 0.4rem 0.65rem;
+    }
+
+    .fog-layer {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(232,168,56,0.08), transparent 50%),
+        radial-gradient(ellipse 60% 40% at 90% 20%, rgba(207,198,184,0.06), transparent 45%),
+        radial-gradient(ellipse 70% 50% at 50% 110%, rgba(232,168,56,0.05), transparent 50%);
+      animation: fogDrift 18s ease-in-out infinite alternate;
+    }
+    @keyframes fogDrift {
+      from { transform: translate3d(0,0,0) scale(1); }
+      to { transform: translate3d(-2%, 1%, 0) scale(1.04); }
+    }
+
+    nav.top {
+      position: relative; z-index: 2;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 2.5rem; border-bottom: 1px solid var(--line);
+      margin-top: 3.2rem;
+    }
+    .logo {
+      font-family: "Space Grotesk", sans-serif; font-weight: 700;
+      letter-spacing: -0.03em; font-size: 1rem;
+    }
+    .logo em { font-style: normal; color: var(--amber); }
+    .nav-links { display: flex; gap: 1.25rem; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .nav-links a { color: var(--fog-dim); text-decoration: none; }
+    .nav-links a:hover { color: var(--amber); }
+
+    .hero {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1.1fr 0.9fr;
+      min-height: calc(100vh - 7rem);
+      border-bottom: 1px solid var(--line);
+    }
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+    .hero-left {
+      padding: 4rem 2.5rem 3rem 3rem;
+      display: flex; flex-direction: column; justify-content: center;
+      border-right: 1px solid var(--line);
+    }
+    .kicker {
+      font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(2.6rem, 6vw, 4.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      margin: 0 0 1.5rem;
+      max-width: 10ch;
+    }
+    .role {
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 1.35rem; line-height: 1.45; color: var(--fog);
+      max-width: 28rem; margin: 0 0 1.25rem;
+    }
+    .role strong { color: var(--amber); font-weight: 500; }
+    .bio {
+      font-size: 0.8rem; line-height: 1.7; color: var(--fog-dim);
+      max-width: 36rem; margin: 0 0 2rem;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 0.65rem; }
+    .btn {
+      font: inherit; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; padding: 0.8rem 1.1rem; border: 1px solid var(--amber);
+      color: var(--bg); background: var(--amber); transition: 150ms ease;
+    }
+    .btn.ghost { background: transparent; color: var(--fog); border-color: var(--line); }
+    .btn.ghost:hover { border-color: var(--amber); color: var(--amber); }
+
+    .hero-right {
+      padding: 2rem 1.5rem 1.5rem;
+      display: flex; flex-direction: column; gap: 1rem;
+      background: var(--panel);
+    }
+    .panel-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--fog-dim);
+    }
+    .panel-head strong { color: var(--amber); font-weight: 500; }
+    .solver {
+      flex: 1; border: 1px solid var(--line); position: relative; min-height: 280px;
+      background: #0e0c0a;
+      overflow: hidden;
+    }
+    #fitness { width: 100%; height: 100%; display: block; min-height: 280px; }
+    .ticker {
+      border: 1px solid var(--line); padding: 0.85rem 1rem;
+      font-size: 0.72rem; line-height: 1.55; color: var(--fog-dim);
+      max-height: 140px; overflow: hidden; position: relative;
+    }
+    .ticker::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 36px;
+      background: linear-gradient(transparent, var(--panel));
+      pointer-events: none;
+    }
+    .ticker .line { white-space: nowrap; }
+    .ticker .line b { color: var(--amber); font-weight: 500; }
+    .obj-switch {
+      display: flex; gap: 0.4rem; flex-wrap: wrap;
+    }
+    .obj-switch button {
+      font: inherit; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.45rem 0.65rem; border: 1px solid var(--line); background: transparent;
+      color: var(--fog-dim); cursor: pointer;
+    }
+    .obj-switch button.on {
+      border-color: var(--amber); color: var(--amber); background: var(--amber-soft);
+    }
+
+    .awards {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid var(--line);
+      position: relative; z-index: 1;
+    }
+    @media (max-width: 800px) { .awards { grid-template-columns: 1fr; } }
+    .award {
+      padding: 1.5rem 1.75rem; border-right: 1px solid var(--line);
+    }
+    .award:last-child { border-right: none; }
+    .award .y { font-size: 0.68rem; color: var(--amber); letter-spacing: 0.12em; margin-bottom: 0.4rem; }
+    .award h3 {
+      font-family: "Newsreader", Georgia, serif; font-weight: 500;
+      font-size: 1.15rem; margin: 0 0 0.35rem; line-height: 1.25;
+    }
+    .award p { margin: 0; font-size: 0.72rem; color: var(--fog-dim); line-height: 1.45; }
+
+    section.block {
+      position: relative; z-index: 1;
+      padding: 4rem 3rem; max-width: 1080px; margin: 0 auto;
+    }
+    .sec-k {
+      font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-family: "Newsreader", Georgia, serif; font-weight: 500;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem); letter-spacing: -0.02em;
+      margin: 0 0 1rem; max-width: 16ch; line-height: 1.1;
+    }
+    .lede {
+      font-family: "Newsreader", Georgia, serif; font-size: 1.2rem;
+      line-height: 1.5; color: var(--fog); max-width: 38rem; margin: 0 0 2rem;
+    }
+
+    .pub-list { display: flex; flex-direction: column; }
+    .pub {
+      display: grid; grid-template-columns: 6rem 1fr; gap: 1.25rem;
+      padding: 1.25rem 0; border-top: 1px solid var(--line);
+    }
+    .pub .yr { font-size: 0.72rem; color: var(--amber); letter-spacing: 0.08em; padding-top: 0.35rem; }
+    .pub h3 {
+      font-family: "Newsreader", Georgia, serif; font-weight: 500;
+      font-size: 1.2rem; margin: 0 0 0.4rem; line-height: 1.3;
+    }
+    .pub .meta { font-size: 0.75rem; color: var(--fog-dim); margin-bottom: 0.65rem; }
+    .pub .links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .pub .links a {
+      font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--amber); text-decoration: none; border-bottom: 1px solid transparent;
+    }
+    .pub .links a:hover { border-bottom-color: var(--amber); }
+
+    .teach {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    @media (max-width: 700px) { .teach { grid-template-columns: 1fr; } }
+    .course {
+      border: 1px solid var(--line); padding: 1.25rem;
+      background: rgba(26,23,20,0.6);
+      transition: border-color 150ms ease;
+    }
+    .course:hover { border-color: var(--amber); }
+    .course .code { font-size: 0.68rem; color: var(--amber); letter-spacing: 0.12em; }
+    .course h3 {
+      font-family: "Space Grotesk", sans-serif; font-size: 1.05rem;
+      margin: 0.35rem 0 0.5rem; letter-spacing: -0.02em;
+    }
+    .course p { margin: 0; font-size: 0.75rem; color: var(--fog-dim); line-height: 1.5; }
+
+    footer.site {
+      position: relative; z-index: 1;
+      border-top: 1px solid var(--line);
+      padding: 1.75rem 2.5rem; font-size: 0.72rem; color: var(--fog-dim);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    footer.site a { color: var(--amber); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="fog-layer" aria-hidden="true"></div>
+  <a class="back" href="./index.html">← All directions</a>
+  <div class="mock-badge">Mockup 02 · Fog Lab</div>
+
+  <nav class="top">
+    <div class="logo">Kirschenman<em>.</em>lab</div>
+    <div class="nav-links">
+      <a href="#research">Research</a>
+      <a href="#papers">Papers</a>
+      <a href="#teaching">Teaching</a>
+      <a href="mailto:william.kirschenman@nps.edu">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-left">
+      <div class="kicker">Monterey · Naval Postgraduate School</div>
+      <h1>Spatial problems with a clock running.</h1>
+      <p class="role">
+        Will Kirschenman builds <strong>priority-aware packing models</strong> for combat load planning —
+        and for any layout where access order, cohesion, and balance decide whether a plan is useful.
+      </p>
+      <p class="bio">
+        Assistant Professor of Operations Research. Ph.D., NC State, 2026 (Outstanding Dissertation Award).
+        Methods: mixed-integer programming, sliding-window matheuristics, metaheuristics with proxy objectives,
+        Julia / JuMP / Gurobi, HPC and GPU computing. 2026 Seth Bonder Scholarship recipient.
+      </p>
+      <div class="actions">
+        <a class="btn" href="#papers">Read the papers</a>
+        <a class="btn ghost" href="#research">Research thrusts</a>
+        <a class="btn ghost" href="mailto:william.kirschenman@nps.edu">william.kirschenman@nps.edu</a>
+      </div>
+    </div>
+    <aside class="hero-right">
+      <div class="panel-head">
+        <span>Live objective landscape</span>
+        <span>gen <strong id="gen">0</strong> · best <strong id="best">—</strong></span>
+      </div>
+      <div class="obj-switch" id="objectives">
+        <button class="on" data-obj="access">Access priority</button>
+        <button data-obj="balance">Center of gravity</button>
+        <button data-obj="cohesion">Group cohesion</button>
+      </div>
+      <div class="solver"><canvas id="fitness" width="640" height="360"></canvas></div>
+      <div class="ticker" id="ticker" aria-live="polite"></div>
+    </aside>
+  </header>
+
+  <div class="awards">
+    <div class="award">
+      <div class="y">2026</div>
+      <h3>Seth Bonder Scholarship</h3>
+      <p>INFORMS Military and Security Society — applied OR in military &amp; security</p>
+    </div>
+    <div class="award">
+      <div class="y">2026</div>
+      <h3>Outstanding Dissertation</h3>
+      <p>NC State ISE — Multi-Level Prioritized Packing Framework</p>
+    </div>
+    <div class="award">
+      <div class="y">Journals</div>
+      <h3>Omega · Naval Research Logistics</h3>
+      <p>Prioritized packing with balance, preprints and reproducible data linked</p>
+    </div>
+  </div>
+
+  <section class="block" id="research">
+    <div class="sec-k">What the lab is for</div>
+    <h2>Make search cheap when evaluation is expensive.</h2>
+    <p class="lede">
+      Decompose monolithic models into solvable windows. Build lower bounds and proxy oracles
+      fast enough to call inside a metaheuristic. Validate with large computational experiments —
+      then put credible plans in front of planners.
+    </p>
+  </section>
+
+  <section class="block" id="papers">
+    <div class="sec-k">Selected writing</div>
+    <h2>Papers with every door open.</h2>
+    <div class="pub-list">
+      <article class="pub">
+        <div class="yr">2026 · Omega</div>
+        <div>
+          <h3>Enhancing Military Load Planning: A Prioritized 2-D Orthogonal Packing Approach</h3>
+          <div class="meta">Kirschenman, Heese, Kay, King, McConnell · vol. 145, 103638</div>
+          <div class="links">
+            <a href="https://doi.org/10.1016/j.omega.2026.103638">Journal DOI</a>
+            <a href="https://doi.org/10.31224/6041">Preprint</a>
+            <a href="https://doi.org/10.5061/dryad.vt4b8gv5z">Data &amp; code</a>
+            <a href="https://news.ncsu.edu/2026/08/cracking-the-packing-code-new-models-incorporate-item-priority-location-and-weight-distribution/">NC State News</a>
+          </div>
+        </div>
+      </article>
+      <article class="pub">
+        <div class="yr">2026 · NRL</div>
+        <div>
+          <h3>The 2-D Orthogonal Packing Problem with Multiple Levels of Prioritization</h3>
+          <div class="meta">Kirschenman, Heese, Kay, King, McConnell · Naval Research Logistics</div>
+          <div class="links">
+            <a href="https://doi.org/10.1002/nav.70087">Journal DOI</a>
+            <a href="https://doi.org/10.31224/4647">Preprint</a>
+            <a href="https://doi.org/10.5061/dryad.8pk0p2p1z">Data &amp; code</a>
+          </div>
+        </div>
+      </article>
+      <article class="pub">
+        <div class="yr">2026 · Army Sust.</div>
+        <div>
+          <h3>Automating Combat Loading to Strengthen LSCO Readiness</h3>
+          <div class="meta">Kirschenman, Constantino, Heese, King, McConnell · Army Sustainment 58(3)</div>
+          <div class="links">
+            <a href="https://www.army.mil/article/293624/automating_combat_loading_to_strengthen_lsco_readiness">Article</a>
+            <a href="https://www.lib.ncsu.edu/resolver/1840.20/46886">PDF</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="teaching">
+    <div class="sec-k">Teaching</div>
+    <h2>Computational methods for analysts who ship.</h2>
+    <div class="teach">
+      <div class="course">
+        <div class="code">OA / Computational sequence</div>
+        <h3>Data acquisition &amp; preparation</h3>
+        <p>Getting messy operational data into analysis-ready form — then automating the path so it runs again tomorrow.</p>
+      </div>
+      <div class="course">
+        <div class="code">OA / Computational sequence</div>
+        <h3>Scale, remote, and HPC</h3>
+        <p>When the laptop is not enough: remote resources, batch patterns, and sober judgment about what to parallelize.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site">
+    <div>william.kirschenman@nps.edu · NPS Operations Research</div>
+    <div><a href="./index.html">Back to directions</a> · Mockup only</div>
+  </footer>
+
+  <script>
+    (() => {
+      const canvas = document.getElementById("fitness");
+      const ctx = canvas.getContext("2d");
+      const genEl = document.getElementById("gen");
+      const bestEl = document.getElementById("best");
+      const ticker = document.getElementById("ticker");
+      let obj = "access";
+      let gen = 0;
+      let best = 1.0;
+      let t = 0;
+      const history = [];
+      const logs = [];
+
+      const messages = {
+        access: [
+          "window 3/12 · priority pull toward ramp",
+          "repair: swap P1 cluster with P3 filler",
+          "LB tightens · gap 4.2% → 3.1%",
+          "warm start from prior shelf pack",
+        ],
+        balance: [
+          "CG drift +0.18m starboard · penalty on",
+          "selective relax of 4 heavy items",
+          "balance recovered · priority loss 1.4%",
+          "obstacle mask reapplied · ok",
+        ],
+        cohesion: [
+          "group G7 split across aisle · crossover",
+          "wave-aware partition keeps cohort intact",
+          "proxy rectangle-liquid eval on GPU",
+          "elite revalidated on CPU exact pack",
+        ],
+      };
+
+      function resize() {
+        const r = canvas.parentElement.getBoundingClientRect();
+        canvas.width = r.width;
+        canvas.height = Math.max(280, r.height);
+      }
+
+      function noise(x, y, time, kind) {
+        if (kind === "access") {
+          return Math.sin(x * 0.045 + time) * Math.cos(y * 0.05 - time * 0.7) +
+            Math.sin((x + y) * 0.02 + time * 1.2) * 0.55;
+        }
+        if (kind === "balance") {
+          const cx = canvas.width / 2, cy = canvas.height / 2;
+          const d = Math.hypot(x - cx, y - cy) / 120;
+          return Math.cos(d * 2.2 - time) * Math.sin(x * 0.03) + Math.sin(y * 0.04 + time);
+        }
+        return Math.sin(x * 0.02 + time) * Math.sin(y * 0.035 - time) +
+          Math.cos((x - y) * 0.025 + time * 0.8) * 0.7;
+      }
+
+      function draw() {
+        t += 0.02;
+        ctx.fillStyle = "#0e0c0a";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // mesh field
+        const step = 18;
+        for (let y = 0; y < canvas.height; y += step) {
+          ctx.beginPath();
+          for (let x = 0; x < canvas.width; x += 4) {
+            const n = noise(x, y, t, obj);
+            const yy = y + n * 10;
+            if (x === 0) ctx.moveTo(x, yy); else ctx.lineTo(x, yy);
+          }
+          ctx.strokeStyle = `rgba(232,168,56,${0.08 + (y / canvas.height) * 0.18})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+
+        // fitness trace
+        if (history.length > 1) {
+          ctx.beginPath();
+          history.forEach((v, i) => {
+            const x = (i / (history.length - 1)) * (canvas.width - 24) + 12;
+            const y = canvas.height - 24 - v * (canvas.height - 48);
+            if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+          });
+          ctx.strokeStyle = "#e8a838";
+          ctx.lineWidth = 2;
+          ctx.stroke();
+          const last = history[history.length - 1];
+          const lx = canvas.width - 12;
+          const ly = canvas.height - 24 - last * (canvas.height - 48);
+          ctx.fillStyle = "#e8a838";
+          ctx.beginPath(); ctx.arc(lx, ly, 3.5, 0, Math.PI * 2); ctx.fill();
+        }
+
+        ctx.fillStyle = "rgba(207,198,184,0.35)";
+        ctx.font = "11px JetBrains Mono";
+        ctx.fillText("objective surface · " + obj, 12, 20);
+        requestAnimationFrame(draw);
+      }
+
+      function tick() {
+        gen += 1;
+        const improve = Math.random() * 0.04 * (1 - best * 0.85);
+        best = Math.min(0.995, best + improve * (Math.random() > 0.35 ? 1 : -0.15));
+        if (best < 0.2) best = 0.2 + Math.random() * 0.1;
+        history.push(best);
+        if (history.length > 80) history.shift();
+        genEl.textContent = String(gen);
+        bestEl.textContent = best.toFixed(3);
+
+        const pool = messages[obj];
+        const msg = pool[Math.floor(Math.random() * pool.length)];
+        logs.unshift(`<div class="line"><b>g${gen}</b> · ${msg}</div>`);
+        if (logs.length > 8) logs.pop();
+        ticker.innerHTML = logs.join("");
+      }
+
+      document.querySelectorAll("#objectives button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll("#objectives button").forEach(b => b.classList.remove("on"));
+          btn.classList.add("on");
+          obj = btn.dataset.obj;
+          best = 0.35 + Math.random() * 0.2;
+          history.length = 0;
+          logs.length = 0;
+          gen = 0;
+        });
+      });
+
+      window.addEventListener("resize", resize);
+      resize();
+      draw();
+      setInterval(tick, 700);
+      tick();
+    })();
+  </script>
+</body>
+</html>

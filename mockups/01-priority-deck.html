@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Priority Deck — Will Kirschenman mockup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #06141a;
+      --panel: #0b1f26;
+      --bone: #efe8dc;
+      --mute: #8aa0a8;
+      --cyan: #1ec8c3;
+      --cyan-dim: rgba(30, 200, 195, 0.14);
+      --ramp: #f0ebe3;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--ink);
+      color: var(--bone);
+      font-family: "IBM Plex Mono", monospace;
+      overflow-x: hidden;
+    }
+    .back {
+      position: fixed; top: 1rem; left: 1rem; z-index: 40;
+      font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--mute); text-decoration: none; border: 1px solid rgba(239,232,220,0.18);
+      padding: 0.45rem 0.7rem; background: rgba(6,20,26,0.7); backdrop-filter: blur(8px);
+    }
+    .back:hover { color: var(--cyan); border-color: var(--cyan); }
+    .mock-badge {
+      position: fixed; top: 1rem; right: 1rem; z-index: 40;
+      font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--cyan); background: var(--cyan-dim); padding: 0.4rem 0.65rem;
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 0;
+      position: relative;
+    }
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+    }
+    .hero-copy {
+      padding: 5.5rem 2.5rem 3rem 3rem;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; z-index: 2;
+    }
+    .eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 1.4rem;
+    }
+    .brand {
+      font-family: "Syne", sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.8rem, 7vw, 5.4rem);
+      line-height: 0.88;
+      letter-spacing: -0.045em;
+      margin: 0 0 1.25rem;
+    }
+    .brand span { color: var(--cyan); }
+    .headline {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+      line-height: 1.35;
+      max-width: 22ch;
+      margin: 0 0 1.5rem;
+      color: var(--bone);
+    }
+    .sub {
+      font-size: 0.82rem; line-height: 1.65; color: var(--mute); max-width: 34rem; margin: 0 0 2rem;
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .btn {
+      font-family: inherit; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+      text-decoration: none; padding: 0.85rem 1.15rem; border: 1px solid var(--cyan);
+      color: var(--ink); background: var(--cyan); cursor: pointer; transition: 150ms ease;
+    }
+    .btn.ghost { background: transparent; color: var(--bone); border-color: rgba(239,232,220,0.28); }
+    .btn:hover { filter: brightness(1.08); }
+    .btn.ghost:hover { border-color: var(--cyan); color: var(--cyan); }
+
+    .deck-stage {
+      position: relative;
+      background:
+        radial-gradient(ellipse at 70% 40%, rgba(30,200,195,0.12), transparent 55%),
+        linear-gradient(180deg, #0a1c24 0%, #06141a 100%);
+      border-left: 1px solid rgba(239,232,220,0.08);
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      padding: 4.5rem 1.5rem 1.5rem;
+    }
+    @media (max-width: 960px) {
+      .deck-stage { min-height: 70vh; border-left: none; border-top: 1px solid rgba(239,232,220,0.08); }
+    }
+    .deck-chrome {
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--mute); margin-bottom: 0.75rem; padding: 0 0.25rem;
+    }
+    .deck-chrome strong { color: var(--cyan); font-weight: 500; }
+    .deck-frame {
+      flex: 1; position: relative; border: 1px solid rgba(30,200,195,0.35);
+      background: rgba(0,0,0,0.25); overflow: hidden;
+    }
+    .deck-frame::before {
+      content: ""; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(30,200,195,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30,200,195,0.05) 1px, transparent 1px);
+      background-size: 28px 28px; pointer-events: none;
+    }
+    #deck {
+      width: 100%; height: 100%; display: block; position: relative; z-index: 1;
+      min-height: 420px; cursor: crosshair;
+    }
+    .ramp-label {
+      position: absolute; left: 0.75rem; bottom: 0.75rem; z-index: 2;
+      font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--cyan); background: rgba(6,20,26,0.8); padding: 0.35rem 0.55rem;
+    }
+    .legend {
+      display: flex; flex-wrap: wrap; gap: 0.85rem; margin-top: 0.85rem;
+      font-size: 0.68rem; color: var(--mute); letter-spacing: 0.04em;
+    }
+    .legend i {
+      display: inline-block; width: 10px; height: 10px; margin-right: 0.35rem;
+      vertical-align: -1px;
+    }
+
+    /* ---- STRIP ---- */
+    .strip {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(239,232,220,0.1);
+      border-bottom: 1px solid rgba(239,232,220,0.1);
+    }
+    @media (max-width: 800px) { .strip { grid-template-columns: 1fr 1fr; } }
+    .stat {
+      padding: 1.35rem 1.5rem; border-right: 1px solid rgba(239,232,220,0.1);
+    }
+    .stat:last-child { border-right: none; }
+    .stat b {
+      display: block; font-family: "Syne", sans-serif; font-size: 1.55rem;
+      letter-spacing: -0.02em; color: var(--cyan); margin-bottom: 0.25rem;
+    }
+    .stat span { font-size: 0.72rem; color: var(--mute); line-height: 1.4; }
+
+    /* ---- SECTIONS ---- */
+    section { padding: 4.5rem 3rem; max-width: 1100px; margin: 0 auto; }
+    .sec-label {
+      font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-family: "Syne", sans-serif; font-weight: 700;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem); letter-spacing: -0.03em;
+      line-height: 1.05; margin: 0 0 1rem; max-width: 18ch;
+    }
+    .prose {
+      font-family: "Fraunces", Georgia, serif; font-size: 1.15rem;
+      line-height: 1.55; color: #d7cfc2; max-width: 40rem; margin: 0 0 2rem;
+    }
+    .thrusts { display: grid; gap: 1rem; }
+    .thrust {
+      display: grid; grid-template-columns: 4.5rem 1fr; gap: 1rem;
+      padding: 1.25rem 1.35rem; border: 1px solid rgba(239,232,220,0.1);
+      background: var(--panel); cursor: pointer; transition: border-color 160ms ease, background 160ms ease;
+    }
+    .thrust:hover, .thrust.active {
+      border-color: var(--cyan); background: rgba(30,200,195,0.06);
+    }
+    .thrust-num {
+      font-family: "Syne", sans-serif; font-size: 2rem; font-weight: 800;
+      color: var(--cyan); line-height: 1;
+    }
+    .thrust h3 {
+      font-family: "Syne", sans-serif; font-size: 1.1rem; margin: 0 0 0.45rem;
+      letter-spacing: -0.01em;
+    }
+    .thrust p { margin: 0; font-size: 0.8rem; line-height: 1.55; color: var(--mute); }
+    .thrust .links { margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .thrust .links a {
+      color: var(--cyan); font-size: 0.72rem; text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+    .thrust .links a:hover { border-bottom-color: var(--cyan); }
+
+    .papers {
+      display: grid; gap: 0.75rem; margin-top: 1.5rem;
+    }
+    .paper {
+      display: grid; grid-template-columns: 5.5rem 1fr auto; gap: 1rem; align-items: start;
+      padding: 1rem 0; border-bottom: 1px solid rgba(239,232,220,0.1);
+    }
+    .paper .abbr {
+      font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink); background: var(--cyan); padding: 0.25rem 0.45rem; display: inline-block;
+    }
+    .paper h4 {
+      font-family: "Fraunces", Georgia, serif; font-weight: 400;
+      font-size: 1.05rem; margin: 0 0 0.35rem; line-height: 1.3;
+    }
+    .paper .meta { font-size: 0.72rem; color: var(--mute); }
+    .paper .actions { display: flex; flex-direction: column; gap: 0.35rem; }
+    .paper .actions a {
+      font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--cyan); text-decoration: none;
+    }
+
+    footer.site {
+      border-top: 1px solid rgba(239,232,220,0.1);
+      padding: 2rem 3rem; font-size: 0.72rem; color: var(--mute);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    footer.site a { color: var(--cyan); text-decoration: none; }
+
+    .hint {
+      position: absolute; right: 1rem; top: 1rem; z-index: 2;
+      font-size: 0.65rem; color: var(--mute); letter-spacing: 0.08em; text-transform: uppercase;
+      opacity: 0.8; animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.45; } 50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <a class="back" href="./index.html">← All directions</a>
+  <div class="mock-badge">Mockup 01 · Priority Deck</div>
+
+  <header class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">Operations Research · Naval Postgraduate School</div>
+      <h1 class="brand">Will<br /><span>Kirschenman</span></h1>
+      <p class="headline">Priority isn’t just order. It’s geometry.</p>
+      <p class="sub">
+        Assistant Professor studying spatial optimization for layouts where fit is not enough —
+        what must come off first, what stays together, and how the load balances.
+        Combat load planning is the motivating case; the math travels.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href="#research">Explore the framework</a>
+        <a class="btn ghost" href="#papers">Selected papers</a>
+        <a class="btn ghost" href="mailto:william.kirschenman@nps.edu">Email</a>
+      </div>
+    </div>
+    <div class="deck-stage">
+      <div class="deck-chrome">
+        <span>Interactive deck · priority packing</span>
+        <span><strong id="fill-pct">0%</strong> packed · click a crate</span>
+      </div>
+      <div class="deck-frame">
+        <div class="hint">Move mouse · click cargo</div>
+        <canvas id="deck" width="720" height="560"></canvas>
+        <div class="ramp-label">← Access / ramp</div>
+      </div>
+      <div class="legend">
+        <span><i style="background:#1ec8c3"></i>Priority 1</span>
+        <span><i style="background:#0891b2"></i>Priority 2</span>
+        <span><i style="background:#5b8a9a"></i>Priority 3</span>
+        <span><i style="background:#efe8dc"></i>Selected paper</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="strip">
+    <div class="stat"><b>Omega · NRL</b><span>2026 refereed articles on prioritized packing</span></div>
+    <div class="stat"><b>Bonder</b><span>INFORMS Military &amp; Security Society scholarship</span></div>
+    <div class="stat"><b>3 thrusts</b><span>Bin → vessel → multi-vessel waves</span></div>
+    <div class="stat"><b>Julia · JuMP</b><span>Matheuristics, GA, GPU proxies</span></div>
+  </div>
+
+  <section id="research">
+    <div class="sec-label">Dissertation framework</div>
+    <h2>Three problems. One spatial idea.</h2>
+    <p class="prose">
+      Classical packing asks whether everything fits. Useful plans also ask what has to come off first,
+      what needs to stay together, and whether the center of gravity stays feasible.
+      Click a thrust — the deck restacks around that objective.
+    </p>
+    <div class="thrusts" id="thrusts">
+      <article class="thrust active" data-mode="priority">
+        <div class="thrust-num">01</div>
+        <div>
+          <h3>Prioritized 2-D orthogonal packing</h3>
+          <p>A prioritization matrix pulls high-priority items toward the access point while related items cluster. Sliding-window matheuristic for scale.</p>
+          <div class="links">
+            <a href="https://doi.org/10.1002/nav.70087">Naval Research Logistics</a>
+            <a href="https://doi.org/10.31224/4647">Preprint</a>
+            <a href="https://doi.org/10.5061/dryad.8pk0p2p1z">Data &amp; code</a>
+          </div>
+        </div>
+      </article>
+      <article class="thrust" data-mode="balance">
+        <div class="thrust-num">02</div>
+        <div>
+          <h3>Combat loading with load balancing</h3>
+          <p>Hard center-of-gravity feasibility on a fixed deck with obstacles and separation rules. Matheuristic pipelines finish in minutes.</p>
+          <div class="links">
+            <a href="https://doi.org/10.1016/j.omega.2026.103638">Omega</a>
+            <a href="https://doi.org/10.31224/6041">Preprint</a>
+            <a href="https://news.ncsu.edu/2026/08/cracking-the-packing-code-new-models-incorporate-item-priority-location-and-weight-distribution/">NC State News</a>
+          </div>
+        </div>
+      </article>
+      <article class="thrust" data-mode="fleet">
+        <div class="thrust-num">03</div>
+        <div>
+          <h3>Multi-vessel selection &amp; wave scheduling</h3>
+          <p>Bilevel assignment of groups to a heterogeneous fleet and landing waves. Genetic algorithm guided by a fast packing proxy.</p>
+          <div class="links">
+            <a href="#">Dissertation, 2026</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="papers">
+    <div class="sec-label">Selected papers</div>
+    <h2>Linked, not buried.</h2>
+    <div class="papers">
+      <div class="paper" data-cargo="omega">
+        <div><span class="abbr">Omega</span></div>
+        <div>
+          <h4>Enhancing Military Load Planning: A Prioritized 2-D Orthogonal Packing Approach</h4>
+          <div class="meta">Kirschenman et al. · 2026 · vol. 145</div>
+        </div>
+        <div class="actions">
+          <a href="https://doi.org/10.1016/j.omega.2026.103638">DOI</a>
+          <a href="https://doi.org/10.31224/6041">Preprint</a>
+          <a href="https://doi.org/10.5061/dryad.vt4b8gv5z">Data</a>
+        </div>
+      </div>
+      <div class="paper" data-cargo="nrl">
+        <div><span class="abbr">NRL</span></div>
+        <div>
+          <h4>The 2-D Orthogonal Packing Problem with Multiple Levels of Prioritization</h4>
+          <div class="meta">Kirschenman et al. · Naval Research Logistics · 2026</div>
+        </div>
+        <div class="actions">
+          <a href="https://doi.org/10.1002/nav.70087">DOI</a>
+          <a href="https://doi.org/10.31224/4647">Preprint</a>
+          <a href="https://doi.org/10.5061/dryad.8pk0p2p1z">Data</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site">
+    <div>william.kirschenman@nps.edu · Operations Research · NPS Monterey</div>
+    <div><a href="./index.html">Back to directions</a> · Mockup only — not live</div>
+  </footer>
+
+  <script>
+    (() => {
+      const canvas = document.getElementById("deck");
+      const ctx = canvas.getContext("2d");
+      const fillEl = document.getElementById("fill-pct");
+      let mode = "priority";
+      let mouse = { x: 0, y: 0 };
+      let selected = null;
+      let t = 0;
+
+      const items = [
+        { id: "omega", label: "Omega", w: 110, h: 70, pri: 1, mass: 8 },
+        { id: "nrl", label: "NRL", w: 95, h: 62, pri: 1, mass: 7 },
+        { id: "a1", label: "P1-A", w: 70, h: 48, pri: 1, mass: 5 },
+        { id: "a2", label: "P1-B", w: 58, h: 58, pri: 1, mass: 6 },
+        { id: "b1", label: "P2-A", w: 84, h: 44, pri: 2, mass: 4 },
+        { id: "b2", label: "P2-B", w: 64, h: 52, pri: 2, mass: 5 },
+        { id: "b3", label: "P2-C", w: 48, h: 48, pri: 2, mass: 3 },
+        { id: "c1", label: "P3-A", w: 72, h: 36, pri: 3, mass: 2 },
+        { id: "c2", label: "P3-B", w: 54, h: 40, pri: 3, mass: 3 },
+        { id: "c3", label: "P3-C", w: 40, h: 40, pri: 3, mass: 2 },
+        { id: "c4", label: "P3-D", w: 60, h: 28, pri: 3, mass: 2 },
+      ].map((it, i) => ({
+        ...it,
+        x: 40 + (i % 4) * 140,
+        y: 80 + Math.floor(i / 4) * 120,
+        tx: 0, ty: 0,
+      }));
+
+      function colorFor(it) {
+        if (selected === it.id) return "#efe8dc";
+        if (it.pri === 1) return "#1ec8c3";
+        if (it.pri === 2) return "#0891b2";
+        return "#5b8a9a";
+      }
+
+      function packLayout() {
+        const pad = 24;
+        const rampX = pad; // access on left
+        const W = canvas.width - pad * 2;
+        const H = canvas.height - pad * 2;
+        const sorted = [...items].sort((a, b) => {
+          if (mode === "priority") return a.pri - b.pri || b.w * b.h - a.w * a.h;
+          if (mode === "balance") return b.mass - a.mass || a.pri - b.pri;
+          return a.pri - b.pri || a.id.localeCompare(b.id);
+        });
+
+        // Simple shelf pack biased by mode
+        let x = rampX, y = pad, rowH = 0, gap = 10;
+        const placed = [];
+        sorted.forEach((it) => {
+          if (x + it.w > rampX + W) {
+            x = rampX; y += rowH + gap; rowH = 0;
+          }
+          let tx = x, ty = y;
+          if (mode === "priority") {
+            // pull high priority toward ramp (left) and mid height
+            const pull = (4 - it.pri) * 18;
+            tx = Math.max(rampX, tx - pull);
+          }
+          if (mode === "balance") {
+            // alternate heavy items around vertical center
+            const mid = canvas.height / 2;
+            ty = mid + (placed.length % 2 === 0 ? -it.h - 8 : 8) + (it.mass * 2);
+            ty = Math.min(Math.max(pad, ty), canvas.height - pad - it.h);
+          }
+          if (mode === "fleet") {
+            // three vertical "vessels"
+            const lane = (it.pri - 1);
+            const laneW = W / 3;
+            tx = rampX + lane * laneW + 8 + (placed.filter(p => p.pri === it.pri).length % 2) * (it.w * 0.2);
+            ty = pad + 20 + (placed.filter(p => p.pri === it.pri).length) * (it.h + 8);
+          }
+          it.tx = tx; it.ty = Math.min(ty, canvas.height - pad - it.h);
+          placed.push(it);
+          if (mode !== "fleet" && mode !== "balance") {
+            x += it.w + gap;
+            rowH = Math.max(rowH, it.h);
+          }
+        });
+      }
+
+      function resize() {
+        const frame = canvas.parentElement;
+        const w = frame.clientWidth;
+        const h = Math.max(420, frame.clientHeight);
+        canvas.width = w * devicePixelRatio;
+        canvas.height = h * devicePixelRatio;
+        canvas.style.width = w + "px";
+        canvas.style.height = h + "px";
+        ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+        // work in CSS pixels
+        canvas.width = w;
+        canvas.height = h;
+        packLayout();
+      }
+
+      function draw() {
+        t += 0.016;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // ramp zone
+        const grd = ctx.createLinearGradient(0, 0, 70, 0);
+        grd.addColorStop(0, "rgba(30,200,195,0.18)");
+        grd.addColorStop(1, "transparent");
+        ctx.fillStyle = grd;
+        ctx.fillRect(0, 0, 70, canvas.height);
+
+        // CG marker in balance mode
+        if (mode === "balance") {
+          ctx.strokeStyle = "rgba(239,232,220,0.25)";
+          ctx.setLineDash([4, 6]);
+          ctx.beginPath();
+          ctx.moveTo(canvas.width / 2, 16);
+          ctx.lineTo(canvas.width / 2, canvas.height - 16);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.fillStyle = "rgba(239,232,220,0.5)";
+          ctx.font = "10px IBM Plex Mono";
+          ctx.fillText("CG AXIS", canvas.width / 2 + 6, 28);
+        }
+
+        if (mode === "fleet") {
+          for (let i = 1; i < 3; i++) {
+            const x = (canvas.width / 3) * i;
+            ctx.strokeStyle = "rgba(30,200,195,0.2)";
+            ctx.beginPath(); ctx.moveTo(x, 12); ctx.lineTo(x, canvas.height - 12); ctx.stroke();
+          }
+          ctx.fillStyle = "rgba(30,200,195,0.55)";
+          ctx.font = "10px IBM Plex Mono";
+          ctx.fillText("VESSEL A", 16, 22);
+          ctx.fillText("VESSEL B", canvas.width / 3 + 16, 22);
+          ctx.fillText("VESSEL C", (canvas.width * 2) / 3 + 16, 22);
+        }
+
+        let area = 0;
+        items.forEach((it, i) => {
+          // ease toward target + mouse nudge
+          const nudgeX = (mouse.x - canvas.width / 2) * 0.012 * (4 - it.pri);
+          const nudgeY = (mouse.y - canvas.height / 2) * 0.01;
+          it.x += (it.tx + nudgeX - it.x) * 0.08;
+          it.y += (it.ty + nudgeY - it.y) * 0.08;
+          const bob = Math.sin(t * 1.5 + i) * 1.2;
+
+          ctx.fillStyle = colorFor(it);
+          ctx.globalAlpha = selected && selected !== it.id ? 0.35 : 0.92;
+          ctx.fillRect(it.x, it.y + bob, it.w, it.h);
+          ctx.globalAlpha = 1;
+          ctx.strokeStyle = "rgba(6,20,26,0.45)";
+          ctx.strokeRect(it.x + 0.5, it.y + bob + 0.5, it.w - 1, it.h - 1);
+
+          ctx.fillStyle = it.pri === 3 || selected === it.id ? "#06141a" : "#06141a";
+          if (colorFor(it) === "#efe8dc") ctx.fillStyle = "#06141a";
+          ctx.font = "600 11px IBM Plex Mono";
+          ctx.fillText(it.label, it.x + 8, it.y + bob + 18);
+          ctx.font = "10px IBM Plex Mono";
+          ctx.globalAlpha = 0.7;
+          ctx.fillText("P" + it.pri, it.x + 8, it.y + bob + 34);
+          ctx.globalAlpha = 1;
+          area += it.w * it.h;
+        });
+
+        const fill = Math.min(99, Math.round((area / (canvas.width * canvas.height)) * 100 + 28));
+        fillEl.textContent = fill + "%";
+        requestAnimationFrame(draw);
+      }
+
+      canvas.addEventListener("mousemove", (e) => {
+        const r = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - r.left;
+        mouse.y = e.clientY - r.top;
+      });
+      canvas.addEventListener("click", (e) => {
+        const r = canvas.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        const hit = [...items].reverse().find(it =>
+          x >= it.x && x <= it.x + it.w && y >= it.y && y <= it.y + it.h
+        );
+        selected = hit ? hit.id : null;
+        if (hit && (hit.id === "omega" || hit.id === "nrl")) {
+          document.querySelector(`[data-cargo="${hit.id}"]`)?.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      });
+
+      document.querySelectorAll(".thrust").forEach((el) => {
+        el.addEventListener("click", () => {
+          document.querySelectorAll(".thrust").forEach(t => t.classList.remove("active"));
+          el.classList.add("active");
+          mode = el.dataset.mode;
+          packLayout();
+        });
+      });
+
+      window.addEventListener("resize", () => { resize(); });
+      resize();
+      packLayout();
+      draw();
+    })();
+  </script>
+</body>
+</html>
