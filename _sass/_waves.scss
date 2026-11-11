@@ -173,7 +173,6 @@ body.home-waves {
 // ---------------------------------------------------------------------------
 .waves-hero {
   position: relative;
-  min-height: calc(100vh - 3.25rem);
   overflow: hidden;
   isolation: isolate;
 }
@@ -219,17 +218,15 @@ body.home-waves {
   align-items: end;
   max-width: 1120px;
   margin: 0 auto;
-  padding: 4.5rem 2rem 3.25rem;
-  min-height: calc(100vh - 3.25rem);
+  padding: 1.75rem 2rem 2.75rem;
 }
 
 @media (max-width: 860px) {
   .waves-hero-inner {
     grid-template-columns: 1fr;
     align-items: start;
-    padding: 3.25rem 1.35rem 2.75rem;
-    min-height: auto;
-    gap: 1.75rem;
+    padding: 1.35rem 1.35rem 2.25rem;
+    gap: 1.5rem;
   }
 
   .waves-photo {
@@ -240,7 +237,7 @@ body.home-waves {
 }
 
 .waves-copy {
-  padding-bottom: 1.25rem;
+  padding-bottom: 0.35rem;
 }
 
 .waves-name {
