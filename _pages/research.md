@@ -38,6 +38,8 @@ The dissertation work progresses through three connected problems.
       <a href="https://doi.org/10.31224/6041">Preprint</a>
       <a href="https://doi.org/10.5061/dryad.vt4b8gv5z">Data and code</a>
       <a href="https://news.ncsu.edu/2026/08/cracking-the-packing-code-new-models-incorporate-item-priority-location-and-weight-distribution/">NC State News</a>
+      <a href="https://www.eurekalert.org/news-releases/1141737">EurekAlert!</a>
+      <a href="/writing/#press-and-coverage">More coverage</a>
     </p>
   </div>
 </div>
