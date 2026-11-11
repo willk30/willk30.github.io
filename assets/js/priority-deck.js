@@ -69,10 +69,9 @@
       }
       let tx = x,
         ty = y;
-      if (mode === "priority") {
-        const pull = (4 - it.pri) * 18;
-        tx = Math.max(rampX, tx - pull);
-      }
+      // Priority mode: items are already sorted P1→P3, so the shelf packer
+      // places high-priority crates nearest the ramp without a post-hoc pull
+      // that would collapse spacing and cause overlaps.
       if (mode === "balance") {
         const toLeft = idx % 2 === 0;
         if (toLeft) {

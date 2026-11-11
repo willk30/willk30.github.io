@@ -631,11 +631,60 @@ article h2,
   background: var(--deck-panel);
 }
 
-.essay-list .essay-item:hover {
-  background: var(--deck-cyan-dim);
+.essay-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0.75rem 0 1rem;
+  border-top: 1px solid var(--deck-line);
 
-  .essay-title {
-    color: var(--deck-cyan);
+  .essay-item {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: 1rem;
+    padding: 0.65rem 0.25rem;
+    border-bottom: 1px solid var(--deck-line);
+    color: var(--deck-bone);
+    text-decoration: none;
+
+    &:hover {
+      background: var(--deck-cyan-dim);
+      text-decoration: none;
+
+      .essay-title {
+        color: var(--deck-cyan);
+      }
+    }
+  }
+}
+
+.essay-date {
+  font-size: 0.78rem;
+  color: var(--deck-mute);
+  white-space: nowrap;
+  padding-top: 0.15rem;
+}
+
+.essay-title {
+  font-weight: 500;
+}
+
+.media-item {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1rem;
+  padding: 0.75rem 0.25rem;
+  border-bottom: 1px solid var(--deck-line);
+
+  .media-links {
+    margin: 0.4rem 0 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .essay-list .essay-item,
+  .media-item {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
   }
 }
 
