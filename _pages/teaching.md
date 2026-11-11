@@ -39,6 +39,15 @@ My teaching at NPS centers on the Operations Research Department's computational
 </div>
 {% endfor %}
 
+## Thesis advising
+
+At NPS I am currently advising or serving as second reader for master's theses in Spring 2027:
+
+- **Capt Samantha Brooker**, U.S. Air Force (co-advisor) — quantifying healthcare delivery opportunity cost of military manpower devoted to exercises and deployments
+- **MAJ Brandon De La Rosa**, U.S. Army (second reader) — optimizing the location of unmanned maritime logistics bases in the Pacific
+- **ENS Anthony Todd**, U.S. Navy (second reader)
+- **ENS Andrew Vandergrift**, U.S. Navy (co-advisor) — optimizing troop and equipment load allocation for airborne operations
+
 ## For students
 
 If you are an NPS student interested in a thesis in optimization, computational methods, or defense logistics, I would be glad to talk. Email me with a short note on what you are interested in and the courses you have taken so far.

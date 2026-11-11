@@ -10,8 +10,8 @@ nps:
       model APIs and agentic tools used with appropriate verification. A project replaces the final exam.
   - code: OA4910
     title: Python Boot Camp
-    role: Lab lead
-    terms: Summer 2026
+    role: Co-instructor
+    terms: Summer 2026 (5.5-week boot camp)
     description: >-
       Fast-paced applied Python for incoming master's students with no programming background. A data-wrangling spine in pandas,
       AI-assisted workflows, light prediction, and report automation, ending in a data-to-brief capstone.
