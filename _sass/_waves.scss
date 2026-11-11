@@ -1,18 +1,20 @@
 /*******************************************************************************
- * Landing Waves — personal site visual system
- * Midnight / foam / copper. Not a research product page.
+ * Landing Waves — personal site
+ * One composition: Will first. Waves as atmosphere. Research lives inside the bio.
  ******************************************************************************/
 
 :root,
-html[data-theme="dark"],
-html[data-theme="light"] {
+html[data-theme="dark"] {
   --wave-night: #07111c;
   --wave-deep: #0c1c2e;
   --wave-foam: #e8dfd0;
   --wave-mute: #8b97a8;
   --wave-copper: #c48a4a;
-  --wave-copper-soft: rgba(196, 138, 74, 0.15);
+  --wave-copper-soft: rgba(196, 138, 74, 0.14);
   --wave-line: rgba(232, 223, 208, 0.14);
+  --wave-sky-top: #102338;
+  --wave-sky-mid: #0a1828;
+  --wave-grain: rgba(232, 223, 208, 0.035);
 
   --global-bg-color: var(--wave-night);
   --global-card-bg-color: var(--wave-deep);
@@ -32,13 +34,46 @@ html[data-theme="light"] {
   --global-award-bg: rgba(226, 178, 92, 0.14);
 }
 
+html[data-theme="light"] {
+  --wave-night: #f3efe6;
+  --wave-deep: #e7e0d2;
+  --wave-foam: #1a2430;
+  --wave-mute: #5c6673;
+  --wave-copper: #9a6230;
+  --wave-copper-soft: rgba(154, 98, 48, 0.12);
+  --wave-line: rgba(26, 36, 48, 0.14);
+  --wave-sky-top: #dce6ef;
+  --wave-sky-mid: #e8e2d6;
+  --wave-grain: rgba(26, 36, 48, 0.03);
+
+  --global-bg-color: var(--wave-night);
+  --global-card-bg-color: #fffaf2;
+  --global-text-color: var(--wave-foam);
+  --global-text-color-light: var(--wave-mute);
+  --global-theme-color: var(--wave-copper);
+  --global-hover-color: var(--wave-copper);
+  --global-hover-text-color: #fffaf2;
+  --global-accent-soft: var(--wave-copper-soft);
+  --global-card-border: var(--wave-line);
+  --global-divider-color: var(--wave-line);
+  --global-footer-bg-color: #e4ddd0;
+  --global-footer-text-color: var(--wave-mute);
+  --global-footer-link-color: var(--wave-copper);
+  --global-text-muted: var(--wave-mute);
+  --global-award-color: #9a6230;
+  --global-award-bg: rgba(154, 98, 48, 0.12);
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: "DM Mono", ui-monospace, monospace !important;
-  background: var(--wave-night) !important;
+  font-family: "Literata", Georgia, "Times New Roman", serif !important;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(196, 138, 74, 0.08), transparent 55%),
+    radial-gradient(900px 500px at 0% 20%, rgba(80, 120, 160, 0.08), transparent 50%),
+    var(--wave-night) !important;
   color: var(--wave-foam) !important;
   -webkit-font-smoothing: antialiased;
   line-height: 1.65;
@@ -56,13 +91,18 @@ h4,
   font-weight: 400 !important;
 }
 
-.waves-lede,
-.waves-about,
-.post-description,
-.desc,
-.thrust-body p,
-.prose-serif {
-  font-family: "Literata", Georgia, "Times New Roman", serif !important;
+.navbar,
+.waves-links,
+.waves-photo-meta,
+.essay-date,
+.course-code,
+.course-terms,
+.talk-meta,
+.news,
+footer.sticky-bottom,
+footer.fixed-bottom,
+.contact-note {
+  font-family: "DM Mono", ui-monospace, monospace !important;
 }
 
 body.site-waves .container {
@@ -84,19 +124,19 @@ body.home-waves {
 }
 
 // ---------------------------------------------------------------------------
-// Navbar
+// Navbar — quiet chrome, brand still readable
 // ---------------------------------------------------------------------------
 #navbar.navbar {
-  background: rgba(7, 17, 28, 0.9) !important;
-  backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--wave-night) 88%, transparent) !important;
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--wave-line);
   box-shadow: none !important;
 
   .navbar-brand,
   .nav-link {
     color: var(--wave-foam) !important;
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
   }
 
@@ -104,7 +144,6 @@ body.home-waves {
     font-family: "Bebas Neue", sans-serif !important;
     font-size: 1.35rem !important;
     letter-spacing: 0.04em;
-    text-transform: uppercase;
 
     .font-weight-bold {
       color: var(--wave-copper);
@@ -129,14 +168,35 @@ body.home-waves {
 }
 
 // ---------------------------------------------------------------------------
-// Home hero
+// Home hero — one composition
+// brand · one sentence · CTA · photo · waves
 // ---------------------------------------------------------------------------
 .waves-hero {
   position: relative;
   min-height: calc(100vh - 3.25rem);
   overflow: hidden;
-  border-bottom: 1px solid var(--wave-line);
-  background: linear-gradient(180deg, var(--wave-deep), var(--wave-night));
+  isolation: isolate;
+}
+
+.waves-sky {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, var(--wave-sky-top) 0%, var(--wave-sky-mid) 42%, var(--wave-night) 100%),
+    radial-gradient(ellipse 80% 50% at 70% 15%, rgba(196, 138, 74, 0.16), transparent 60%);
+  pointer-events: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.55;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+  }
 }
 
 .waves-canvas {
@@ -145,51 +205,50 @@ body.home-waves {
   right: 0;
   bottom: 0;
   width: 100%;
-  height: 42%;
-  z-index: 0;
+  height: 55%;
+  z-index: 1;
   pointer-events: none;
-  opacity: 0.95;
 }
 
 .waves-hero-inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 2rem;
-  align-items: center;
-  max-width: 1080px;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 2.5rem;
+  align-items: end;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 5rem 2rem 4.5rem;
+  padding: 4.5rem 2rem 3.25rem;
   min-height: calc(100vh - 3.25rem);
 }
 
 @media (max-width: 860px) {
   .waves-hero-inner {
     grid-template-columns: 1fr;
-    padding: 4rem 1.5rem 3.5rem;
+    align-items: start;
+    padding: 3.25rem 1.35rem 2.75rem;
     min-height: auto;
+    gap: 1.75rem;
   }
 
   .waves-photo {
     order: -1;
-    max-width: 220px;
+    justify-self: start;
+    max-width: 240px;
   }
 }
 
-.waves-eyebrow {
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--wave-copper);
-  margin: 0 0 1rem;
+.waves-copy {
+  padding-bottom: 1.25rem;
 }
 
 .waves-name {
-  font-size: clamp(4rem, 12vw, 7.5rem);
-  line-height: 0.88;
-  margin: 0 0 0.85rem;
+  font-size: clamp(4.4rem, 13vw, 8rem);
+  line-height: 0.86;
+  margin: 0 0 1.35rem;
   color: var(--wave-foam);
+  animation: waves-rise 0.9s ease both;
 
   em {
     font-style: normal;
@@ -197,95 +256,82 @@ body.home-waves {
   }
 }
 
-.waves-role {
-  font-family: "Literata", Georgia, serif !important;
-  font-size: 1.2rem;
-  margin: 0 0 0.85rem;
-  color: var(--wave-foam);
-}
-
 .waves-lede {
-  font-size: 1.15rem;
+  font-family: "Literata", Georgia, serif !important;
+  font-size: clamp(1.15rem, 2.2vw, 1.35rem);
   line-height: 1.45;
-  max-width: 28ch;
-  margin: 0 0 1.75rem;
-  color: #d9d1c3;
+  max-width: 32ch;
+  margin: 0 0 1.85rem;
+  color: color-mix(in srgb, var(--wave-foam) 88%, var(--wave-mute));
+  animation: waves-rise 0.9s ease 0.12s both;
 }
 
 .waves-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem 1.15rem;
+  gap: 0.85rem 1.5rem;
+  animation: waves-rise 0.9s ease 0.22s both;
 
   a {
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--wave-copper);
     text-decoration: none;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 0.1rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--wave-copper) 45%, transparent);
+    padding-bottom: 0.15rem;
+    transition: color 0.2s ease, border-color 0.2s ease;
 
     &:hover {
-      border-bottom-color: var(--wave-copper);
       color: var(--wave-foam);
+      border-bottom-color: var(--wave-foam);
     }
   }
 }
 
 .waves-photo {
   justify-self: end;
+  align-self: end;
+  animation: waves-rise 1s ease 0.18s both;
 }
 
 .waves-portrait {
   display: block;
-  width: min(280px, 100%);
+  width: min(360px, 100%);
   height: auto;
-  border: 1px solid var(--wave-line);
+  border: 0 !important;
   border-radius: 0 !important;
   box-shadow: none !important;
-}
-
-.waves-photo-meta {
-  margin-top: 0.75rem;
-  font-size: 0.72rem;
-  line-height: 1.45;
-  color: var(--wave-mute);
-
-  p {
-    margin: 0;
-  }
-
-  a {
-    color: var(--wave-copper);
-    word-break: break-all;
-  }
+  filter: contrast(1.02) saturate(0.92);
 }
 
 .waves-body {
-  max-width: 720px;
+  position: relative;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 3rem 1.5rem 4rem;
+  padding: 3.5rem 1.5rem 4.5rem;
 }
 
 .waves-about {
   font-size: 1.12rem;
-  line-height: 1.6;
-  color: #d9d1c3;
-  margin-bottom: 2.75rem;
+  line-height: 1.7;
+  color: color-mix(in srgb, var(--wave-foam) 90%, var(--wave-mute));
+  margin-bottom: 3rem;
 
   a {
     color: var(--wave-copper);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
   }
 
   p {
-    margin-bottom: 1.1rem;
+    margin-bottom: 1.15rem;
   }
 }
 
 .waves-news {
   h2 {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     letter-spacing: 0.04em;
     border-bottom: 1px solid var(--wave-line);
     padding-bottom: 0.4rem;
@@ -299,9 +345,20 @@ body.home-waves {
 }
 
 .waves-social {
-  margin-top: 2.5rem;
+  margin-top: 2.75rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--wave-line);
+}
+
+@keyframes waves-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -360,11 +417,12 @@ article h2,
   grid-template-columns: 3.25rem 1fr;
   gap: 0 1rem;
   margin: 1.5rem 0;
-  padding: 1.2rem 1.2rem 1rem 1rem;
-  border: 1px solid var(--wave-line);
-  border-left: 3px solid var(--wave-copper);
+  padding: 0.35rem 0 0.35rem 0;
+  border: 0;
+  border-left: 2px solid var(--wave-copper);
   border-radius: 0;
-  background: var(--wave-deep);
+  background: transparent;
+  padding-left: 1rem;
 
   .thrust-num {
     font-family: "Bebas Neue", sans-serif;
@@ -400,7 +458,7 @@ article h2,
 
     &:hover {
       background: var(--wave-copper);
-      color: var(--wave-night);
+      color: var(--global-hover-text-color);
     }
   }
 }
@@ -412,9 +470,12 @@ article h2,
 .course-card,
 .talk-item,
 .cv .card {
-  border: 1px solid var(--wave-line);
+  border: 0;
+  border-bottom: 1px solid var(--wave-line);
   border-radius: 0;
-  background: var(--wave-deep);
+  background: transparent;
+  box-shadow: none !important;
+  padding: 1rem 0;
 }
 
 .essay-list {
@@ -427,7 +488,7 @@ article h2,
     display: grid;
     grid-template-columns: 7rem 1fr;
     gap: 1rem;
-    padding: 0.65rem 0.25rem;
+    padding: 0.65rem 0.15rem;
     border-bottom: 1px solid var(--wave-line);
     color: var(--wave-foam);
     text-decoration: none;
@@ -458,7 +519,7 @@ article h2,
   display: grid;
   grid-template-columns: 7rem 1fr;
   gap: 1rem;
-  padding: 0.75rem 0.25rem;
+  padding: 0.75rem 0.15rem;
   border-bottom: 1px solid var(--wave-line);
 }
 
@@ -481,7 +542,7 @@ article h2,
 
   &:hover {
     background: var(--wave-copper);
-    color: var(--wave-night);
+    color: var(--global-hover-text-color);
     text-decoration: none;
   }
 }
@@ -509,5 +570,12 @@ footer.fixed-bottom {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .waves-name,
+  .waves-lede,
+  .waves-links,
+  .waves-photo {
+    animation: none !important;
   }
 }
