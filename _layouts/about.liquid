@@ -1,80 +1,126 @@
 ---
 layout: default
 ---
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
+<div class="post deck-home">
+  <header class="deck-hero" aria-label="Introduction">
+    <div class="deck-copy">
+      <div class="deck-eyebrow">Operations Research · Naval Postgraduate School</div>
+      <h1 class="deck-brand">
+        Will<br /><span>Kirschenman</span>
+      </h1>
+      <p class="deck-headline">Priority isn’t just order. It’s geometry.</p>
+      <p class="deck-sub">
+        Assistant Professor studying spatial optimization for layouts where fit is not enough —
+        what must come off first, what stays together, and how the load balances.
+        Combat load planning is the motivating case; the math travels.
+        <a href="{{ '/research/' | relative_url }}">Research overview</a>
+        ·
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      </p>
+      <div class="deck-cta">
+        <a class="deck-btn" href="#framework">Explore the framework</a>
+        <a class="deck-btn ghost" href="{{ '/publications/' | relative_url }}">Selected papers</a>
+        <a class="deck-btn ghost" href="{{ '/writing/#press-and-coverage' | relative_url }}">Press</a>
+      </div>
+      {% if page.profile and page.profile.more_info %}
+        <div class="more-info" style="font-size:0.75rem;color:var(--deck-mute);line-height:1.5;">
+          {{ page.profile.more_info }}
+        </div>
       {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
+    </div>
+
+    <div class="deck-stage">
+      <div class="deck-chrome">
+        <span>Interactive deck · priority packing</span>
+        <span><strong id="deck-fill">0%</strong> packed · click a crate</span>
+      </div>
+      <div class="deck-frame">
+        <div class="deck-hint">Move mouse · click cargo</div>
+        <canvas id="priority-deck" width="720" height="520" role="img" aria-label="Interactive priority packing diagram"></canvas>
+        <div class="deck-ramp">← Access / ramp</div>
+      </div>
+      <div class="deck-legend">
+        <span><i style="background:#1ec8c3"></i>Priority 1</span>
+        <span><i style="background:#0891b2"></i>Priority 2</span>
+        <span><i style="background:#5b8a9a"></i>Priority 3</span>
+        <span><i style="background:#efe8dc"></i>Selected paper</span>
+      </div>
+    </div>
   </header>
 
-  <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{site.max_width}}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
-      </div>
-    {% endif %}
+  <div class="deck-strip" aria-label="Highlights">
+    <div class="deck-stat"><b>Omega · NRL</b><span>2026 refereed articles on prioritized packing</span></div>
+    <div class="deck-stat"><b>Bonder</b><span>INFORMS Military &amp; Security Society scholarship</span></div>
+    <div class="deck-stat"><b>3 thrusts</b><span>Bin → vessel → multi-vessel waves</span></div>
+    <div class="deck-stat"><b>Julia · JuMP</b><span>Matheuristics, GA, GPU proxies</span></div>
+  </div>
 
-    <div class="clearfix">{{ content }}</div>
+  <section class="deck-section" id="framework">
+    <div class="deck-sec-label">Dissertation framework</div>
+    <h2>Three problems. One spatial idea.</h2>
+    <p class="deck-prose">
+      Classical packing asks whether everything fits. Useful plans also ask what has to come off first,
+      what needs to stay together, and whether the center of gravity stays feasible.
+      Click a thrust — the deck restacks around that objective.
+    </p>
+    <div class="deck-thrusts" id="deck-thrusts">
+      <button type="button" class="deck-thrust active" data-mode="priority">
+        <div class="num">01</div>
+        <div>
+          <h3>Prioritized 2-D orthogonal packing</h3>
+          <p>A prioritization matrix pulls high-priority items toward the access point while related items cluster. Sliding-window matheuristic for scale.</p>
+          <div class="links">
+            <a href="https://doi.org/10.1002/nav.70087">Naval Research Logistics</a>
+            <a href="https://doi.org/10.31224/4647">Preprint</a>
+            <a href="https://doi.org/10.5061/dryad.8pk0p2p1z">Data &amp; code</a>
+          </div>
+        </div>
+      </button>
+      <button type="button" class="deck-thrust" data-mode="balance">
+        <div class="num">02</div>
+        <div>
+          <h3>Combat loading with load balancing</h3>
+          <p>Hard center-of-gravity feasibility on a fixed deck with obstacles and separation rules. Matheuristic pipelines finish in minutes.</p>
+          <div class="links">
+            <a href="https://doi.org/10.1016/j.omega.2026.103638">Omega</a>
+            <a href="https://doi.org/10.31224/6041">Preprint</a>
+            <a href="https://news.ncsu.edu/2026/08/cracking-the-packing-code-new-models-incorporate-item-priority-location-and-weight-distribution/">NC State News</a>
+          </div>
+        </div>
+      </button>
+      <button type="button" class="deck-thrust" data-mode="fleet">
+        <div class="num">03</div>
+        <div>
+          <h3>Multi-vessel selection &amp; wave scheduling</h3>
+          <p>Bilevel assignment of groups to a heterogeneous fleet and landing waves. Genetic algorithm guided by a fast packing proxy.</p>
+          <div class="links">
+            <a href="{{ '/publications/' | relative_url }}">Dissertation, 2026</a>
+          </div>
+        </div>
+      </button>
+    </div>
+  </section>
 
-    <!-- News -->
-    {% if page.news and site.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a>
-      </h2>
-      {% include news.liquid limit=true %}
-    {% endif %}
+  <div class="deck-home-body">
+    <article>
+      <div class="clearfix deck-about-prose">{{ content }}</div>
 
-    <!-- Latest posts -->
-    {% if site.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-      </h2>
-      {% include latest_posts.liquid %}
-    {% endif %}
+      {% if page.news and site.announcements.enabled %}
+        <h2><a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a></h2>
+        {% include news.liquid limit=true %}
+      {% endif %}
 
-    <!-- Selected papers -->
-    {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Selected publications</a>
-      </h2>
-      {% include selected_papers.liquid %}
-    {% endif %}
+      {% if page.selected_papers %}
+        <h2><a href="{{ '/publications/' | relative_url }}" style="color: inherit">Selected publications</a></h2>
+        {% include selected_papers.liquid %}
+      {% endif %}
 
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% include social.liquid %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
-      </div>
-    {% endif %}
-
-    {% if site.newsletter.enabled and site.footer_fixed %}
-      {% include scripts/newsletter.liquid center=true %}
-    {% endif %}
-  </article>
+      {% if page.social %}
+        <div class="social">
+          <div class="contact-icons">{% include social.liquid %}</div>
+          <div class="contact-note">{{ site.contact_note }}</div>
+        </div>
+      {% endif %}
+    </article>
+  </div>
 </div>

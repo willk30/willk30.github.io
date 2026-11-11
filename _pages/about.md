@@ -1,6 +1,6 @@
 ---
 layout: about
-title: About
+title: Home
 permalink: /
 subtitle: Assistant Professor of Operations Research, Naval Postgraduate School
 
@@ -9,9 +9,7 @@ profile:
   image: prof_pic.jpg
   image_circular: false
   more_info: >
-    <p>Operations Research Department</p>
-    <p>Naval Postgraduate School</p>
-    <p>Monterey, California</p>
+    <p>Operations Research Department · Naval Postgraduate School · Monterey</p>
     <p><a href="mailto:william.kirschenman@nps.edu">william.kirschenman@nps.edu</a></p>
 
 news: true

@@ -10,11 +10,11 @@ email: william.kirschenman@nps.edu
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Assistant Professor of Operations Research at the Naval Postgraduate School. Combinatorial and spatial optimization, packing and loading problems, matheuristics and metaheuristics, and computational methods for data analytics.
 footer_text: >
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+  Priority Deck design · hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+  · built with <a href="https://jekyllrb.com/" target="_blank">Jekyll</a>.
 keywords: operations research, spatial optimization, bin packing, load planning, matheuristics, naval postgraduate school
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: 🎯 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+icon: ⬛ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 url: https://willk30.github.io # the base hostname & protocol for your site
 baseurl: "" # the subpath of your site, e.g. /blog/. Leave blank for root
@@ -53,7 +53,7 @@ socials_in_search: true
 bib_search: true
 
 # Dimensions
-max_width: 860px
+max_width: 1120px
 
 # -----------------------------------------------------------------------------
 # Open Graph & Schema.org
@@ -411,7 +411,7 @@ third_party_libraries:
       js: "https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"
   google_fonts:
     url:
-      fonts: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&display=swap"
+      fonts: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@500;700;800&family=Material+Icons&display=swap"
   mathjax:
     url:
       js: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"
