@@ -110,16 +110,21 @@ body.site-waves .container {
 }
 
 body.home-waves {
-  .container.mt-5 {
+  .container.mt-5,
+  .container {
     max-width: none !important;
     width: 100%;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     margin-top: 0 !important;
   }
 
   .post-header {
     display: none;
+  }
+
+  .post.waves-home {
+    margin-top: 0;
   }
 }
 
@@ -215,10 +220,10 @@ body.home-waves {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   gap: 2.5rem;
-  align-items: end;
+  align-items: start;
   max-width: 1120px;
   margin: 0 auto;
-  padding: 1.75rem 2rem 2.75rem;
+  padding: 1.25rem 2rem 2.5rem;
 }
 
 @media (max-width: 860px) {
@@ -288,7 +293,7 @@ body.home-waves {
 
 .waves-photo {
   justify-self: end;
-  align-self: end;
+  align-self: start;
   animation: waves-rise 1s ease 0.18s both;
 }
 
