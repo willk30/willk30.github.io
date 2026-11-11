@@ -180,7 +180,6 @@ body.home-waves {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  min-height: calc(100vh - 3.25rem);
 }
 
 .waves-sky {
@@ -225,7 +224,7 @@ body.home-waves {
   align-items: start;
   max-width: 1080px;
   margin: 0 auto;
-  padding: 1.5rem 2rem 3.5rem;
+  padding: 1rem 2rem 3rem;
   animation: waves-rise 0.75s ease both;
 }
 
