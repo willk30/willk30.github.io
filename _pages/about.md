@@ -1,37 +1,36 @@
 ---
 layout: about
-title: About
+title: Home
 permalink: /
 subtitle: Assistant Professor of Operations Research, Naval Postgraduate School
 
 profile:
-  align: right
+  align: left
   image: prof_pic.jpg
-  image_circular: false
-  more_info: >
-    <p>Operations Research Department</p>
-    <p>Naval Postgraduate School</p>
-    <p>Monterey, California</p>
-    <p><a href="mailto:william.kirschenman@nps.edu">william.kirschenman@nps.edu</a></p>
+  image_circular: true
 
 news: true
-selected_papers: true
+selected_papers: false
 social: true
 ---
 
-I am an Assistant Professor in the [Operations Research Department](https://nps.edu/web/or) at the Naval Postgraduate School. I received my Ph.D. in Operations Research from North Carolina State University in 2026. My dissertation, *A Multi-Level Prioritized Packing Framework for Spatial Optimization*, received the Outstanding Dissertation Award from NC State's Department of Industrial and Systems Engineering.
+# From the Army to NPS
 
-My research is in combinatorial and spatial optimization. I study layout and loading problems in which a good solution depends not only on whether items fit, but on where they sit relative to one another and to the points where they will be needed first. The motivating application is combat load planning, where the same structure appears in warehouse wave planning, humanitarian logistics, and container operations. To solve these problems at realistic scale I develop mixed-integer formulations, sliding-window matheuristics, and metaheuristics guided by fast proxy objectives, with implementations built on Julia, JuMP, Gurobi, and high-performance and GPU computing. You can read more on the [research](/research/) page.
+I am an Assistant Professor in the [Operations Research Department](https://nps.edu/web/or) at the Naval Postgraduate School. I teach computational methods, work on packing and load-planning problems, and write [field notes on AI tools](https://willk30.substack.com).
 
-At NPS I teach in the department's computational methods sequence for the Operations Analysis curriculum: acquiring, preparing, and analyzing data; automating and scaling analyses; and using remote and high-performance computing resources. I am the 2026 recipient of the INFORMS Military and Security Society's [Seth Bonder Scholarship](https://www.informs.org/Recognizing-Excellence/Community-Prizes/Military-and-Security-Society/Seth-Bonder-Scholarship-for-Applied-Operations-Research-in-Military-and-Security-Applications) for Applied Operations Research in Military and Security Applications.
+## My journey
 
-<div class="interest-tags" aria-label="Research interests">
-  <span class="tag">Spatial optimization</span>
-  <span class="tag">2-D packing and loading</span>
-  <span class="tag">Mixed-integer programming</span>
-  <span class="tag">Matheuristics</span>
-  <span class="tag">Metaheuristics</span>
-  <span class="tag">Bilevel optimization</span>
-  <span class="tag">Military logistics</span>
-  <span class="tag">HPC and GPU computing</span>
-</div>
+1. Assistant Professor, Operations Research Department, Naval Postgraduate School (2026–)
+2. Ph.D. in Operations Research, North Carolina State University (2026)
+3. U.S. Army engineer and operations research analyst (~15 years)
+4. Earlier OR and engineering work in defense analysis and large-scale wargaming support
+
+## My research
+
+I work on packing and load-planning models where priority, cohesion, and balance matter — not just whether everything fits. That work started from combat loading and shows up in related logistics settings. Details, papers, and code are on the [research](/research/) and [publications](/publications/) pages.
+
+## Teaching and writing
+
+Most days I'm with students: data work, automation, remote/HPC resources, and using AI coding tools without letting them invent things. Longer notes live on [Will's AI Field Notes](https://willk30.substack.com).
+
+Email is the best way to reach me: [william.kirschenman@nps.edu](mailto:william.kirschenman@nps.edu).

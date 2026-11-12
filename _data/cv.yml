@@ -81,20 +81,54 @@
       institution: Operations Research Department, Naval Postgraduate School, Monterey, CA
       year: 2026 –
       description:
-        - Teaching in the computational methods sequence for the Operations Analysis curriculum (OA3802 Computational Methods for Data Analytics; OA4910 Python Boot Camp; OA3801 guest lectures).
+        - Teaching in the computational methods sequence for the Operations Analysis curriculum (OA3802 Computational Methods for Data Analytics; OA4910 Python Boot Camp).
+        - Program Officer, Artificial Intelligence for Military Decision Advantage Certificate (Curriculum 169).
         - Research in combinatorial and spatial optimization, packing and loading problems, and matheuristic and metaheuristic solution methods.
+        - Advising master's thesis students on optimization and defense logistics topics.
 
-- title: Teaching and Academic Service
+- title: Teaching
+  type: time_table
+  contents:
+    - title: OA3802 Computational Methods for Data Analytics
+      institution: Naval Postgraduate School · Instructor; two sections
+      year: Fall 2026
+    - title: "OA4910 Special Topics: Python Boot Camp"
+      institution: Naval Postgraduate School · Co-instructor; 5.5-week boot camp
+      year: Summer 2026
+    - title: Introduction to Python
+      institution: ISE/OR Ph.D. Student Bootcamp, North Carolina State University · Invited instructor
+      year: August 2025
+      description:
+        - One-day module for incoming Ph.D. students. <a href="https://github.com/willk30/python-bootcamp-student">Course materials</a>
+
+- title: Thesis Advising
+  type: time_table
+  contents:
+    - title: Capt Samantha Brooker, U.S. Air Force · Co-advisor
+      institution: Naval Postgraduate School
+      year: Spring 2027 (in progress)
+      description:
+        - "Working topic: Quantifying Healthcare Delivery Opportunity Cost of Military Manpower Devoted to Exercises and Deployments"
+    - title: MAJ Brandon De La Rosa, U.S. Army · Second reader
+      institution: Naval Postgraduate School
+      year: Spring 2027 (in progress)
+      description:
+        - Optimizing the Location of Unmanned Maritime Logistics Bases in the Pacific
+    - title: ENS Anthony Todd, U.S. Navy · Second reader
+      institution: Naval Postgraduate School
+      year: Spring 2027 (in progress)
+    - title: ENS Andrew Vandergrift, U.S. Navy · Co-advisor
+      institution: Naval Postgraduate School
+      year: Spring 2027 (in progress)
+      description:
+        - Optimizing Troop and Equipment Load Allocation for Airborne Operations
+
+- title: Academic Service
   type: time_table
   contents:
     - title: Working Group Co-Chair, Advances in OR Data Science and Technology
       institution: 64th Army Operations Research Symposium, Aberdeen Proving Ground, MD
       year: 2026
-    - title: Invited Instructor, Introduction to Python
-      institution: Incoming ISE/OR Ph.D. Student Bootcamp, North Carolina State University
-      year: 2025
-      description:
-        - Selected to design and teach a one-day Introduction to Python module for all incoming Ph.D. students in the Department of Industrial and Systems Engineering.
     - title: Panelist, Navigating a Ph.D.
       institution: College of Engineering Smooth Sailing Series, North Carolina State University
       year: 2025
@@ -106,30 +140,30 @@
   contents:
     - title: Combat Operations Analyst
       institution: The Research and Analysis Center (TRAC), Army Futures Command, White Sands Missile Range, NM
-      year: 2020 – 2023
+      year: August 2020 – May 2023
       description:
-        - Led development of a cloud-based visualization and data collection application for wargaming and other data collection events.
-        - Led planning, execution, and analysis for the 2020 Army Futures Command Capstone Wargame.
-        - Planned and executed warfighter touchpoints, unit focus groups, and a strategic commanders assessment for Project Convergence 22, a Combined Joint Force experiment.
+        - Led development of TRAC's Visualization Application with Data collection in R (VADR), a cloud-based planning and analytical tool for wargaming and other data collection events.
+        - Led planning, execution, and analysis for AFC's 2020 Capstone Wargame focused on the U.S. European Command area of responsibility.
+        - Planned and executed warfighter touchpoints, operational unit focus groups, and a strategic commanders assessment for AFC's Project Convergence 22, a Combined Joint Force experiment.
     - title: Company Commander; Brigade Engineer Plans Officer
       institution: 2nd Infantry Brigade Combat Team, 4th Infantry Division, Fort Carson, CO
-      year: 2015 – 2018
+      year: August 2015 – December 2018
       description:
         - Commanded two engineer companies of over 100 Soldiers each, responsible for all training, morale, and equipment valued in excess of $35 million.
         - Primary engineer planner for a 3,500-Soldier brigade combat team and plans officer for combined joint engineer operations in southern Afghanistan.
     - title: Operations Officer, G-3 Engineer Section
       institution: 2nd Infantry Division, Camp Red Cloud, Republic of Korea
-      year: 2014 – 2015
+      year: July 2014 – July 2015
       description:
         - Planned, synchronized, and assessed engineer operations for the ROK–U.S. Combined 2nd Infantry Division.
     - title: Engineer Company Commander Advisor
       institution: Security Force Advise and Assist Team 2, Logar Province, Afghanistan
-      year: 2012 – 2013
+      year: December 2012 – September 2013
       description:
         - Advised an Afghan National Army engineer company commander over nine months in all areas of command.
     - title: Company Executive Officer; Platoon Leader
       institution: 11th Engineer Battalion, 20th Engineer Brigade, Fort Benning, GA
-      year: 2011 – 2013
+      year: February 2011 – December 2013
       description:
         - Managed operations, training, and maintenance for a 198-Soldier engineer company.
         - Led a 64-Soldier engineer platoon responsible for equipment valued in excess of $20 million.
@@ -142,16 +176,18 @@
         - Julia, Python, R, SQL
     - title: Scientific computing and optimization
       items:
-        - Mathematical programming (exact methods, matheuristics, solver callbacks, warm-starting, parameter tuning)
+        - Mathematical programming (exact methods, matheuristics, complex solver callbacks, warm-starting, solver parameter tuning)
         - High-performance computing; distributed and parallel computing on CPU and GPU; Bayesian inference
         - Gurobi, CPLEX, JuMP, R Shiny
     - title: AI development
       items:
-        - Agentic AI and AI-assisted coding (Claude Code, Codex, Cursor)
-        - Deep learning (computer vision) and machine learning with PyTorch, CUDA, and ROCm
+        - Agentic AI; machine and deep learning (computer vision)
+        - LLM abliteration and multi-GPU API serving (NVIDIA GB300)
+        - PyTorch, CUDA, ROCm; Claude Code, Codex, Cursor
     - title: Developer tools
       items:
-        - Git, Subversion, collaborative software development, object-oriented programming
+        - Git, Subversion (SVN)
+        - Collaborative software development; object-oriented programming
 
 - title: Professional Memberships
   type: list

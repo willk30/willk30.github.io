@@ -1,21 +1,80 @@
 essays:
+  - title: Stop Using One AI Model for Every Task
+    date: 2026-10-11
+    url: https://willk30.substack.com/p/stop-using-one-ai-model-for-every
+  - title: I Fell in Love with Programming… and I'd Rather Retire Than Give It Up
+    date: 2026-09-27
+    url: https://willk30.substack.com/p/i-fell-in-love-with-programming-and
   - title: Your Agent Can't Read Your Mind
     date: 2026-07-06
-    url: https://willk30.substack.com
+    url: https://willk30.substack.com/p/your-agent-cant-read-your-mind
   - title: A Field Guide to Coding-Agent Harnesses
     date: 2026-05-11
-    url: https://willk30.substack.com
+    url: https://willk30.substack.com/p/a-field-guide-to-coding-agent-harnesses
   - title: Bring AI Into Your Workspace
     date: 2026-04-30
-    url: https://willk30.substack.com
+    url: https://willk30.substack.com/p/bring-ai-into-your-workspace
   - title: The Cheap AI Era Is Starting to Shift
-    date: 2026-04-28
-    url: https://willk30.substack.com
-  - title: "Don't Just Read the Takes. Test the Models."
     date: 2026-04-27
-    url: https://willk30.substack.com
+    url: https://willk30.substack.com/p/the-cheap-ai-era-is-starting-to-shift
+  - title: "Don't Just Read the Takes. Test the Models."
+    date: 2026-04-26
+    url: https://willk30.substack.com/p/dont-just-read-the-takes-test-the
+
+dispatches:
+  - title: "OpenAI Disproves Exponential Time Hypothesis, Gemini 4 Carbon, and GPT-6.1 Terra"
+    date: 2026-11-07
+    url: https://willk30.substack.com/p/openai-disproves-exponential-time
+  - title: "Black October, Claude Duet, and Block's Speech-Only Voice Model | Field Dispatch 0027"
+    date: 2026-10-24
+    url: https://willk30.substack.com/p/black-october-claude-duet-and-blocks
+  - title: "Meta's Muse Wonder and Spark Open, Gemini 4 Argon, and Reverse Engineer Anything (REA) | Field Dispatch 0026"
+    date: 2026-10-17
+    url: https://willk30.substack.com/p/metas-muse-wonder-and-spark-open
+  - title: "Claude Haiku 5.5, OpenAI Solves Math, and Mistral's “Le Chonk” | Field Dispatch 0025"
+    date: 2026-10-10
+    url: https://willk30.substack.com/p/claude-haiku-55-openai-solves-math
+  - title: "OpenAI's DevDay, Meta's Muse Gadgets, and Claude Sonnet 5.5 | Field Dispatch 0024"
+    date: 2026-10-03
+    url: https://willk30.substack.com/p/openais-devday-metas-muse-gadgets
 
 media:
+  - title: From Mentee to Mentor
+    date: 2026-10-20
+    description: >-
+      NC State Operations Research feature on the Seth Bonder Scholarship, the mentorship that shaped the dissertation,
+      and paying that support forward at NPS.
+    links:
+      - name: Read at NC State OR
+        url: https://or.ncsu.edu/2026/10/20/from-mentee-to-mentor/
+  - title: "Cracking the Packing Code"
+    date: 2026-08-20
+    description: >-
+      Coverage of the Omega and Naval Research Logistics papers on priority-aware packing — item priority, location,
+      and weight distribution for combat loading and related logistics.
+    links:
+      - name: NC State News
+        url: https://news.ncsu.edu/2026/08/cracking-the-packing-code-new-models-incorporate-item-priority-location-and-weight-distribution/
+      - name: Office of Research and Innovation
+        url: https://research.ncsu.edu/cracking-the-packing-code-new-models-incorporate-item-priority-location-and-weight-distribution/
+      - name: NC State OR
+        url: https://or.ncsu.edu/2026/08/27/cracking-the-packing-code/
+      - name: EurekAlert!
+        url: https://www.eurekalert.org/news-releases/1141737
+      - name: Tech Xplore
+        url: https://techxplore.com/news/2026-08-code-incorporate-item-priority-weight.html
+  - title: "Grad Student Profile: Will Kirschenman"
+    date: 2026-05-07
+    description: >-
+      NC State Graduate School / College of Engineering profile on the path from West Point and FA49 work into the
+      packing dissertation and the move to the Naval Postgraduate School faculty.
+    links:
+      - name: College of Engineering
+        url: https://engr.ncsu.edu/news/2026/05/07/grad-student-profile-will-kirschenman/
+      - name: Graduate School
+        url: https://grad.ncsu.edu/news/2026/05/grad-student-profile-will-kirschenman/
+      - name: NC State OR
+        url: https://or.ncsu.edu/2026/05/07/grad-student-profile-will-kirschenman/
   - title: "Understanding AI: From Chatbots to Agentic Intelligence"
     date: 2026-04-29
     description: >-
@@ -26,10 +85,3 @@ media:
         url: https://open.spotify.com/show/3lTIn37UWFNgCzLOB68Wcn
       - name: Show page
         url: https://engr.ncsu.edu/academics/grad/professional-development/engineering-pack-pod
-  - title: "Cracking the Packing Code"
-    date: 2026-08-20
-    description: >-
-      NC State News feature on the Omega paper and the prioritized packing models behind it.
-    links:
-      - name: Read the story
-        url: https://news.ncsu.edu/2026/08/cracking-the-packing-code-new-models-incorporate-item-priority-location-and-weight-distribution/

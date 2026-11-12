@@ -2,12 +2,12 @@
 layout: page
 title: Teaching
 permalink: /teaching/
-description: Computational methods for operations research and data analytics.
+description: Courses I teach at NPS and have taught elsewhere.
 nav: true
-nav_order: 4
+nav_order: 1
 ---
 
-My teaching at NPS centers on the Operations Research Department's computational methods sequence for the Operations Analysis curriculum. The goal is practical: help students acquire, prepare, and analyze data; automate and scale their analyses; and use remote and high-performance computing resources, so that they have the tools and the confidence to fulfill the potential of their coursework and thesis research. Modern AI coding assistants are part of that toolkit, taught alongside the verification habits needed to use them well.
+At NPS I teach in the OR department's computational methods sequence. Practical stuff: get data, clean it, analyze it, automate the boring parts, and use remote or HPC resources without fear. AI coding assistants are in the mix too — with the verification habits you need so they don't quietly invent things.
 
 ## Naval Postgraduate School
 
@@ -38,6 +38,15 @@ My teaching at NPS centers on the Operations Research Department's computational
   {% if c.links %}<p class="course-links">{% for l in c.links %}<a href="{{ l.url }}" class="btn btn-sm z-depth-0" role="button">{{ l.name }}</a>{% endfor %}</p>{% endif %}
 </div>
 {% endfor %}
+
+## Thesis advising
+
+At NPS I am currently advising or serving as second reader for master's theses in Spring 2027:
+
+- **Capt Samantha Brooker**, U.S. Air Force (co-advisor) — quantifying healthcare delivery opportunity cost of military manpower devoted to exercises and deployments
+- **MAJ Brandon De La Rosa**, U.S. Army (second reader) — optimizing the location of unmanned maritime logistics bases in the Pacific
+- **ENS Anthony Todd**, U.S. Navy (second reader)
+- **ENS Andrew Vandergrift**, U.S. Navy (co-advisor) — optimizing troop and equipment load allocation for airborne operations
 
 ## For students
 
